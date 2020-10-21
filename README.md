@@ -4,7 +4,7 @@ Envrmt i a cross-platform mobile application which tracks your personal climate 
 
 ## Prototype
 
-A high fidelity prototype can be found here: https://www.figma.com/proto/TAMJgescNhLMzaNiO3SAVZ/EnvrmApp_Proto?node-id=2235%3A609&scaling=scale-down
+A high fidelity prototype can be found here: http://bit.ly/figma-prototype
 
 ## Group members
 
