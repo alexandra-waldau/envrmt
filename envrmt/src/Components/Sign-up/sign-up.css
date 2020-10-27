@@ -1,0 +1,25 @@
+.sign-up.button {
+    width: 250px;
+    height: 40px;
+    background-color: #5DB075;
+    color: white;
+    border: none;
+    border-radius: 100px;
+}
+
+#sign-up {
+    display: flex;
+    flex-direction: column;
+}
+
+#email {
+    background-color: #5DB075;
+}
+
+#facebook {
+    background-color: #3362AD;
+}
+
+#google {
+    background-color: #ECA098;
+}
