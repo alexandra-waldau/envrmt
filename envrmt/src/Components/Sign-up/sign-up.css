@@ -8,9 +8,14 @@
 
 .sign-up.button {
     font-weight: bold;
-    color: white;
     border: none;
+    color: white;
     margin-bottom: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
 }
 
 #sign-up {

@@ -1,0 +1,72 @@
+.flexbox-container {
+	height: 450px;
+	display: flex;
+	flex-direction: column;
+	justify-content: top;
+	align-items: center;
+}
+
+.flexbox-item {
+	width: 351px;
+}
+
+.flexbox-credential {
+	width: 343px;
+	margin-bottom: 16px;
+}
+
+.input-label {
+	align-items: left;
+	margin-left: 16px;
+}
+
+.input-credentials {
+	width: 343px;
+	height: 50px;
+	border: 2px solid #e8e8e8;
+	border-radius: 8px;
+	background-color: #f6f6f6;
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+}
+
+.profileButton {
+	width: 351px;
+	height: 51px;
+	border: none;
+	border-radius: 100px;
+	font-size: 16px;
+	font-family: "Inter", sans-serif;
+	font-weight: bold;
+	color: white;
+	border: none;
+	margin-bottom: 10px;
+	background-color: #5db075;
+}
+
+.testWrapper {
+	overflow: hidden;
+}
+
+.testbox {
+	width: 100px;
+	height: 100px;
+	background-color: red;
+}
+
+.testbox2 {
+	width: 150px;
+	height: 100px;
+	background-color: pink;
+}
+
+.primaryText {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.labelText {
+	font-size: 16px;
+	font-weight: bold;
+	color: #bdbdbd;
+}
