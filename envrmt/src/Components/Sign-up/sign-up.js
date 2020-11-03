@@ -1,9 +1,6 @@
 import React from 'react';
 import './sign-up.css';
 
-import firebase from "firebase/app";
-import "firebase/auth";
-
 // icon imports 
 import { FiMail } from 'react-icons/fi';
 import { FcGoogle } from 'react-icons/fc';
