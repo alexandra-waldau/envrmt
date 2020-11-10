@@ -8,12 +8,11 @@ const InputField = (props) => {
 	const [firstName, setFirstName] = useState("");
 	return (
 		<div className="flexbox-credential">
-			<text className="labelText">{props.label}</text>
 			<input
 				className="input-credentials"
+				placeholder={props.label}
 				value={firstName}
 				onChange={(c) => setFirstName(c.target.value)}
-				id="{props.id}"
 			></input>
 		</div>
 	);
