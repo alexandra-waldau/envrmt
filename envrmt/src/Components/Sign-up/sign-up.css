@@ -1,0 +1,37 @@
+.button { 
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 100px;
+    font-family: 'Inter', sans-serif;
+}
+
+.sign-up.button {
+    font-weight: bold;
+    border: none;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+#sign-up {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#email {
+    background-color: #5DB075;
+}
+
+#facebook {
+    background-color: #3362AD;
+}
+
+#google {
+    background-color: #ECA098;
+}
