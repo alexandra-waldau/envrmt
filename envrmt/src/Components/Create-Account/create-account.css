@@ -1,9 +1,17 @@
 .flexbox-container {
+<<<<<<< HEAD
   height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: top;
   align-items: center;
+=======
+	height: 450px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+>>>>>>> d557d6ea00c3dc3acebd561a0cce502b2d3006d0
 }
 
 .flexbox-item {

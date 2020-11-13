@@ -10,7 +10,7 @@ function App() {
     <main>
       <Switch>
         <Route path="/" component={SignUpOptions} exact/>
-        <Route path="/create-account" component={InputOptions} exact/>
+        <Route path="/create-account" component={InputOptions}/>
       </Switch>
     </main>
   );
