@@ -5,52 +5,37 @@ import "./create-account.css";
 // icon imports
 import { IoIosClose } from "react-icons/io";
 
-const InputField = (props) => {
-	const [input, setInput] = useState("");
-	return (
-		<div className="flexbox-credential">
-			<input
-				className="input-credentials"
-				value={input}
-                onChange={(c) => {setInput(c.target.value); props.signup(input)} }
-                placeholder={props.placeholder}
-			></input>
-		</div>
-	);
+const onSubmit = (email, password) => { 
+	emailSignUp(email,password);
 };
 
 const Form = () => {
+
     const[name, setName] = useState("");
     const[email, setMail] = useState("");
-    const[password, setPassword] = useState("");
+	const[password, setPassword] = useState("");
     return (
-        <form className="flexbox-item">
-			<InputField placeholder="Name" signup={name => setName(name)}/>
-			<InputField placeholder="Email address" signup={mail => setMail(mail)} />
-			<InputField placeholder="Password" signup={password => setPassword(password)}/>
-            <SignUpButton email={email} pwd={password}/>
+        <form className="flexbox-item" method="get" onSubmit={() => onSubmit(email,password)}>
+			<input type="text" className="input-credentials" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
+			<input type="email" className="input-credentials" value={email} onChange={(e) => setMail(e.target.value)} placeholder="Email address" />
+			<input type="password" className="input-credentials" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+            <button type="submit" className="profileButton">Sign up</button>
 		</form>
     );
 }
 
-const SignUpButton = (props) => {
-	return <button className="profileButton" onClick={() => emailSignUp(props.email, props.pwd)}>Sign Up</button>;
-};
-
 const InputOptions = () => {
 	return (
-		<>
-			<div className="flexbox-container">
-				<div className="flexbox-item">
-					<h1 className="primaryText" align="center">
-						Sign Up
-					</h1>
-					<IoIosClose />
-				</div>
-                <Form/>
+		<div className="flexbox-container">
+			<div className="flexbox-item">
+				<h1 className="primaryText" align="center">
+					Sign Up
+				</h1>
+				<IoIosClose />
 			</div>
-		</>
+            <Form/>
+		</div>
 	);
 };
 
-export { InputField, InputOptions };
+export { InputOptions };

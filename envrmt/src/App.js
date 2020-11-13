@@ -7,12 +7,12 @@ import AuthProvider from "./Firebase/providers";
 
 function App() {
   return (
-    <AuthProvider>
+    <main>
       <Switch>
         <Route path="/" component={SignUpOptions} exact/>
         <Route path="/create-account" component={InputOptions} exact/>
       </Switch>
-    </AuthProvider>
+    </main>
   );
 }
 
