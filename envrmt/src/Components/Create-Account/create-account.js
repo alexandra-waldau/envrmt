@@ -23,15 +23,13 @@ const Form = () => {
     );
 }
 
-// to do: back button
+// TODO: back button
 const InputOptions = () => {
 	return (
 		<div className="flexbox-container">
-			<div className="flexbox-item">
-				<h1 className="primaryText" align="center">
-					Sign Up
-				</h1>
-				<IoIosClose />
+			<div className="flexbox-header">
+				<IoIosClose id="leftNavItem" />
+				<div className="primaryText">Sign Up</div>
 			</div>
             <Form/>
 		</div>

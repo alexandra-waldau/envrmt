@@ -1,6 +1,9 @@
 import React from 'react';
 import './sign-up.css';
 
+// Images import
+import AppLogo from "../../Assets/EnvrmtLogo.png";
+
 // icon imports 
 import { FiMail } from 'react-icons/fi';
 import { FcGoogle } from 'react-icons/fc';
@@ -14,15 +17,30 @@ const LoginButton = (props) => {
 
 const signInWithGoogle = () => auth.signInWithPopup(googleSignUp);
 
+// TODO: fix placement of button icon
 const SignUpOptions = () => {
     return (
     <div id="sign-up">
-        <LoginButton id="email" icon={<FiMail/>} service="Email" url="/create-account"></LoginButton>
-        <LoginButton id="facebook" icon={<FaFacebook/>} service="Facebook"/>
-        <LoginButton id="google" icon={<FcGoogle/>} service="Google" popup={() => signInWithGoogle()}/>
+        <LoginButton id="email" icon={<FiMail className="buttonIcon"/>} service="Email" url="/create-account"></LoginButton>
+        <LoginButton id="facebook" icon={<FaFacebook className="buttonIcon"/>} service="Facebook"/>
+        <LoginButton id="google" icon={<FcGoogle className="buttonIcon"/>} service="Google" popup={() => signInWithGoogle()}/>
     </div>
     );
 }
 
-export { LoginButton, SignUpOptions };
+const SignUpScreen = () => {
+	return (
+		<div className="flexbox-container-start">
+			<div className="login-label-container">Login</div>
+            <div className="applogo">
+				<img src={AppLogo}></img>
+			</div>
+			<div className="sign-up-container">
+				<SignUpOptions />
+			</div>
+		</div>
+	);
+};
+
+export { LoginButton, SignUpOptions, SignUpScreen };
 

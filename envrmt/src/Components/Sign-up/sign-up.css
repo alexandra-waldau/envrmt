@@ -1,9 +1,49 @@
+.flexbox-container-start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 375px;
+  height: 667px;
+  background-image: url("../../Assets/StartScreenBG.png");
+}
+
+.applogo {
+  position: absolute;
+  align-items: center;
+  top: 31%;
+}
+
+.sign-up-container {
+  position: absolute;
+  bottom: 60px;
+}
+
+.login-label-container {
+  position: absolute;
+  top: 9%;
+  right: 4.2%;
+  margin-left: 16px;
+  margin-right: 16px;
+  align-items: right;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
 .button {
   width: 250px;
   height: 40px;
   border: none;
   border-radius: 100px;
   font-family: "Inter", sans-serif;
+}
+
+.buttonIcon {
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 10%;
 }
 
 .sign-up.button {

@@ -1,23 +1,14 @@
 .flexbox-container {
-  height: 450px;
   display: flex;
   flex-direction: column;
-  justify-content: top;
   align-items: center;
+  position: relative;
 }
 
 .flexbox-item {
-  width: 351px;
-}
-
-.flexbox-credential {
-  width: 343px;
-  margin-bottom: 16px;
-}
-
-.input-label {
-  align-items: left;
-  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .input-credentials {
@@ -45,29 +36,27 @@
   margin-top: 30px;
 }
 
-.testWrapper {
-  overflow: hidden;
-}
-
-.testbox {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-}
-
-.testbox2 {
-  width: 150px;
-  height: 100px;
-  background-color: pink;
-}
-
 .primaryText {
   font-size: 30px;
   font-weight: bold;
+  padding-top: 20px;
 }
 
 .labelText {
   font-size: 16px;
   font-weight: bold;
   color: #bdbdbd;
+}
+
+.flexbox-header {
+  display: flex;
+  width: 70%;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+#leftNavItem {
+  width: 30px;
+  height: 30px;
+  opacity: 0.5;
 }
