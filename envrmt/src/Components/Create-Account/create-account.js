@@ -10,7 +10,6 @@ const onSubmit = (email, password) => {
 };
 
 const Form = () => {
-
     const[name, setName] = useState("");
     const[email, setMail] = useState("");
 	const[password, setPassword] = useState("");
@@ -24,6 +23,7 @@ const Form = () => {
     );
 }
 
+// to do: back button
 const InputOptions = () => {
 	return (
 		<div className="flexbox-container">
