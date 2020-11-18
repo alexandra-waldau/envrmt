@@ -122,44 +122,51 @@ const DashboardForSkip = () => {
 //________________________________________________________________________________________
 //Putting together the home screen components
 const Dashboard = () => {
-    const[detailIsVisible, setDetailVisibility] = useState(false);
-    const[ratingIsVisible, setRatingVisibility] = useState(false);
+	const [detailIsVisible, setDetailVisibility] = useState(false);
+	const [ratingIsVisible, setRatingVisibility] = useState(false);
 
-    const toggleDetailPopUp = () => {
-        setDetailVisibility(!detailIsVisible);
-    }
-    const toggleRatingPopUp = () => {
-        setRatingVisibility(!ratingIsVisible);
-        toggleDetailPopUp();
-    }
+	const toggleDetailPopUp = () => {
+		setDetailVisibility(!detailIsVisible);
+	};
+	const toggleRatingPopUp = () => {
+		setRatingVisibility(!ratingIsVisible);
+		toggleDetailPopUp();
+	};
 
-    const exitRatingPopUp = () => {
-        setRatingVisibility();
-    }
+	const exitRatingPopUp = () => {
+		setRatingVisibility();
+	};
 
 	return (
-			<div className="flexbox-container">
-				{/* <FeedbackSwitcher /> */}
-				{/* <div className="feedback-overlay" /> */}
-				<div className="flexbox-item">
-					<div className="primaryText">Hello, Lisa!</div>
-				</div>
-				<div className="flexbox-item">
-					<Default/>
-				</div>
-				<div className="flexbox-item">
-					<div className="secondaryText">Your Challenges:</div>
-					<div className="flexbox-item">
-						<ChallengeCard toggle={() => toggleDetailPopUp()}/>
-					</div>
-				</div>
-                <button className="extend-button">
-			        <AiOutlinePlusCircle className="plus-icon"/>
-                    Add Challenge
-                </button>
-                {detailIsVisible ? <ChallengeDetail next={() => toggleRatingPopUp()} toggle={() => toggleDetailPopUp()}/> : null}
-                {ratingIsVisible ? <ChallengeCompletion toggle={() => exitRatingPopUp()}/> : null}
+		<div className="flexbox-container">
+			{/* <FeedbackSwitcher /> */}
+			{/* <div className="feedback-overlay" /> */}
+			<div className="flexbox-item">
+				<div className="primaryText">Hello, Lisa!</div>
 			</div>
+			<div className="flexbox-item">
+				<Default />
+			</div>
+			<div className="flexbox-item">
+				<div className="dashboard-your-challenges">Your Challenges:</div>
+				<div className="flexbox-item">
+					<ChallengeCard toggle={() => toggleDetailPopUp()} />
+				</div>
+			</div>
+			<button className="extend-button">
+				<AiOutlinePlusCircle className="plus-icon" />
+				Add Challenge
+			</button>
+			{detailIsVisible ? (
+				<ChallengeDetail
+					next={() => toggleRatingPopUp()}
+					toggle={() => toggleDetailPopUp()}
+				/>
+			) : null}
+			{ratingIsVisible ? (
+				<ChallengeCompletion toggle={() => exitRatingPopUp()} />
+			) : null}
+		</div>
 	);
 };
 
