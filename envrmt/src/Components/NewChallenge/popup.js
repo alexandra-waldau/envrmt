@@ -21,4 +21,4 @@ import food_g from '../Icons/Food_green.svg';
     );
 }
 
-export {ChallengeDetails};
+export {ChallengeDetails};I
