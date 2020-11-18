@@ -211,6 +211,11 @@
 	color: #c4c4c4;
 }
 
+.add-challenge-container {
+	width: 343px;
+	align-items: center;
+}
+
 .extend-button {
 	display: flex;
 	flex-direction: column;
@@ -221,6 +226,7 @@
 	position: relative;
 	width: 50%;
 	font-weight: 600;
+	text-decoration: none;
 }
 
 .plus-icon {

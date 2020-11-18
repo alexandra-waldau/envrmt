@@ -80,13 +80,6 @@ const Dashboard = () => {
 				<div className="flexbox-item">
 					<ChallengeCard toggle={() => toggleDetailPopUp()} />
 				</div>
-				<button className="extend-button">
-					<AiOutlinePlusCircle className="plus-icon" />
-					<Link className="extend-button" to="add-challenge">
-						{" "}
-						Add Challenge{" "}
-					</Link>
-				</button>
 				{detailIsVisible ? (
 					<ChallengeDetail
 						next={() => toggleRatingPopUp()}
@@ -97,10 +90,15 @@ const Dashboard = () => {
 					<ChallengeCompletion toggle={() => exitRatingPopUp()} />
 				) : null}
 			</div>
+
 			<button className="extend-button">
 				<AiOutlinePlusCircle className="plus-icon" />
-				Add Challenge
+				<Link className="extend-button" to="add-challenge">
+					{" "}
+					Add Challenge{" "}
+				</Link>
 			</button>
+
 			{detailIsVisible ? (
 				<ChallengeDetail
 					next={() => toggleRatingPopUp()}
