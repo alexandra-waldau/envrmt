@@ -21,6 +21,7 @@ import LevelPicture from "../../Assets/LevelPicture.png";
 import SkipPicture from "../../Assets/SkipPicture.png";
 import PlanePicture from "../../Assets/PlanePicture.png";
 import { ChallengeDetail } from "../Pop-ups/challenge-detail";
+import { Link } from "react-router-dom";
 
 //________________________________________________________________________________________
 //importing data from Firebase? - variables are created. Const for hardcoded and let for those depending on user performance
@@ -42,79 +43,6 @@ const Default = () => {
 			<img className="dashboard-picture-level" src={LevelPicture}></img>
 			<p className="dashboard-main-text">{dashboardLevel}</p>
 			<p className="dashboard-secondary-text">{dashboardLevelText}</p>
-		</div>
-	);
-};
-
-//Standard dashboard - page 1 --
-const Stats = () => {
-	return (
-		<div className="container-dashboard">
-			<p className="dashboard-picture">
-				<BsCircleFill />
-			</p>
-			<div id="dashboard-data">
-				<DashboardData
-					id="challenge-success"
-					icon={<FiTarget />}
-					avoidance={challengeSuccess}
-					achievement={challengeSuccessText}
-				/>
-				<DashboardData
-					id="co2-avoided"
-					icon={<AiOutlineCloud />}
-					avoidance={co2Avoidance}
-					achievement={co2AvoidanceText}
-				/>
-				<p className="dashboard-three-dots">
-					{" "}
-					<BsCircleFill id="active" />
-					<BsCircleFill id="inactive" /> <BsCircleFill id="inactive" />
-				</p>
-			</div>
-		</div>
-	);
-};
-
-//Function for the distribution of the data on the dashboard1
-const DashboardData = (props) => {
-	return (
-		<p className="dashboard-data" id={props.id}>
-			{" "}
-			{props.icon} {props.avoidance} {props.achievement}
-		</p>
-	);
-};
-
-//Standard dashboard - page 2 -- explaining how much has been avoided in human terms (example 1)
-const Dashboard2 = () => {
-	return (
-		<div className="container-dashboard">
-			<img className="dashboard-picture" src={PlanePicture}></img>
-			<div id="dashboard-data">
-				<p className="dashboard-main-text">{inOtherWords}</p>
-				<p className="dashboard-secondary-text">
-					{youAvoided} <b>{whatAvoided}</b>
-				</p>
-				<p className="dashboard-three-dots">
-					{" "}
-					<BsCircleFill id="inactive" /> <BsCircleFill id="active" />{" "}
-					<BsCircleFill id="inactive" />
-				</p>
-			</div>
-		</div>
-	);
-};
-
-//Dashboard for the user that skips questions
-const DashboardForSkip = () => {
-	return (
-		<div className="container-dashboard">
-			<img className="dashboard-picture-skip" src={SkipPicture}></img>
-			<p className="dashboard-main-text">No completed challenges</p>
-			<p className="dashboard-secondary-text">
-				Complete your first challenge and track your progress here
-			</p>
 		</div>
 	);
 };
@@ -152,6 +80,22 @@ const Dashboard = () => {
 				<div className="flexbox-item">
 					<ChallengeCard toggle={() => toggleDetailPopUp()} />
 				</div>
+				<button className="extend-button">
+					<AiOutlinePlusCircle className="plus-icon" />
+					<Link className="extend-button" to="add-challenge">
+						{" "}
+						Add Challenge{" "}
+					</Link>
+				</button>
+				{detailIsVisible ? (
+					<ChallengeDetail
+						next={() => toggleRatingPopUp()}
+						toggle={() => toggleDetailPopUp()}
+					/>
+				) : null}
+				{ratingIsVisible ? (
+					<ChallengeCompletion toggle={() => exitRatingPopUp()} />
+				) : null}
 			</div>
 			<button className="extend-button">
 				<AiOutlinePlusCircle className="plus-icon" />

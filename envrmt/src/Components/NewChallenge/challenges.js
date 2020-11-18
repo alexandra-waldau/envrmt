@@ -7,8 +7,7 @@ import cart from '../Icons/Cart.svg';
 import done_tick from '../Icons/Done_tick.svg';
 import divider from '../Icons/Divider.svg';
 import './challenges.css';
-import {ChallengeDetails} from './popup';
-
+import { ChallengeDetails } from './popup';
 
 const Challenges = () => {
     const[visible, setVisibility] = useState(false);
@@ -16,7 +15,6 @@ const Challenges = () => {
     const togglePopUp = () => {
         setVisibility(!visible);
     }
-
 
     return(
     <div className ="challenges">
@@ -63,8 +61,6 @@ const Challenges = () => {
                     <img src={done_tick} alt='done_tick' /> 
                     <h4>More</h4>
                 </div>
-           
-
                 {visible ? <ChallengeDetails toggle={() => togglePopUp()}/> : null}
     </div>
     );
