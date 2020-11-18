@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import './popup.css';
 import {GrClose} from 'react-icons/gr';
