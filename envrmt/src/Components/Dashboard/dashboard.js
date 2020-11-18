@@ -4,6 +4,7 @@ import "../../Components/Create-Account/create-account.css";
 import "./dashboard.css";
 import { FeedbackSwitcher } from "../Pop-ups/feedback";
 import { ChallengeCard } from "../Challenge/challenge-status";
+import { ChallengeCompletion } from "../Pop-ups/feedback";
 
 // icon imports
 // importing status circle
@@ -121,10 +122,19 @@ const DashboardForSkip = () => {
 //________________________________________________________________________________________
 //Putting together the home screen components
 const Dashboard = () => {
-    const[visible, setVisibility] = useState(false);
+    const[detailIsVisible, setDetailVisibility] = useState(false);
+    const[ratingIsVisible, setRatingVisibility] = useState(false);
 
-    const togglePopUp = () => {
-        setVisibility(!visible);
+    const toggleDetailPopUp = () => {
+        setDetailVisibility(!detailIsVisible);
+    }
+    const toggleRatingPopUp = () => {
+        setRatingVisibility(!ratingIsVisible);
+        toggleDetailPopUp();
+    }
+
+    const exitRatingPopUp = () => {
+        setRatingVisibility();
     }
 
 	return (
@@ -140,14 +150,15 @@ const Dashboard = () => {
 				<div className="flexbox-item">
 					<div className="secondaryText">Your Challenges:</div>
 					<div className="flexbox-item">
-						<ChallengeCard toggle={() => togglePopUp()}/>
+						<ChallengeCard toggle={() => toggleDetailPopUp()}/>
 					</div>
 				</div>
                 <button className="extend-button">
 			        <AiOutlinePlusCircle className="plus-icon"/>
                     Add Challenge
                 </button>
-                {visible ? <ChallengeDetail toggle={() => togglePopUp()}/> : null}
+                {detailIsVisible ? <ChallengeDetail next={() => toggleRatingPopUp()} toggle={() => toggleDetailPopUp()}/> : null}
+                {ratingIsVisible ? <ChallengeCompletion toggle={() => exitRatingPopUp()}/> : null}
 			</div>
 	);
 };

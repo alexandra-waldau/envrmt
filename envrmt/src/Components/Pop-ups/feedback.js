@@ -19,33 +19,46 @@ const shoppingText = "Shopping";
 let days = 4;
 
 const ChallengeCompletion = (props) => {
-    return <div className = 'container-challenge-detail'>
-        <button className = 'close-cross' onClick={props.toggle}><GrClose/></button>
-        <AiOutlineShoppingCart className="category-icon"/>
-        <CategoryText text={shoppingText}/>
-        <p className ='challenge-name-detail'>#Challenge Name</p>
-        <p className ='challenge-description-detail'>Description of challenge (maximum 2 lines)</p>
-        <p className ="days-text">{days} days</p>
-        <RatingIcons/>
-        <button className = 'done-button'>Done</button>
-        <p className = "failed-challenge">I failed this challenge</p>
+    return (
+    <div className="overlay">
+        <div className = 'container-challenge-detail'>
+            <button className = 'close-cross' onClick={props.toggle}><GrClose/></button>
+            <AiOutlineShoppingCart className="category-icon"/>
+            <CategoryText text={shoppingText}/>
+            <p className ='challenge-name-detail'>#Challenge Name</p>
+            <p className ='challenge-description-detail'>Description of challenge (maximum 2 lines)</p>
+            <p className ="days-text">{days} days</p>
+            <RatingIcons/>
+            <button className = 'done-button'>Done</button>
+            <p className = "failed-challenge">I failed this challenge</p>
         </div>
+    </div>
+    )
 }
 
-const RatingIcons = () => {
+
+const RatingIcon = () => {
     const[active, setActive] = useState(false);
 
-    const activateEarth = () => {
-        setActive(!active);
+    const toggleActivation = () => {
+        setActive(!active)
     }
 
     return (
+        <div className="rating-icon">
+            {active ? <ImEarth className="active" onClick={() => toggleActivation()}/> : <ImEarth onClick={() => toggleActivation()}/>} 
+        </div>
+        );
+    }
+
+const RatingIcons = () => {
+    return (
     <div className= "rating-icons">
-        {active ? <ImEarth className="active" onClick={() => activateEarth()}/> : <ImEarth onClick={() => activateEarth()}/>} 
-        {active ? <ImEarth className="active" onClick={() => activateEarth()}/> : <ImEarth onClick={() => activateEarth()}/>} 
-        {active ? <ImEarth className="active" onClick={() => activateEarth()}/> : <ImEarth onClick={() => activateEarth()}/>} 
-        {active ? <ImEarth className="active" onClick={() => activateEarth()}/> : <ImEarth onClick={() => activateEarth()}/>} 
-        {active ? <ImEarth className="active" onClick={() => activateEarth()}/> : <ImEarth onClick={() => activateEarth()}/>} 
+        <RatingIcon/>
+        <RatingIcon/>
+        <RatingIcon/>
+        <RatingIcon/>
+        <RatingIcon/>
     </div>
     );
 }

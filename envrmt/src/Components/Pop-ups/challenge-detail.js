@@ -31,7 +31,7 @@ const ChallengeDetail = (props) => {
             <p className ='challenge-description-detail'>Description of challenge (maximum 2 lines)</p>
             <p className = 'challenge-duration'><BsStopwatch/> Duration</p>
             <p className = 'challenge-avoidance'><AiOutlineCloud/>-XXXg Co2</p>
-            <button className = 'challenge-button'>Challenge completed</button>
+            <button className = 'challenge-button' onClick={props.next}>Challenge completed</button>
         </div>   
     </div>
     );
