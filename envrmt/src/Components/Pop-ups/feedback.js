@@ -1,10 +1,54 @@
+import { useState } from "react";
+
 import "./feedback.css";
 import { Co2Avoided } from "../Challenge/challenge-status";
+import { CategoryText } from "./challenge-detail";
 
 // Importing the Performance Feedback Emojis
 import PosEmoji from "../../Assets/PosFeedbackEmoji.png";
 import NegEmoji from "../../Assets/NegFeedbackEmoji.png";
 import { AiOutlineCloud } from "react-icons/ai";
+//import icon for close button
+import {GrClose} from 'react-icons/gr';
+
+//importing icons for categories
+import {AiOutlineShoppingCart} from 'react-icons/ai';
+import {ImEarth} from 'react-icons/im';
+//defining categories
+const shoppingText = "Shopping";
+let days = 4;
+
+const ChallengeCompletion = (props) => {
+    return <div className = 'container-challenge-detail'>
+        <button className = 'close-cross' onClick={props.toggle}><GrClose/></button>
+        <AiOutlineShoppingCart className="category-icon"/>
+        <CategoryText text={shoppingText}/>
+        <p className ='challenge-name-detail'>#Challenge Name</p>
+        <p className ='challenge-description-detail'>Description of challenge (maximum 2 lines)</p>
+        <p className ="days-text">{days} days</p>
+        <RatingIcons/>
+        <button className = 'done-button'>Done</button>
+        <p className = "failed-challenge">I failed this challenge</p>
+        </div>
+}
+
+const RatingIcons = () => {
+    const[active, setActive] = useState(false);
+
+    const activateEarth = () => {
+        setActive(!active);
+    }
+
+    return (
+    <div className= "rating-icons">
+        {active ? <ImEarth className="active" onClick={() => activateEarth()}/> : <ImEarth onClick={() => activateEarth()}/>} 
+        {active ? <ImEarth className="active" onClick={() => activateEarth()}/> : <ImEarth onClick={() => activateEarth()}/>} 
+        {active ? <ImEarth className="active" onClick={() => activateEarth()}/> : <ImEarth onClick={() => activateEarth()}/>} 
+        {active ? <ImEarth className="active" onClick={() => activateEarth()}/> : <ImEarth onClick={() => activateEarth()}/>} 
+        {active ? <ImEarth className="active" onClick={() => activateEarth()}/> : <ImEarth onClick={() => activateEarth()}/>} 
+    </div>
+    );
+}
 
 //this variable will be determined by what the user selects in the feedback window (1-5 globes). everything below 3 "globes" is "low", above is achieved
 let performanceRating = 4;
@@ -52,4 +96,4 @@ const FeedbackSwitcher = () => {
 	}
 };
 
-export { FeedbackSwitcher }
+export { FeedbackSwitcher, ChallengeCompletion }
