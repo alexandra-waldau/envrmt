@@ -5,16 +5,18 @@ import "./create-account.css";
 // icon imports
 import { IoIosClose } from "react-icons/io";
 
-const onSubmit = (email, password) => { 
+const onSubmit = (event,email, password) => { 
+	event.preventDefault();
 	emailSignUp(email,password);
 };
+
 
 const Form = () => {
     const[name, setName] = useState("");
     const[email, setMail] = useState("");
 	const[password, setPassword] = useState("");
     return (
-        <form className="flexbox-item" method="get" onSubmit={() => onSubmit(email,password)}>
+        <form className="flexbox-item" method="get" onSubmit={(e) => onSubmit(e,email,password)}>
 			<input type="text" className="input-credentials" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
 			<input type="email" className="input-credentials" value={email} onChange={(e) => setMail(e.target.value)} placeholder="Email address" />
 			<input type="password" className="input-credentials" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />

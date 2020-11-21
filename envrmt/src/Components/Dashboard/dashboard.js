@@ -7,19 +7,10 @@ import { ChallengeCard } from "../Challenge/challenge-status";
 import { ChallengeCompletion } from "../Pop-ups/feedback";
 
 // icon imports
-// importing status circle
-import { BsCircleFill } from "react-icons/bs";
-// Importing the cloud for the icon of CO2
-import { AiOutlineCloud } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-// icons for dashboard
-import { FiTarget } from "react-icons/fi";
 
 // image imports
-// Importing dashboard static pictures - will most likely be placed on firebase
 import LevelPicture from "../../Assets/LevelPicture.png";
-import SkipPicture from "../../Assets/SkipPicture.png";
-import PlanePicture from "../../Assets/PlanePicture.png";
 import { ChallengeDetail } from "../Pop-ups/challenge-detail";
 import { Link } from "react-router-dom";
 

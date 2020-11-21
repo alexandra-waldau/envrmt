@@ -18,14 +18,9 @@ const auth = firebase.auth();
 
 // to do: display error message to user
 const emailSignUp = (email, password) => {
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(function(response) {
-      console.log(response);
-    })
+    firebase.auth().createUserWithEmailAndPassword(email, password)
     .catch(function(error) {
-        return(
-        <p>{error.message}</p>
-        )
+        console.log(error);
   });
 }
 
