@@ -32,7 +32,7 @@ const ChallengeCompletion = (props) => {
 					Description of challenge (maximum 2 lines)
 				</p>
 				<p className="days-text">{days} days</p>
-				<RatingIcons />
+				<RatingIcons score={props.score} />
 				<button className="done-button" onClick={props.next}>
 					Done
 				</button>
@@ -60,7 +60,7 @@ const RatingIcon = () => {
 	);
 };
 
-const RatingIcons = () => {
+const RatingIcons = (props) => {
 	return (
 		<div className="rating-icons">
 			<RatingIcon />
@@ -73,48 +73,55 @@ const RatingIcons = () => {
 };
 
 //this variable will be determined by what the user selects in the feedback window (1-5 globes). everything below 3 "globes" is "low", above is achieved
-let performanceRating = 4;
+const Performance = (props) => {
+	const [performanceRating, setPerformanceRating] = useState(false);
+};
 
 const PerformanceFeedback = (props) => {
 	return (
-		<div className="feedback-card">
-			<img className="feedback-emoji" src={props.icon}></img>
-			<p className="tertiaryText feedback-card-title">{props.headline}</p>
-			<p className="quartiaryText feedback-card-text" id="gray">
-				{props.text}
-			</p>
-			<p className="quartiaryText">
-				<Co2Avoided
-					className="Co2-avoided"
-					icon={<AiOutlineCloud />}
-					avoidanceChallenge="500"
-					id={props.id}
-				/>
-			</p>
-			<button className="primary button" id="secondaryButton">
-				Done
-			</button>
+		<div className="overlay">
+			<div className="container-challenge-detail">
+				<img className="feedback-emoji" src={props.icon}></img>
+				<p className="tertiaryText feedback-card-title">{props.headline}</p>
+				<p className="quartiaryText feedback-card-text" id="gray">
+					{props.text}
+				</p>
+				<p className="quartiaryText">
+					<Co2Avoided
+						className="Co2-avoided"
+						icon={<AiOutlineCloud />}
+						avoidanceChallenge="500"
+						id={props.id}
+					/>
+				</p>
+				<button className="done-button" onClick={props.toggle}>
+					Done
+				</button>
+			</div>
 		</div>
 	);
 };
 
-const FeedbackSwitcher = () => {
+const FeedbackSwitcher = (props) => {
+	let performanceRating = 4;
 	if (performanceRating >= 3) {
 		return (
 			<PerformanceFeedback
+				toggle={props.toggle}
 				icon={PosEmoji}
 				headline="Good Job!"
 				text="Thank you for making a difference today"
-				id="green"
+				id="positive"
 			/>
 		);
 	} else if (performanceRating < 3) {
 		return (
 			<PerformanceFeedback
+				toggle={props.toggle}
 				icon={NegEmoji}
 				headline="Small steps"
 				text="Changing the world isn’t easy. Keep challenging yourself!"
-				id="red"
+				id="negative"
 			/>
 		);
 	}
