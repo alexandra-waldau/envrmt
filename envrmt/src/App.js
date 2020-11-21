@@ -13,6 +13,7 @@ function App() {
   }
 
   return user ? <LoggedIn /> : <NotLoggedIn />;
+
 }
 
 export default App;
