@@ -76,4 +76,4 @@ const Co2Avoided = (props) => {
 	);
 };
 
-export { ChallengeCard, Co2Avoided }
+export { ChallengeCard, Co2Avoided };

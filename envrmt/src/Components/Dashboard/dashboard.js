@@ -2,9 +2,8 @@ import React from "react";
 import { useState } from "react";
 import "../../Components/Create-Account/create-account.css";
 import "./dashboard.css";
-import { FeedbackSwitcher } from "../Pop-ups/feedback";
 import { ChallengeCard } from "../Challenge/challenge-status";
-import { ChallengeCompletion } from "../Pop-ups/feedback";
+import { ChallengeCompletion, FeedbackSwitcher } from "../Pop-ups/feedback";
 
 // icon imports
 // importing status circle
@@ -52,6 +51,7 @@ const Default = () => {
 const Dashboard = () => {
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [ratingIsVisible, setRatingVisibility] = useState(false);
+	const [feedbackIsVisible, setFeedbackVisibility] = useState(false);
 
 	const toggleDetailPopUp = () => {
 		setDetailVisibility(!detailIsVisible);
@@ -63,6 +63,14 @@ const Dashboard = () => {
 
 	const exitRatingPopUp = () => {
 		setRatingVisibility();
+	};
+
+	const toggleFeedbackPopUp = () => {
+		setRatingVisibility();
+	};
+
+	const exitFeedbackPopUp = () => {
+		setFeedbackVisibility();
 	};
 
 	return (
@@ -80,7 +88,33 @@ const Dashboard = () => {
 				<div className="flexbox-item">
 					<ChallengeCard toggle={() => toggleDetailPopUp()} />
 				</div>
-				{detailIsVisible ? (
+				<div>
+					{detailIsVisible ? (
+						<ChallengeDetail
+							next={() => toggleRatingPopUp()}
+							toggle={() => toggleDetailPopUp()}
+						/>
+					) : null}
+					{ratingIsVisible ? (
+						<ChallengeCompletion
+							toggle={() => exitRatingPopUp()}
+							next={() => toggleFeedbackPopUp()}
+						/>
+					) : null}
+					{feedbackIsVisible ? (
+						<FeedbackSwitcher toggle={() => exitFeedbackPopUp()} />
+					) : null}
+				</div>
+				<div className="add-challenge-container">
+					<button className="extend-button">
+						<AiOutlinePlusCircle className="plus-icon" />
+						<Link className="extend-button" to="add-challenge">
+							{" "}
+							Add Challenge{" "}
+						</Link>
+					</button>
+				</div>
+				{/* {detailIsVisible ? (
 					<ChallengeDetail
 						next={() => toggleRatingPopUp()}
 						toggle={() => toggleDetailPopUp()}
@@ -88,26 +122,8 @@ const Dashboard = () => {
 				) : null}
 				{ratingIsVisible ? (
 					<ChallengeCompletion toggle={() => exitRatingPopUp()} />
-				) : null}
+				) : null} */}
 			</div>
-
-			<button className="extend-button">
-				<AiOutlinePlusCircle className="plus-icon" />
-				<Link className="extend-button" to="add-challenge">
-					{" "}
-					Add Challenge{" "}
-				</Link>
-			</button>
-
-			{detailIsVisible ? (
-				<ChallengeDetail
-					next={() => toggleRatingPopUp()}
-					toggle={() => toggleDetailPopUp()}
-				/>
-			) : null}
-			{ratingIsVisible ? (
-				<ChallengeCompletion toggle={() => exitRatingPopUp()} />
-			) : null}
 		</div>
 	);
 };
