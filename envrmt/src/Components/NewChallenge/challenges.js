@@ -18,16 +18,16 @@ const Challenges = () => {
 	};
 
 	return (
-		<div className="challenges">
-			<div className="challenge-headline">
+		<div className="new-challenges">
+			<div className="new-challenge-headline">
 				<Link className="back-button" to="dashboard">
 					<h5>Back</h5>
 				</Link>
 				<h1>New Challenge</h1>
 			</div>
-			<div className="challenge-section">
+			<div className="new-challenge-section">
 				<img src={bicycle} alt="bicycle" />
-				<div className="challenge-text">
+				<div className="new-challenge-text">
 					<h2>Chu-chuu</h2>
 					<h3>
 						Taking the train not only gives you more personal space than most
@@ -37,9 +37,9 @@ const Challenges = () => {
 				</div>
 			</div>
 			<div className="btn">
-				<div className="challenge-section" onClick={() => togglePopUp()}>
+				<div className="new-challenge-section" onClick={() => togglePopUp()}>
 					<img src={food} alt="food" />
-					<div className="challenge-text">
+					<div className="new-challenge-text">
 						<h2>As good as guacamole</h2>
 						<h3>
 							Try these alternatives to Avocado when prepping for the next BBQ.
@@ -48,9 +48,9 @@ const Challenges = () => {
 					</div>
 				</div>
 			</div>
-			<div className="challenge-section">
+			<div className="new-challenge-section">
 				<img src={trash} alt="trash" />
-				<div className="challenge-text">
+				<div className="new-challenge-text">
 					<h2>Don’t be dump</h2>
 					<h3>
 						Before throwing out small stuff, consider reusing it. Check out
@@ -59,9 +59,9 @@ const Challenges = () => {
 					<img src={divider} alt="divider" />
 				</div>
 			</div>
-			<div className="challenge-section">
+			<div className="new-challenge-section">
 				<img src={cart} alt="cart" />
-				<div className="challenge-text">
+				<div className="new-challenge-text">
 					<h2>I’m gonna pop some tags</h2>
 					<h3>
 						Shop in thrift stores the next time you’re with the fashionistas.{" "}

@@ -165,14 +165,22 @@
 }
 
 .challenge-status {
+	position: relative;
+	display: flex;
+	margin: 1%;
+}
+
+.challenge-status-text {
 	font-family: Inter;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 10px;
 	line-height: 0px;
-	margin-block-start: 5px;
-	margin-block-end: 5px;
-	color: #c4c4c4;
+}
+
+.challenge-status-circle {
+	width: 0.9em;
+	height: 0.9em;
 }
 
 .challenge-title {
@@ -180,9 +188,7 @@
 	font-style: normal;
 	font-weight: 600;
 	font-size: 14px;
-	line-height: 0px;
-	margin-block-start: 5px;
-	margin-block-end: 3px;
+	line-height: 0;
 	margin-left: 29px;
 	margin-bottom: 3%;
 	color: #000000;
@@ -194,8 +200,8 @@
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 0px;
-
 	margin-left: 29px;
+	margin-bottom: 3%;
 	color: #000000;
 }
 

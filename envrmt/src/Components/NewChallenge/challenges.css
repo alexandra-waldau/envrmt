@@ -1,23 +1,23 @@
-.challenges h1 {
+.new-challenges h1 {
 	font-size: 30px;
 	font-weight: 600;
 	font-family: Inter;
 	padding-left: 25.5px;
 }
 
-.challenges h2 {
+.new-challenges h2 {
 	font-size: 16px;
 	font-weight: 600;
 	font-family: Inter;
 }
 
-.challenges h3 {
+.new-challenges h3 {
 	font-size: 13px;
 	font-weight: 400;
 	font-family: Inter;
 }
 
-.challenges h4 {
+.new-challenges h4 {
 	font-size: 11px;
 	font-weight: 500;
 	font-family: Inter;
@@ -25,33 +25,34 @@
 	margin-top: 5px;
 }
 
-.challenges h5 {
+.new-challenges h5 {
 	font-size: 16px;
 	font-weight: 600;
 	font-family: Inter;
 	color: #5db075;
 }
 
-.challenges {
+.new-challenges {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: relative;
 }
 
-.challenge-text {
-	margin: auto;
+.new-challenge-text {
+	margin-left: 1em;
 	align-items: center;
 	width: 280px;
 	line-height: 16px;
 }
 
-.challenge-section {
+.new-challenge-section {
 	display: flex;
 	flex-direction: row;
 	padding-left: 14px;
 }
 
-.challenge-headline {
+.new-challenge-headline {
 	display: flex;
 	flex-direction: row;
 	padding-left: 14px;

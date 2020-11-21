@@ -82,18 +82,18 @@ const PerformanceFeedback = (props) => {
 		<div className="overlay">
 			<div className="container-challenge-detail">
 				<img className="feedback-emoji" src={props.icon}></img>
-				<p className="tertiaryText feedback-card-title">{props.headline}</p>
-				<p className="quartiaryText feedback-card-text" id="gray">
+				<p className="feedback-card-title">{props.headline}</p>
+				<p className="feedback-card-text" id="gray">
 					{props.text}
 				</p>
-				<p className="quartiaryText">
+				<div id="feedback-card-co2avoidance">
 					<Co2Avoided
 						className="Co2-avoided"
 						icon={<AiOutlineCloud />}
 						avoidanceChallenge="500"
 						id={props.id}
 					/>
-				</p>
+				</div>
 				<button className="done-button" onClick={props.toggle}>
 					Done
 				</button>
