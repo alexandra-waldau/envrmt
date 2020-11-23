@@ -31,7 +31,10 @@ const SignUpOptions = () => {
 const SignUpScreen = () => {
 	return (
 		<div className="flexbox-container-start">
-			<div className="login-label-container">Login</div>
+			<button className="login-label-container">
+				<Link className="link" to="/log-in">Login
+				</Link>
+			</button>
             <div className="applogo">
 				<img src={AppLogo}></img>
 			</div>

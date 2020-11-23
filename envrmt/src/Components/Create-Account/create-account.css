@@ -53,10 +53,21 @@
   width: 70%;
   flex-direction: row;
   margin-bottom: 20px;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+}
+
+.back-button {
+  border: none;
+  background-color: white;
 }
 
 #leftNavItem {
   width: 30px;
   height: 30px;
   opacity: 0.5;
+  position: absolute;
+  top: 25%;
+  left: 5%;
 }

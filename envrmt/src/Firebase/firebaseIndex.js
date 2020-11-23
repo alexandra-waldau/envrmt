@@ -18,18 +18,19 @@ const auth = firebase.auth();
 
 // to do: display error message to user
 const emailSignUp = (email, password) => {
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(function(response) {
-      console.log(response);
-    })
+    firebase.auth().createUserWithEmailAndPassword(email, password)
     .catch(function(error) {
-        return(
-        <p>{error.message}</p>
-        )
+        console.log(error);
   });
 }
 
 const googleSignUp = new firebase.auth.GoogleAuthProvider();
 
+const emailSignIn = (email, password) => {
+  firebase.auth().signInWithEmailAndPassword(email,password)
+  .catch(function(error) {
+    console.log(error);
+  })
+}
 export default firebaseApp;
-export { auth, emailSignUp, googleSignUp }
+export { auth, emailSignUp, googleSignUp, emailSignIn }

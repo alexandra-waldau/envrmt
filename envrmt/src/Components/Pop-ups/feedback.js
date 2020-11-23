@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Rating from "react-rating";
 
 import "./feedback.css";
 import { Co2Avoided } from "../Challenge/challenge-status";
@@ -17,6 +18,12 @@ import { ImEarth } from "react-icons/im";
 //defining categories
 const shoppingText = "Shopping";
 let days = 4;
+let feedback = 0;
+
+const onRatingChange = (days) => {
+	feedback = days;
+	console.log(feedback);
+};
 
 const ChallengeCompletion = (props) => {
 	return (
@@ -32,42 +39,17 @@ const ChallengeCompletion = (props) => {
 					Description of challenge (maximum 2 lines)
 				</p>
 				<p className="days-text">{days} days</p>
-				<RatingIcons score={props.score} />
+				<Rating
+					onChange={(value) => onRatingChange(value)}
+					className="rating"
+					emptySymbol={<ImEarth className="rating-icon" />}
+					fullSymbol={<ImEarth className="rating-icon active" />}
+				/>
 				<button className="done-button" onClick={props.next}>
 					Done
 				</button>
 				<p className="failed-challenge">I failed this challenge</p>
 			</div>
-		</div>
-	);
-};
-
-const RatingIcon = () => {
-	const [active, setActive] = useState(false);
-
-	const toggleActivation = () => {
-		setActive(!active);
-	};
-
-	return (
-		<div className="rating-icon">
-			{active ? (
-				<ImEarth className="active" onClick={() => toggleActivation()} />
-			) : (
-				<ImEarth onClick={() => toggleActivation()} />
-			)}
-		</div>
-	);
-};
-
-const RatingIcons = (props) => {
-	return (
-		<div className="rating-icons">
-			<RatingIcon />
-			<RatingIcon />
-			<RatingIcon />
-			<RatingIcon />
-			<RatingIcon />
 		</div>
 	);
 };

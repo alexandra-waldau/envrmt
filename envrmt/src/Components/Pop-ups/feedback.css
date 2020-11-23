@@ -52,18 +52,15 @@
 	color: red;
 }
 
-/* Rating icons */
-.rating-icons {
-	padding: 20px 0;
-	display: flex;
-	flex-direction: row;
-	text-align: center;
-	font-size: 20px;
-	color: #a1a5ac;
+.rating {
+	padding-top: 15px;
 }
 
 .rating-icon {
+	width: 20px;
+	height: 20px;
 	padding: 0 2px;
+	color: #a1a5ac;
 }
 
 .active {
