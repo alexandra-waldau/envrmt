@@ -14,18 +14,9 @@ import LevelPicture from "../../Assets/LevelPicture.png";
 import { ChallengeDetail } from "../Pop-ups/challenge-detail";
 import { Link } from "react-router-dom";
 
-//________________________________________________________________________________________
-//importing data from Firebase? - variables are created. Const for hardcoded and let for those depending on user performance
 let dashboardLevel = "Beginner";
 let dashboardLevelText =
 	"You have not done much for the climate yet, but we'll give you good ideas to get started!";
-let challengeSuccess = 0;
-const challengeSuccessText = " challenge success";
-let co2Avoidance = 0;
-const co2AvoidanceText = "Co2 avoidance";
-const inOtherWords = "In other words...";
-const youAvoided = "You avoided ";
-let whatAvoided = "a flight from Copenhagen to Paris";
 
 //First dashboard the user sees before they complete any challenge
 const Default = () => {
