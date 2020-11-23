@@ -26,5 +26,11 @@ const emailSignUp = (email, password) => {
 
 const googleSignUp = new firebase.auth.GoogleAuthProvider();
 
+const emailSignIn = (email, password) => {
+  firebase.auth().signInWithEmailAndPassword(email,password)
+  .catch(function(error) {
+    console.log(error);
+  })
+}
 export default firebaseApp;
-export { auth, emailSignUp, googleSignUp }
+export { auth, emailSignUp, googleSignUp, emailSignIn }
