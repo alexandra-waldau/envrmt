@@ -7,6 +7,7 @@ const LoggedIn = () => {
     return (
         <Switch>
             <Redirect from="/create-account" to="/" />
+            <Redirect from="/log-in" to="/" />
             <Route path="/" component={Dashboard} exact/>
             <Route path="/add-challenge" component={Challenges}/>
             <Route path="/dashboard" component={Dashboard}/>
