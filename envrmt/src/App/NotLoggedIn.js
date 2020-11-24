@@ -8,6 +8,7 @@ const NotLoggedIn = () => {
     return (
         <Switch>
             <Redirect exact from="/" to="sign-up" />
+            <Redirect from="/settings" to="sign-up" />
             <Route path="/sign-up" component={SignUpScreen} exact />
             <Route path="/log-in" component={LogIn} />
             <Route path="/create-account" component={InputOptions} />

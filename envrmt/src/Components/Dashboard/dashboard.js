@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 // icon imports
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
-import { MdSettings } from "react-icons/md";
 
 // image imports
 import LevelPicture from "../../Assets/LevelPicture.png";
@@ -52,7 +51,11 @@ const Dashboard = () => {
 		<div className="flexbox-container">
 			{/* <FeedbackSwitcher /> */}
 			{/* <div className="feedback-overlay" /> */}
-			<FiSettings className="settings icon"/>
+			<button className="settings icon">
+				<Link to="/settings">
+					<FiSettings className="icon" />
+				</Link>
+			</button>
 			<h2 className="headline dashboard">Hello, Lisa!</h2>
 			<div className="flexbox-item">
 				<Default />

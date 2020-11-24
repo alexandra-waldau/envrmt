@@ -5,14 +5,11 @@ import "./feedback.css";
 import { Co2Avoided } from "../Challenge/challenge-status";
 import { CategoryText } from "./challenge-detail";
 
-// Importing the Performance Feedback Emojis
+//icon imports
 import PosEmoji from "../../Assets/PosFeedbackEmoji.png";
 import NegEmoji from "../../Assets/NegFeedbackEmoji.png";
 import { AiOutlineCloud } from "react-icons/ai";
-//import icon for close button
 import {GrClose} from 'react-icons/gr';
-
-//importing icons for categories
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import {ImEarth} from 'react-icons/im';
 //defining categories

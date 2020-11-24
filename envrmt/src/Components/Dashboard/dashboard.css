@@ -239,12 +239,17 @@
 }
 
 .settings.icon {
+  border: none;
+  background: transparent;
   position: absolute;
-  color: #666666;
+  right: 7%;
+  top: 4%;
+}
+
+.icon {
   height: 30px;
   width: 30px;
-  right: 5%;
-  top: 4%;
+  color: #666666;
   stroke-width: 1px;
 }
 

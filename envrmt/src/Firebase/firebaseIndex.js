@@ -32,5 +32,13 @@ const emailSignIn = (email, password) => {
     console.log(error);
   })
 }
+
+const signOut = () => {
+  firebase.auth().signOut()
+  .catch(function(error) {
+    console.log(error);
+  })
+}
+
 export default firebaseApp;
-export { auth, emailSignUp, googleSignUp, emailSignIn }
+export { auth, emailSignUp, googleSignUp, emailSignIn, signOut }
