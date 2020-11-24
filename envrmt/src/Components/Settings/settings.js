@@ -2,11 +2,16 @@ import React from 'react';
 import "./settings.css";
 import { Header } from "../Create-Account/create-account";
 import signOutImage from "../../Assets/Sign_out.svg";
-import { signOut } from "../../Firebase/firebaseIndex";
+import { signOut, deleteAccount } from "../../Firebase/firebaseIndex";
 
-const onClickSettings = (event) => {
+const onClickSettingsSignOut = (event) => {
     event.preventDefault();
     signOut();
+}
+
+const onClickSettingsDeleteAccount = (event) => {
+    event.preventDefault();
+    deleteAccount();
 }
 
 const Settings = () => {
@@ -17,10 +22,10 @@ const Settings = () => {
             </div>
             <div className="flexbox">
                 <img src={signOutImage} alt="sign-out image"/>
-                <button onClick={(event) => onClickSettings(event)} className="settings item">
+                <button onClick={(event) => onClickSettingsSignOut(event)} className="settings item">
                     Sign out 
                 </button>
-                <button className="settings item">
+                <button className="settings item" onClick={(event) => onClickSettingsDeleteAccount(event)}>
                     Delete account
                 </button>
             </div>
