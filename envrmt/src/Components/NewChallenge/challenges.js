@@ -17,7 +17,7 @@ class NewChallenges extends Component {
 		super();
 		this.state = {
 			newEntries: [],
-			// lastIndex: 0,
+			lastIndex: 0,
 		};
 	}
 
@@ -29,6 +29,8 @@ class NewChallenges extends Component {
 			.then((response) => response.json())
 			.then((result) => {
 				const nwCh = result.map((item) => {
+					item.chId = this.state.lastIndex;
+					this.setState({ lastIndex: this.state.lastIndex + 1 });
 					return item;
 				});
 				this.setState({
@@ -58,6 +60,7 @@ class DisplayNewChallenges extends Component {
 		super();
 		this.state = {
 			visible: false,
+			category: "",
 		};
 	}
 
@@ -76,36 +79,47 @@ class DisplayNewChallenges extends Component {
 					</Link>
 					<h1>New Challenge</h1>
 				</div>
-				{this.props.display.map((item) => (
-					<div className="btn">
-						<div
-							className="new-challenge-section"
-							onClick={() => this.togglePopUp()}
-						>
-							{item.category == "Food" ? (
-								<img src={food} alt="Food" />
-							) : item.category == "Transportation" ? (
-								<img src={bicycle} alt="Transportation" />
-							) : item.category == "Waste" ? (
-								<img src={trash} alt="waste" />
-							) : item.category == "Shopping" ? (
-								<img src={cart} alt="Shopping" />
+				<ul>
+					{this.props.display.map((item) => (
+						<>
+							<li className="btn">
+								<div
+									className="new-challenge-section"
+									onClick={() => this.togglePopUp()}
+									key={item.chId}
+								>
+									{/* {<img src={food} />} */}
+									{item.category == "Food" ? (
+										<img src={food} alt="Food" />
+									) : item.category == "Transportation" ? (
+										<img src={bicycle} alt="Transportation" />
+									) : item.category == "Waste" ? (
+										<img src={trash} alt="waste" />
+									) : item.category == "Shopping" ? (
+										<img src={cart} alt="Shopping" />
+									) : null}
+									<div className="new-challenge-text">
+										<h2>{item.title}</h2>
+										<h3>{item.description}</h3>
+										<img src={divider} alt="divider" />
+									</div>
+								</div>
+							</li>
+							{this.state.visible ? (
+								<ChallengeDetails
+									toggle={() => this.togglePopUp()}
+									title={item.title}
+									descr={item.description}
+									co2={item.total}
+								/>
 							) : null}
-							<div className="new-challenge-text">
-								<h2>{item.title}</h2>
-								<h3>{item.description}</h3>
-								<img src={divider} alt="divider" />
-							</div>
-						</div>
-					</div>
-				))}
+						</>
+					))}
+				</ul>
 				<div className="more">
 					<img src={done_tick} alt="See More Challenges" />
 					<h4>More</h4>
 				</div>
-				{this.state.visible ? (
-					<ChallengeDetails toggle={() => this.togglePopUp()} />
-				) : null}
 			</div>
 		);
 	}
