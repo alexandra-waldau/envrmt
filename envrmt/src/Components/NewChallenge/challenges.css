@@ -1,72 +1,70 @@
-
 .challenges h1 {
-    font-size: 30px;
-    font-weight: 600;
-    font-family: Inter;
-    padding-left: 25.5px;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: Inter;
+  padding-left: 25.5px;
 }
 
 .challenges h2 {
-    font-size: 16px;
-    font-weight: 600;
-    font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Inter;
 }
 
 .challenges h3 {
-    font-size: 13px;
-    font-weight: 400;
-    font-family: Inter;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: Inter;
 }
 
 .challenges h4 {
-    font-size: 11px;
-    font-weight: 500;
-    font-family: Inter;
-    color: #5DB075;
-    margin-top: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: Inter;
+  color: #5db075;
+  margin-top: 5px;
 }
 
 .challenges h5 {
-    font-size: 16px;
-    font-weight: 600;
-    font-family: Inter;
-    color: #5DB075;
-
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Inter;
+  color: #5db075;
 }
 
-
 .challenge-text {
-    margin: auto;
-    align-items: center;
-    width: 280px;
-    line-height: 16px;
-  
+  margin: auto;
+  align-items: center;
+  width: 280px;
+  line-height: 16px;
 }
 
 .challenge-section {
-    display: flex;
-    flex-direction: row;
-    padding-left: 14px;
-   
+  display: flex;
+  flex-direction: row;
+  padding-left: 14px;
 }
 
 .challenge-headline {
-    display: flex;
-    flex-direction: row;
-    padding-left: 14px;
-    margin-top: 40px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 14px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .more {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
- 
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .btn:hover {
-    background-color:#5DB075;
-  }
+  background-color: #5db075;
+}
+
+.challenges img {
+  width: 60px;
+}
