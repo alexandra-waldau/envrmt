@@ -1,0 +1,29 @@
+.settings.item {
+  margin-top: 10px;
+  font-family: Inter;
+  font-size: 15px;
+  text-align: center;
+  color: #666666;
+  background-color: transparent;
+  height: 50px;
+  border-radius: 80px;
+  border: 1px solid rgba(102, 102, 102, 0.3);
+  width: 50%;
+}
+
+.headline.settings {
+  padding-top: 10px;
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+img {
+  width: 200px;
+  margin-bottom: 40px;
+}

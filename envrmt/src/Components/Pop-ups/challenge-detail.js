@@ -1,15 +1,8 @@
 import "./challenge-detail.css";
 
-//importing icons for categories
 import { AiOutlineShoppingCart } from "react-icons/ai";
-
-//import icon for close button
 import { GrClose } from "react-icons/gr";
-
-//import icons for duration
 import { BsStopwatch } from "react-icons/bs";
-
-//import icon for Co2 avoided
 import { AiOutlineCloud } from "react-icons/ai";
 
 //defining categories

@@ -228,15 +228,44 @@
 	align-items: center;
 	color: #5db075;
 	border: none;
-	background-color: white;
-	position: relative;
+	background-color: transparent;
 	width: 50%;
 	font-weight: 600;
 	text-decoration: none;
+}
+
+.extend-button a {
+	width: 100%;
 }
 
 .plus-icon {
 	height: 23px;
 	width: 23px;
 	margin-bottom: 5px;
+}
+
+.settings.icon {
+	border: none;
+	background: transparent;
+	position: absolute;
+	right: 7%;
+	top: 4%;
+}
+
+.icon {
+	height: 30px;
+	width: 30px;
+	color: #666666;
+	stroke-width: 1px;
+}
+
+/*should be moved to different file*/
+h2 {
+	font-weight: 600;
+	line-height: 35px;
+	font-size: 30px;
+}
+
+.headline.dashboard {
+	margin-top: 50px;
 }

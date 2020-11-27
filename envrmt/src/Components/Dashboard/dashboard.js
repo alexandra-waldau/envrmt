@@ -5,14 +5,15 @@ import "./dashboard.css";
 import { FeedbackSwitcher } from "../Pop-ups/feedback";
 import { ChallengeCard } from "../Challenge/challenge-status";
 import { ChallengeCompletion } from "../Pop-ups/feedback";
+import { ChallengeDetail } from "../Pop-ups/challenge-detail";
+import { Link } from "react-router-dom";
 
 // icon imports
 import { AiOutlinePlusCircle } from "react-icons/ai";
+import { FiSettings } from "react-icons/fi";
 
 // image imports
 import LevelPicture from "../../Assets/LevelPicture.png";
-import { ChallengeDetail } from "../Pop-ups/challenge-detail";
-import { Link } from "react-router-dom";
 
 let dashboardLevel = "Beginner";
 let dashboardLevelText =
@@ -29,7 +30,6 @@ const Default = () => {
 	);
 };
 
-//________________________________________________________________________________________
 //Putting together the home screen components
 const Dashboard = () => {
 	const [detailIsVisible, setDetailVisibility] = useState(false);
@@ -67,9 +67,12 @@ const Dashboard = () => {
 		<div className="flexbox-container">
 			{/* <FeedbackSwitcher /> */}
 			{/* <div className="feedback-overlay" /> */}
-			<div className="flexbox-item">
-				<div className="primaryText">Hello, Lisa!</div>
-			</div>
+			<button className="settings icon">
+				<Link to="/settings">
+					<FiSettings className="icon" />
+				</Link>
+			</button>
+			<h2 className="headline dashboard">Hello, Lisa!</h2>
 			<div className="flexbox-item">
 				<Default />
 			</div>
@@ -95,7 +98,6 @@ const Dashboard = () => {
 					<FeedbackSwitcher toggle={() => exitFeedbackPopUp()} />
 				) : null}
 			</div>
-
 			<button className="extend-button">
 				<Link className="extend-button" to="add-challenge">
 					<AiOutlinePlusCircle className="plus-icon" /> Add Challenge{" "}
