@@ -40,5 +40,13 @@ const signOut = () => {
   })
 }
 
+const deleteAccount = () => {
+  firebase.auth().currentUser.delete().then(function() {
+  }).catch(function(error){
+    console.log(error);
+  })
+}
+
+
 export default firebaseApp;
-export { auth, emailSignUp, googleSignUp, emailSignIn, signOut }
+export { auth, emailSignUp, googleSignUp, emailSignIn, signOut, deleteAccount }
