@@ -17,15 +17,15 @@ A high fidelity prototype can be found here: http://bit.ly/figma-prototype
 
 Our data model utilizes a document-based NoSQL database. Data is stored in three different document collections: users, challenges and progress. Information about users that sign up to the application will be stored dynamically in the users collection. All available challenges are pre-defined and will be stored (statically) in the challenges collection. Information about which challenges a user completes and how much impact it creates is stored in the progress collection.
 
-1. Entities
+### 1. Entities
 
 User
 Challenges
 Progress
 
-2. Attributes for entities
+### 2. Attributes for entities
 
-#### Model for User
+### Model for User
 
 | name        | type      | description                    |
 | ----------- | --------- | ------------------------------ |
@@ -35,7 +35,7 @@ Progress
 | country     | string    | countrycode as ISO2 (e.g. DK)  |
 | progress id | reference | reference to progress document |
 
-#### Model for Challenges
+## Model for Challenges
 
 | name        | type   | description       |
 | ----------- | ------ | ----------------- |
@@ -44,7 +44,7 @@ Progress
 | duration    | number | max. 5 days       |
 | avoidance   | number | CO2 avoided       |
 
-#### Model for Progress
+## Model for Progress
 
 | name      | type     | description                        |
 | --------- | -------- | ---------------------------------- |
@@ -55,18 +55,19 @@ Progress
 | active    | array    | list of active challenges          |
 | inactive  | array    | list of inactive challenges        |
 
-3. Data Naming Convenction - would be be done in following manner for all the entities
-   Example for User entity:
-   user_id
-   user_name
-   user_email
-   user_country
-   user_progress
+### 3. Data Naming Convenction - would be be done in following manner for all the entities
 
-4. Relationships
+Example for User entity:
+user_id
+user_name
+user_email
+user_country
+user_progress
+
+### 4. Relationships
 
 User and Progress share a one-to-one relationship. Progress and challenges share a one-to-many relationship. One instance of Progress can refer to many instances of challenges.
 
-5. Normalize to reduce Data Redundancy
+### 5. Normalize to reduce Data Redundancy
 
 We normalized our data model by creating a separate entity for Progress. Alternatively, progress could be embedded into the User entity to speed up information retrieval. However, creating a separate Progress entity allows us to extend the functionality of our application more easily as it makes it possible to extract all progress levels from all users and, for example, display a leaderboard.
