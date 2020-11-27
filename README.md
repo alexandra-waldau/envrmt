@@ -35,7 +35,7 @@ Progress
 | country     | string    | countrycode as ISO2 (e.g. DK)  |
 | progress id | reference | reference to progress document |
 
-## Model for Challenges
+### Model for Challenges
 
 | name        | type   | description       |
 | ----------- | ------ | ----------------- |
@@ -44,7 +44,7 @@ Progress
 | duration    | number | max. 5 days       |
 | avoidance   | number | CO2 avoided       |
 
-## Model for Progress
+### Model for Progress
 
 | name      | type     | description                        |
 | --------- | -------- | ---------------------------------- |
@@ -58,10 +58,10 @@ Progress
 ### 3. Data Naming Convenction - would be be done in following manner for all the entities
 
 Example for User entity:
-user_id
-user_name
-user_email
-user_country
+user_id,
+user_name,
+user_email,
+user_country,
 user_progress
 
 ### 4. Relationships
