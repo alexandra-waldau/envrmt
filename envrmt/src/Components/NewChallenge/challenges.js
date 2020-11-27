@@ -1,69 +1,124 @@
-import React from 'react';
+import React, { Component } from "react";
 import { useState } from "react";
-import bicycle from '../Icons/Bicycle.svg';
-import food from '../Icons/Food.svg';
-import trash from '../Icons/Trash.svg';
-import cart from '../Icons/Cart.svg';
-import done_tick from '../Icons/Done_tick.svg';
-import divider from '../Icons/Divider.svg';
-import './challenges.css';
-import { ChallengeDetails } from './popup';
+import bicycle from "../Icons/Bicycle.svg";
+import food from "../Icons/Food.svg";
+import trash from "../Icons/Trash.svg";
+import cart from "../Icons/Cart.svg";
+import done_tick from "../Icons/Done_tick.svg";
+import divider from "../Icons/Divider.svg";
+import "./challenges.css";
+import { ChallengeDetails } from "./popup";
+import { Link } from "react-router-dom";
+import { map } from "jquery";
+import { render } from "@testing-library/react";
 
-const Challenges = () => {
-    const[visible, setVisibility] = useState(false);
+class NewChallenges extends Component {
+	constructor() {
+		super();
+		this.state = {
+			newEntries: [],
+			lastIndex: 0,
+		};
+	}
 
-    const togglePopUp = () => {
-        setVisibility(!visible);
-    }
+	//specific react lifecycle method
+	//"when the component MOUNTS/runs, this receives data from the spec'ed json file"
+	// even tho data is stored in the public folder, upon rendering the data will be in this component's directory
+	componentDidMount() {
+		fetch("./newChallenges.json")
+			.then((response) => response.json())
+			.then((result) => {
+				const nwCh = result.map((item) => {
+					item.chId = this.state.lastIndex;
+					this.setState({ lastIndex: this.state.lastIndex + 1 });
+					return item;
+				});
+				this.setState({
+					newEntries: nwCh,
+				});
+			});
+	}
 
-    return(
-    <div className ="challenges">
-        <div className = "challenge-headline">
-            <h5>Back</h5>
-            <h1>New Challenge</h1>
-        </div>
-            <div className = "challenge-section">
-                <img src={bicycle} alt='bicycle' />
-                <div className ="challenge-text">
-                    <h2>Chu-chuu</h2>
-                    <h3>Taking the train not only gives you more personal space than most planes, it...</h3>
-                    <img src={divider} alt='divider' />
-                </div>
-            </div>
-            <div className="btn">
-                <div className = "challenge-section" onClick={() => togglePopUp()}>
-                        <img src={food} alt='food' />
-                        <div className ="challenge-text">
-                            <h2>As good as guacamole</h2>
-                            <h3>Try these alternatives to Avocado when prepping for the next BBQ.</h3>
-                            <img src={divider} alt='divider' />
-                        </div>
-                </div>
-            </div>
-            <div className = "challenge-section">
-                <img src={trash} alt='trash' />
-                <div className ="challenge-text">
-                    <h2>Don’t be dump</h2>
-                    <h3>Before throwing out small stuff, consider reusing it. Check out these cool recy...</h3>
-                    <img src={divider} alt='divider' />
-                </div>
-            </div>
-            <div className = "challenge-section"> 
-                <img src={cart} alt='cart' /> 
-                <div className ="challenge-text">
-                    <h2>I’m gonna pop some tags</h2>
-                    <h3>Shop in thrift stores the next time you’re with the fashionistas. </h3>
-                    <img src={divider} alt='divider' />
-                </div>
-            </div>
-                    
-                <div className = "more">
-                    <img src={done_tick} alt='done_tick' /> 
-                    <h4>More</h4>
-                </div>
-                {visible ? <ChallengeDetails toggle={() => togglePopUp()}/> : null}
-    </div>
-    );
+	render() {
+		return (
+			<div>
+				<DisplayNewChallenges display={this.state.newEntries} />
+			</div>
+		);
+	}
 }
 
-export {Challenges}
+class DisplayNewChallenges extends Component {
+	constructor() {
+		super();
+		this.state = {
+			visible: false,
+			category: "",
+		};
+	}
+
+	togglePopUp() {
+		this.setState((prevState) => ({
+			visible: !prevState.visible,
+		}));
+	}
+
+	render() {
+		return (
+			<div className="new-challenges">
+				<div className="new-challenge-headline">
+					<Link className="back-button" to="dashboard">
+						<h5>Back</h5>
+					</Link>
+					<h1>New Challenge</h1>
+				</div>
+				<ul>
+					{this.props.display.map((item) => (
+						<>
+							<li className="btn">
+								<div
+									className="new-challenge-section"
+									onClick={() => this.togglePopUp()}
+									key={item.chId}
+								>
+									{/* {<img src={food} />} */}
+									{item.category == "Food" ? (
+										<img src={food} alt="Food" />
+									) : item.category == "Transportation" ? (
+										<img src={bicycle} alt="Transportation" />
+									) : item.category == "Waste" ? (
+										<img src={trash} alt="waste" />
+									) : item.category == "Shopping" ? (
+										<img src={cart} alt="Shopping" />
+									) : null}
+									<div className="new-challenge-text">
+										<h2>{item.title}</h2>
+										<h3>{item.description}</h3>
+									</div>
+								</div>
+								{this.state.visible ? (
+									<ChallengeDetails
+										toggle={() => this.togglePopUp()}
+										title={item.title}
+										descr={item.description}
+										co2={item.total}
+									/>
+								) : null}
+							</li>
+						</>
+					))}
+				</ul>
+				<div className="more">
+					<img
+						className="more-button"
+						src={done_tick}
+						alt="See More Challenges"
+					/>
+					<h4>More</h4>
+				</div>
+			</div>
+		);
+	}
+}
+
+export { NewChallenges };

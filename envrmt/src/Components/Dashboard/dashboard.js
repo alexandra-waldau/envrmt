@@ -34,17 +34,33 @@ const Default = () => {
 const Dashboard = () => {
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [ratingIsVisible, setRatingVisibility] = useState(false);
+	const [feedbackIsVisible, setFeedbackVisibility] = useState(false);
+	const [score, setScore] = useState(0);
 
 	const toggleDetailPopUp = () => {
 		setDetailVisibility(!detailIsVisible);
 	};
 	const toggleRatingPopUp = () => {
-		setRatingVisibility(!ratingIsVisible);
-		toggleDetailPopUp();
+		setRatingVisibility(true);
+		setDetailVisibility();
 	};
 
 	const exitRatingPopUp = () => {
 		setRatingVisibility();
+	};
+
+	const toggleFeedbackPopUp = () => {
+		setFeedbackVisibility(true);
+		setRatingVisibility();
+		setDetailVisibility();
+	};
+
+	const exitFeedbackPopUp = () => {
+		setFeedbackVisibility();
+	};
+
+	const updateScore = (props) => {
+		setScore(props);
 	};
 
 	return (
@@ -65,22 +81,28 @@ const Dashboard = () => {
 				<div className="flexbox-item">
 					<ChallengeCard toggle={() => toggleDetailPopUp()} />
 				</div>
+				{detailIsVisible ? (
+					<ChallengeDetail
+						next={() => toggleRatingPopUp()}
+						toggle={() => toggleDetailPopUp()}
+					/>
+				) : null}
+				{ratingIsVisible ? (
+					<ChallengeCompletion
+						toggle={() => exitRatingPopUp()}
+						score={() => updateScore()}
+						next={() => toggleFeedbackPopUp()}
+					/>
+				) : null}
+				{feedbackIsVisible ? (
+					<FeedbackSwitcher toggle={() => exitFeedbackPopUp()} />
+				) : null}
 			</div>
 			<button className="extend-button">
-				<AiOutlinePlusCircle className="plus-icon" />
 				<Link className="extend-button" to="add-challenge">
-					Add Challenge
+					<AiOutlinePlusCircle className="plus-icon" /> Add Challenge{" "}
 				</Link>
 			</button>
-			{detailIsVisible ? (
-				<ChallengeDetail
-					next={() => toggleRatingPopUp()}
-					toggle={() => toggleDetailPopUp()}
-				/>
-			) : null}
-			{ratingIsVisible ? (
-				<ChallengeCompletion toggle={() => exitRatingPopUp()} />
-			) : null}
 		</div>
 	);
 };

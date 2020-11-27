@@ -1,83 +1,81 @@
 /* Performance Feedback */
-.feedback-overlay {
-  width: 100%;
-  height: 100%;
-  background-color: #c4c4c4;
-  opacity: 0.5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  backdrop-filter: blur(10px);
-  z-index: 1;
-}
 
 .feedback-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 150px;
-  width: 281px;
-  height: 307px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.08));
-  z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	top: 150px;
+	width: 281px;
+	height: 307px;
+	background-color: #ffffff;
+	border-radius: 8px;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.08));
+	z-index: 2;
 }
 
 .feedback-emoji {
-  left: 20px;
-  width: 26px;
-  height: 26px;
-  margin-top: 15.3%;
-  margin-bottom: 5%;
+	left: 20px;
+	width: 3em;
+	height: 3em;
+	margin-top: 15.3%;
+	margin-bottom: 5%;
 }
 
 .feedback-card-title {
-  line-height: 0px;
+	line-height: 0px;
+	font-weight: bold;
 }
 
 .feedback-card-text {
-  text-align: center;
+	text-align: center;
 }
 
-.feedback-card-co2avoidance {
-  margin-top: 7%;
-  line-height: 0px;
+#feedback-card-co2avoidance {
+	margin-top: 4%;
+	line-height: 0px;
+	font-weight: bold;
 }
 
 #feedback-avoidance {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+#positive {
+	color: #5db075;
+}
+
+#negative {
+	color: red;
 }
 
 .rating {
-  padding-top: 15px;
+	padding-top: 15px;
 }
 
 .rating-icon {
-  width: 20px;
-  height: 20px;
-  padding: 0 2px;
-  color: #a1a5ac;
+	width: 20px;
+	height: 20px;
+	padding: 0 2px;
+	color: #a1a5ac;
 }
 
 .active {
-  color: #5db075;
+	color: #5db075;
 }
 
 .done-button {
-  background-color: #5db075;
-  border-radius: 81.9242px;
-  color: white;
-  border: none;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
-  padding: 10px 15px;
-  margin-top: 10px;
-  width: 40%;
+	background-color: #5db075;
+	border-radius: 81.9242px;
+	color: white;
+	border: none;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 17px;
+	padding: 10px 15px;
+	margin-top: 10px;
+	min-width: 40%;
 }

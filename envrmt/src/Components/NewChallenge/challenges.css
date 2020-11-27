@@ -1,70 +1,103 @@
-.challenges h1 {
-  font-size: 30px;
-  font-weight: 600;
-  font-family: Inter;
-  padding-left: 25.5px;
+.new-challenges {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
 }
 
-.challenges h2 {
-  font-size: 16px;
-  font-weight: 600;
-  font-family: Inter;
+.new-challenges ul {
+	list-style-type: none;
 }
 
-.challenges h3 {
-  font-size: 13px;
-  font-weight: 400;
-  font-family: Inter;
+.new-challenge-headline {
+	display: flex;
+	flex-direction: row;
+	padding-left: 14px;
+	margin-top: 1rem;
+	margin-bottom: 20px;
 }
 
-.challenges h4 {
-  font-size: 11px;
-  font-weight: 500;
-  font-family: Inter;
-  color: #5db075;
-  margin-top: 5px;
+.new-challenges h1 {
+	font-size: 30px;
+	font-weight: 600;
+	font-family: Inter;
+	padding-left: 25.5px;
 }
 
-.challenges h5 {
-  font-size: 16px;
-  font-weight: 600;
-  font-family: Inter;
-  color: #5db075;
+.new-challenges h2 {
+	font-size: 16px;
+	font-weight: 600;
+	font-family: Inter;
+	margin-top: 0.5rem;
+	margin-bottom: 0.1rem;
 }
 
-.challenge-text {
-  margin: auto;
-  align-items: center;
-  width: 280px;
-  line-height: 16px;
+.new-challenges h3 {
+	font-size: 13px;
+	font-weight: 400;
+	font-family: Inter;
+	margin: 0;
 }
 
-.challenge-section {
-  display: flex;
-  flex-direction: row;
-  padding-left: 14px;
+.new-challenges h4 {
+	font-size: 11px;
+	font-weight: 500;
+	font-family: Inter;
+	color: #5db075;
+	margin-top: 5px;
 }
 
-.challenge-headline {
-  display: flex;
-  flex-direction: row;
-  padding-left: 14px;
-  margin-top: 40px;
-  margin-bottom: 20px;
+.new-challenges h5 {
+	font-size: 16px;
+	font-weight: 600;
+	font-family: Inter;
+	color: #5db075;
+}
+
+.new-challenge-text {
+	margin-left: 1em;
+	align-items: center;
+	width: 280px;
+	line-height: 16px;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.new-challenge-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding-left: 14px;
+}
+
+.new-challenge-section img {
+	height: 3rem;
+	width: 3rem;
+	margin-bottom: 0px;
 }
 
 .more {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.more-button {
+	height: 1.6rem;
+	width: 1.6rem;
+	margin-bottom: 0px;
 }
 
 .btn:hover {
-  background-color: #5db075;
+	background-color: #5db075;
 }
 
-.challenges img {
-  width: 60px;
+.back-button {
+	background: none;
+	padding: 0;
+	border: none;
+	text-decoration: none;
 }

@@ -3,16 +3,18 @@ import { BsCircleFill } from "react-icons/bs";
 // Importing the cloud for the icon of CO2
 import { AiOutlineCloud } from "react-icons/ai";
 
+import "../Dashboard/dashboard.css";
+
 //________________________________________________________________________________________
 //The Challenge card container
 const ChallengeCard = (props) => {
 	return (
 		<div className="container-challenge" onClick={props.toggle}>
-			<StatusOptions />
-			<p className="challenge-status" id={props.id}>
+			<div className="challenge-status" id={props.id}>
+				<StatusOptions />
 				{props.icon}
 				{props.status}
-			</p>
+			</div>
 			<p className="challenge-title">Let’s take a ride together!</p>
 			<p className="challenge-text">Take your bike to work for 5 days.</p>
 			<Co2Avoided
@@ -31,11 +33,9 @@ let challengeStatus = "done";
 //Function for challenge status
 const ChallengeStatus = (props) => {
 	return (
-		<div>
-			<p className="challenge-status" id={props.id}>
-				{props.icon}
-				{props.status}
-			</p>
+		<div className="challenge-status" id={props.id}>
+			<BsCircleFill className="challenge-status-circle" />
+			<p className="challenge-status-text">{props.status}</p>
 		</div>
 	);
 };
@@ -47,20 +47,17 @@ const StatusOptions = () => {
 			<ChallengeStatus
 				className="challenge-status"
 				id="active"
-				icon={<BsCircleFill />}
 				status=" Active"
 			/>
 		);
 	} else if (challengeStatus == "done") {
 		return (
 			<div className="challenge-status">
-				<ChallengeStatus id="done" icon={<BsCircleFill />} status=" Done" />
+				<ChallengeStatus id="done" status=" Done" />
 			</div>
 		);
 	} else {
-		return (
-			<ChallengeStatus id="failed" icon={<BsCircleFill />} status=" Failed" />
-		);
+		return <ChallengeStatus id="failed" status=" Failed" />;
 	}
 };
 
@@ -76,4 +73,4 @@ const Co2Avoided = (props) => {
 	);
 };
 
-export { ChallengeCard, Co2Avoided }
+export { ChallengeCard, Co2Avoided };
