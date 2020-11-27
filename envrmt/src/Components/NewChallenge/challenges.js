@@ -49,13 +49,6 @@ class NewChallenges extends Component {
 }
 
 class DisplayNewChallenges extends Component {
-	//make below to sth class compatible
-	// const [visible, setVisibility] = useState(false);
-
-	// const togglePopUp = () => {
-	// 	setVisibility(!visible);
-	// };
-
 	constructor() {
 		super();
 		this.state = {
@@ -101,23 +94,26 @@ class DisplayNewChallenges extends Component {
 									<div className="new-challenge-text">
 										<h2>{item.title}</h2>
 										<h3>{item.description}</h3>
-										<img src={divider} alt="divider" />
 									</div>
 								</div>
+								{this.state.visible ? (
+									<ChallengeDetails
+										toggle={() => this.togglePopUp()}
+										title={item.title}
+										descr={item.description}
+										co2={item.total}
+									/>
+								) : null}
 							</li>
-							{this.state.visible ? (
-								<ChallengeDetails
-									toggle={() => this.togglePopUp()}
-									title={item.title}
-									descr={item.description}
-									co2={item.total}
-								/>
-							) : null}
 						</>
 					))}
 				</ul>
 				<div className="more">
-					<img src={done_tick} alt="See More Challenges" />
+					<img
+						className="more-button"
+						src={done_tick}
+						alt="See More Challenges"
+					/>
 					<h4>More</h4>
 				</div>
 			</div>

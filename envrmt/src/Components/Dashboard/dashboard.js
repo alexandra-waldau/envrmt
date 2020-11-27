@@ -103,17 +103,6 @@ const Dashboard = () => {
 					<AiOutlinePlusCircle className="plus-icon" /> Add Challenge{" "}
 				</Link>
 			</button>
-
-			{/* ________ Why is this here? ________ */}
-			{/* {detailIsVisible ? (
-				<ChallengeDetail
-					next={() => toggleRatingPopUp()}
-					toggle={() => toggleDetailPopUp()}
-				/>
-			) : null}
-			{ratingIsVisible ? (
-				<ChallengeCompletion toggle={() => exitRatingPopUp()} />
-			) : null} */}
 		</div>
 	);
 };

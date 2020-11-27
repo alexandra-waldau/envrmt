@@ -1,3 +1,22 @@
+.new-challenges {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+.new-challenges ul {
+	list-style-type: none;
+}
+
+.new-challenge-headline {
+	display: flex;
+	flex-direction: row;
+	padding-left: 14px;
+	margin-top: 1rem;
+	margin-bottom: 20px;
+}
+
 .new-challenges h1 {
 	font-size: 30px;
 	font-weight: 600;
@@ -9,12 +28,15 @@
 	font-size: 16px;
 	font-weight: 600;
 	font-family: Inter;
+	margin-top: 0.5rem;
+	margin-bottom: 0.1rem;
 }
 
 .new-challenges h3 {
 	font-size: 13px;
 	font-weight: 400;
 	font-family: Inter;
+	margin: 0;
 }
 
 .new-challenges h4 {
@@ -32,38 +54,27 @@
 	color: #5db075;
 }
 
-.new-challenges {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	position: relative;
-}
-
 .new-challenge-text {
 	margin-left: 1em;
 	align-items: center;
 	width: 280px;
 	line-height: 16px;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #e8e8e8;
 }
 
 .new-challenge-section {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 	padding-left: 14px;
 }
 
 .new-challenge-section img {
-	height: 4rem;
-	width: 4rem;
-	margin-bottom: none;
-}
-
-.new-challenge-headline {
-	display: flex;
-	flex-direction: row;
-	padding-left: 14px;
-	margin-top: 40px;
-	margin-bottom: 20px;
+	height: 3rem;
+	width: 3rem;
+	margin-bottom: 0px;
 }
 
 .more {
@@ -75,6 +86,9 @@
 }
 
 .more-button {
+	height: 1.6rem;
+	width: 1.6rem;
+	margin-bottom: 0px;
 }
 
 .btn:hover {
