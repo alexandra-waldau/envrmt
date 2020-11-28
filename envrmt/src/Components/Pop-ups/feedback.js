@@ -14,16 +14,10 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ImEarth } from "react-icons/im";
 //defining categories
 const shoppingText = "Shopping";
-let days = 4;
 let feedback = 0;
 
 const ChallengeCompletion = (props) => {
-	const onRatingChange = (days) => {
-		feedback = days;
-		console.log(feedback);
-		props.score(feedback);
-	};
-
+	const [days, setDays] = useState(0);
 	return (
 		<div className="overlay">
 			<div className="container-challenge-detail">
@@ -39,7 +33,8 @@ const ChallengeCompletion = (props) => {
 				<p className="days-text">{days} days</p>
 				<Rating
 					onChange={(value) => {
-						onRatingChange(value);
+						props.score(value);
+						setDays(value);
 					}}
 					className="rating"
 					emptySymbol={<ImEarth className="rating-icon" />}
