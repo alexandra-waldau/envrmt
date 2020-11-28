@@ -59,14 +59,12 @@ const Dashboard = () => {
 		setFeedbackVisibility();
 	};
 
-	const updateScore = (props) => {
-		setScore(props);
+	const updateScore = (days) => {
+		setScore(days);
 	};
 
 	return (
 		<div className="flexbox-container">
-			{/* <FeedbackSwitcher /> */}
-			{/* <div className="feedback-overlay" /> */}
 			<button className="settings icon">
 				<Link to="/settings">
 					<FiSettings className="icon" />
@@ -90,12 +88,18 @@ const Dashboard = () => {
 				{ratingIsVisible ? (
 					<ChallengeCompletion
 						toggle={() => exitRatingPopUp()}
-						score={() => updateScore()}
+						score={updateScore}
 						next={() => toggleFeedbackPopUp()}
 					/>
 				) : null}
 				{feedbackIsVisible ? (
-					<FeedbackSwitcher toggle={() => exitFeedbackPopUp()} />
+					<>
+						<FeedbackSwitcher
+							toggle={() => exitFeedbackPopUp()}
+							score={score}
+							avoidance="500"
+						/>
+					</>
 				) : null}
 			</div>
 			<button className="extend-button">

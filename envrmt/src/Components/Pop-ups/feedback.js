@@ -17,12 +17,13 @@ const shoppingText = "Shopping";
 let days = 4;
 let feedback = 0;
 
-const onRatingChange = (days) => {
-	feedback = days;
-	console.log(feedback);
-};
-
 const ChallengeCompletion = (props) => {
+	const onRatingChange = (days) => {
+		feedback = days;
+		console.log(feedback);
+		props.score(feedback);
+	};
+
 	return (
 		<div className="overlay">
 			<div className="container-challenge-detail">
@@ -37,7 +38,9 @@ const ChallengeCompletion = (props) => {
 				</p>
 				<p className="days-text">{days} days</p>
 				<Rating
-					onChange={(value) => onRatingChange(value)}
+					onChange={(value) => {
+						onRatingChange(value);
+					}}
 					className="rating"
 					emptySymbol={<ImEarth className="rating-icon" />}
 					fullSymbol={<ImEarth className="rating-icon active" />}
@@ -69,7 +72,7 @@ const PerformanceFeedback = (props) => {
 					<Co2Avoided
 						className="Co2-avoided"
 						icon={<AiOutlineCloud />}
-						avoidanceChallenge="500"
+						avoidanceChallenge={props.avoidance}
 						id={props.id}
 					/>
 				</div>
@@ -82,7 +85,7 @@ const PerformanceFeedback = (props) => {
 };
 
 const FeedbackSwitcher = (props) => {
-	let performanceRating = 4;
+	let performanceRating = props.score;
 	if (performanceRating >= 3) {
 		return (
 			<PerformanceFeedback
@@ -91,6 +94,7 @@ const FeedbackSwitcher = (props) => {
 				headline="Good Job!"
 				text="Thank you for making a difference today"
 				id="positive"
+				avoidance={props.avoidance * (performanceRating / 5)}
 			/>
 		);
 	} else if (performanceRating < 3) {
@@ -101,6 +105,7 @@ const FeedbackSwitcher = (props) => {
 				headline="Small steps"
 				text="Changing the world isn’t easy. Keep challenging yourself!"
 				id="negative"
+				avoidance={props.avoidance * (performanceRating / 5)}
 			/>
 		);
 	}
