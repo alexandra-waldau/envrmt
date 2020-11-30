@@ -40,6 +40,8 @@ Progress
 | name        | type   | description       |
 | ----------- | ------ | ----------------- |
 | id          | number | auto generated id |
+| category    | string | -                 |
+| title       | string | -                 |
 | description | string | -                 |
 | duration    | number | max. 5 days       |
 | avoidance   | number | CO2 avoided       |

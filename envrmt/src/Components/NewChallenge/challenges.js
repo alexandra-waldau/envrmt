@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { useState } from "react";
-import bicycle from "../Icons/Bicycle.svg";
-import food from "../Icons/Food.svg";
-import trash from "../Icons/Trash.svg";
-import cart from "../Icons/Cart.svg";
-import done_tick from "../Icons/Done_tick.svg";
-import divider from "../Icons/Divider.svg";
 import "./challenges.css";
 import { ChallengeDetails } from "./popup";
 import { Link } from "react-router-dom";
+
+//icon imports
+import bicycle from "../../Assets/Icons/Bicycle.svg";
+import food from "../../Assets/Icons/Food.svg";
+import trash from "../../Assets/Icons/Trash.svg";
+import cart from "../../Assets/Icons/Cart.svg";
+import done_tick from "../../Assets/Icons/Done_tick.svg";
 
 class NewChallenges extends Component {
 	constructor() {

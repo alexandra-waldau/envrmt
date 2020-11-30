@@ -16,6 +16,8 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 
+const db = firebase.firestore;
+
 // to do: display error message to user
 const emailSignUp = (email, password) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -25,6 +27,8 @@ const emailSignUp = (email, password) => {
 }
 
 const googleSignUp = new firebase.auth.GoogleAuthProvider();
+
+const facebookSignUp = new firebase.auth.FacebookAuthProvider();
 
 const emailSignIn = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email,password)
@@ -49,4 +53,4 @@ const deleteAccount = () => {
 
 
 export default firebaseApp;
-export { auth, emailSignUp, googleSignUp, emailSignIn, signOut, deleteAccount }
+export { db, auth, emailSignUp, googleSignUp, facebookSignUp, emailSignIn, signOut, deleteAccount }
