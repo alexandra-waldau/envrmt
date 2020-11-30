@@ -9,8 +9,6 @@ import divider from "../Icons/Divider.svg";
 import "./challenges.css";
 import { ChallengeDetails } from "./popup";
 import { Link } from "react-router-dom";
-import { map } from "jquery";
-import { render } from "@testing-library/react";
 
 class NewChallenges extends Component {
 	constructor() {

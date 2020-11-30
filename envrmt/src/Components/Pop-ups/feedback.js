@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Rating from "react-rating";
 
 import "./feedback.css";
@@ -14,10 +14,24 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ImEarth } from "react-icons/im";
 //defining categories
 const shoppingText = "Shopping";
-let feedback = 0;
+
+const EarthRating = () => {
+
+	const [days, setDays] = useState(0);
+	return (
+		<div className="rating">
+			<p className="days-text">{days} days</p>
+			<Rating
+				onClick={(value) => setDays(value)}
+			initialRating={days}
+			emptySymbol={<ImEarth className="rating-icon" />}
+			fullSymbol={<ImEarth className="rating-icon active" />}
+			/>
+		</div>
+	);
+}
 
 const ChallengeCompletion = (props) => {
-	const [days, setDays] = useState(0);
 	return (
 		<div className="overlay">
 			<div className="container-challenge-detail">
@@ -30,16 +44,7 @@ const ChallengeCompletion = (props) => {
 				<p className="challenge-description-detail">
 					Description of challenge (maximum 2 lines)
 				</p>
-				<p className="days-text">{days} days</p>
-				<Rating
-					onChange={(value) => {
-						props.score(value);
-						setDays(value);
-					}}
-					className="rating"
-					emptySymbol={<ImEarth className="rating-icon" />}
-					fullSymbol={<ImEarth className="rating-icon active" />}
-				/>
+				<EarthRating />
 				<button className="done-button" onClick={props.next}>
 					Done
 				</button>
