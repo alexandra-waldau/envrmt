@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Rating from "react-rating";
 
 import "./feedback.css";
@@ -15,14 +15,14 @@ import { ImEarth } from "react-icons/im";
 //defining categories
 const shoppingText = "Shopping";
 
-const EarthRating = () => {
+const EarthRating = (props) => {
 
 	const [days, setDays] = useState(0);
 	return (
 		<div className="rating">
 			<p className="days-text">{days} days</p>
 			<Rating
-				onClick={(value) => setDays(value)}
+				onClick={(value) => {setDays(value); props.score(value);}}
 			initialRating={days}
 			emptySymbol={<ImEarth className="rating-icon" />}
 			fullSymbol={<ImEarth className="rating-icon active" />}
@@ -44,7 +44,7 @@ const ChallengeCompletion = (props) => {
 				<p className="challenge-description-detail">
 					Description of challenge (maximum 2 lines)
 				</p>
-				<EarthRating />
+				<EarthRating score={props.score}/>
 				<button className="done-button" onClick={props.next}>
 					Done
 				</button>
@@ -52,11 +52,6 @@ const ChallengeCompletion = (props) => {
 			</div>
 		</div>
 	);
-};
-
-//this variable will be determined by what the user selects in the feedback window (1-5 globes). everything below 3 "globes" is "low", above is achieved
-const Performance = (props) => {
-	const [performanceRating, setPerformanceRating] = useState(false);
 };
 
 const PerformanceFeedback = (props) => {

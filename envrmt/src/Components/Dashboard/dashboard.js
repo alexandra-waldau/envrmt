@@ -93,13 +93,11 @@ const Dashboard = () => {
 					/>
 				) : null}
 				{feedbackIsVisible ? (
-					<>
 						<FeedbackSwitcher
 							toggle={() => exitFeedbackPopUp()}
 							score={score}
 							avoidance="500"
 						/>
-					</>
 				) : null}
 			</div>
 			<button className="extend-button">
