@@ -1,4 +1,5 @@
 import firebase from "firebase/app";
+import "firebase/firestore"
 import "firebase/auth";
 
 const firebaseConfig = {
@@ -16,7 +17,7 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 
-const db = firebase.firestore;
+const db = firebase.firestore();
 
 // to do: display error message to user
 const emailSignUp = (email, password) => {

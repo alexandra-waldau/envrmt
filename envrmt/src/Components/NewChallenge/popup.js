@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./popup.css";
 import { GrClose } from "react-icons/gr";
-import food_g from "../Icons/Food_green.svg";
+import food_g from "../../Assets/Icons/Food_green.svg";
 
 const ChallengeDetails = (props) => {
 	return (

@@ -1,122 +1,90 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "./challenges.css";
 import { ChallengeDetails } from "./popup";
 import { Link } from "react-router-dom";
+import { getAllChallenges } from "../../Firebase/firestoreAPI";
 
-//icon imports
+// icon imports
 import bicycle from "../../Assets/Icons/Bicycle.svg";
 import food from "../../Assets/Icons/Food.svg";
 import trash from "../../Assets/Icons/Trash.svg";
 import cart from "../../Assets/Icons/Cart.svg";
 import done_tick from "../../Assets/Icons/Done_tick.svg";
 
-class NewChallenges extends Component {
-	constructor() {
-		super();
-		this.state = {
-			newEntries: [],
-			lastIndex: 0,
-		};
+// TODO: challenge detail is always the same 
+const NewChallenges = () => {
+	const [list, updateList] = useState([]);
+	const [detailIsVisible, setDetailVisibility] = useState(false);
+	const [challengeDetail, showChallengeDetail] = useState([]);
+
+	// get all existing challenges from the database 
+	async function getChallenges() {
+		// get challenges collection from firestore
+		let challenges = await getAllChallenges.get();
+		// create array of documents
+		const data = challenges.docs.map(doc => doc.data());
+		updateList(data);
 	}
 
-	//specific react lifecycle method
-	//"when the component MOUNTS/runs, this receives data from the spec'ed json file"
-	// even tho data is stored in the public folder, upon rendering the data will be in this component's directory
-	componentDidMount() {
-		fetch("./newChallenges.json")
-			.then((response) => response.json())
-			.then((result) => {
-				const nwCh = result.map((item) => {
-					item.chId = this.state.lastIndex;
-					this.setState({ lastIndex: this.state.lastIndex + 1 });
-					return item;
-				});
-				this.setState({
-					newEntries: nwCh,
-				});
-			});
+	// same effect as componentdidmount, runs after each render 
+	useEffect(() => {
+		getChallenges();
+	})
+
+	const togglePopUp = (challenge) => {
+		setDetailVisibility(!detailIsVisible);
+		showChallengeDetail(challenge);
 	}
 
-	render() {
-		return (
-			<div>
-				<DisplayNewChallenges display={this.state.newEntries} />
+	return (
+		<div className="new-challenges">
+			<div className="new-challenge-headline">
+				<Link className="back-button" to="dashboard">
+					<h5>Back</h5>
+				</Link>
+				<h1>New Challenge</h1>
 			</div>
-		);
-	}
-}
-
-class DisplayNewChallenges extends Component {
-	constructor() {
-		super();
-		this.state = {
-			visible: false,
-			category: "",
-		};
-	}
-
-	togglePopUp() {
-		this.setState((prevState) => ({
-			visible: !prevState.visible,
-		}));
-	}
-
-	render() {
-		return (
-			<div className="new-challenges">
-				<div className="new-challenge-headline">
-					<Link className="back-button" to="dashboard">
-						<h5>Back</h5>
-					</Link>
-					<h1>New Challenge</h1>
-				</div>
-				<ul>
-					{this.props.display.map((item) => (
-						<>
-							<li className="btn">
-								<div
-									className="new-challenge-section"
-									onClick={() => this.togglePopUp()}
-									key={item.chId}
-								>
-									{/* {<img src={food} />} */}
-									{item.category == "Food" ? (
-										<img src={food} alt="Food" />
-									) : item.category == "Transportation" ? (
-										<img src={bicycle} alt="Transportation" />
-									) : item.category == "Waste" ? (
-										<img src={trash} alt="waste" />
-									) : item.category == "Shopping" ? (
-										<img src={cart} alt="Shopping" />
-									) : null}
-									<div className="new-challenge-text">
-										<h2>{item.title}</h2>
-										<h3>{item.description}</h3>
-									</div>
-								</div>
-								{this.state.visible ? (
-									<ChallengeDetails
-										toggle={() => this.togglePopUp()}
-										title={item.title}
-										descr={item.description}
-										co2={item.total}
-									/>
+			<ul>
+				{list.map((item) => (
+						<li className="btn">
+							<div className="new-challenge-section"
+								onClick={(item) => togglePopUp(item)}
+								key={item.chId}>
+								{item.category == "Food" ? (
+									<img src={food} alt="Food" />
+								) : item.category == "Transportation" ? (
+									<img src={bicycle} alt="Transportation" />
+								) : item.category == "Waste" ? (
+									<img src={trash} alt="waste" />
+								) : item.category == "Shopping" ? (
+									<img src={cart} alt="Shopping" />
 								) : null}
-							</li>
-						</>
-					))}
-				</ul>
-				<div className="more">
-					<img
-						className="more-button"
-						src={done_tick}
-						alt="See More Challenges"
-					/>
-					<h4>More</h4>
-				</div>
+								<div className="new-challenge-text">
+									<h2>{item.title}</h2>
+									<h3>{item.description}</h3>
+								</div>
+							</div>
+						</li>
+				))}
+			</ul>
+			{detailIsVisible ? 
+				<ChallengeDetails
+					toggle={() => togglePopUp()}
+					title={challengeDetail.title}
+					descr={challengeDetail.description}
+					co2={challengeDetail.avoidance}
+			/> : null}
+			<div className="more">
+				<img
+					className="more-button"
+					src={done_tick}
+					alt="See More Challenges"
+				/>
+				<h4>More</h4>
 			</div>
-		);
-	}
+		</div>
+	);
 }
+
 
 export { NewChallenges };
