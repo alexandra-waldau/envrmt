@@ -13,7 +13,7 @@
 .new-challenge-headline {
   display: flex;
   flex-direction: row;
-  padding-left: 14px;
+  margin-left: -50px;
   margin-top: 1rem;
   margin-bottom: 20px;
 }
@@ -53,6 +53,7 @@
   font-weight: 600;
   font-family: Inter;
   color: #5db075;
+  padding-left: -
 }
 
 .new-challenge-text {

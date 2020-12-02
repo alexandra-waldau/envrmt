@@ -22,13 +22,14 @@ const Beigth = (props) => {
                         <img src={chatbox} alt='chatbox' />
                         <h1>“How many second hand clothes do you buy instead of the new clothes?”</h1>
                     </div>
+                <Link to="/on-boarding-categories" style={{ textDecoration: 'none' }}>
                 <div className="buttons-positioning" style={{ textDecoration: 'none' }}>
                     <button className = 'boarding-buttons' onClick={props.toggle}>I only buy new clothes</button>
                     <button className = 'boarding-buttons' onClick={props.toggle}>Most of the time</button>
                     <button className = 'boarding-buttons' onClick={props.toggle}>Trying to limit it</button>
                     <button className = 'boarding-buttons' onClick={props.toggle}>Never buy new clothes</button>
                 </div>
-            
+                </Link>
             </div>  
         </div>
     
