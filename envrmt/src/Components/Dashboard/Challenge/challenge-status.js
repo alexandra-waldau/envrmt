@@ -1,4 +1,4 @@
-import "../Dashboard/dashboard.css";
+import "../dashboard.css";
 
 // icon imports
 import { BsCircleFill } from "react-icons/bs";

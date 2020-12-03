@@ -48,17 +48,9 @@ const NewChallenges = () => {
 				{list.map((item) => (
 						<li className="btn">
 							<div className="new-challenge-section"
-								onClick={(item) => togglePopUp(item)}
+								onClick={() => togglePopUp(item)}
 								key={item.chId}>
-								{item.category == "Food" ? (
-									<img src={food} alt="Food" />
-								) : item.category == "Transportation" ? (
-									<img src={bicycle} alt="Transportation" />
-								) : item.category == "Waste" ? (
-									<img src={trash} alt="waste" />
-								) : item.category == "Shopping" ? (
-									<img src={cart} alt="Shopping" />
-								) : null}
+								<DisplayCategoryIcon category={item.category} />
 								<div className="new-challenge-text">
 									<h2>{item.title}</h2>
 									<h3>{item.description}</h3>
@@ -70,6 +62,7 @@ const NewChallenges = () => {
 			{detailIsVisible ? 
 				<ChallengeDetails
 					toggle={() => togglePopUp()}
+					category={challengeDetail.category}
 					title={challengeDetail.title}
 					descr={challengeDetail.description}
 					co2={challengeDetail.avoidance}
@@ -86,5 +79,18 @@ const NewChallenges = () => {
 	);
 }
 
+const DisplayCategoryIcon = (props) => { 
+	switch(props.category) {
+		case "Food":
+			return <img src={food} alt="Food" />;
+		case "Transportation":
+			return <img src={bicycle} alt="Transportation" />;
+		case "Waste":
+			return <img src={trash} alt="waste" />;
+		case "Shopping":
+			return <img src={cart} alt="Shopping" />;
+		default: return null;
+	}
+}
 
-export { NewChallenges };
+export { NewChallenges, DisplayCategoryIcon };
