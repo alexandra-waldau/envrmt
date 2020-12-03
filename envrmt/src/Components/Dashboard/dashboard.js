@@ -2,10 +2,10 @@ import React from "react";
 import { useState } from "react";
 import "../../Components/Create-Account/create-account.css";
 import "./dashboard.css";
-import { FeedbackSwitcher } from "../Pop-ups/feedback";
+import { FeedbackSwitcher } from "./Pop-ups/feedback";
 import { ChallengeCard } from "../Challenge/challenge-status";
-import { ChallengeCompletion } from "../Pop-ups/feedback";
-import { ChallengeDetail } from "../Pop-ups/challenge-detail";
+import { ChallengeCompletion } from "./Pop-ups/feedback";
+import { ChallengeDetail } from "./Pop-ups/challenge-detail";
 import { Link } from "react-router-dom";
 
 // icon imports

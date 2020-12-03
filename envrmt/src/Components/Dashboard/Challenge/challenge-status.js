@@ -1,11 +1,9 @@
-// importing status circle
-import { BsCircleFill } from "react-icons/bs";
-// Importing the cloud for the icon of CO2
-import { AiOutlineCloud } from "react-icons/ai";
-
 import "../Dashboard/dashboard.css";
 
-//________________________________________________________________________________________
+// icon imports
+import { BsCircleFill } from "react-icons/bs";
+import { AiOutlineCloud } from "react-icons/ai";
+
 //The Challenge card container
 const ChallengeCard = (props) => {
 	return (
