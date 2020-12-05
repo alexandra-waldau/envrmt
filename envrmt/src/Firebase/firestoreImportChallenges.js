@@ -1,15 +1,4 @@
-const firebase = require("firebase");
-// Required for side-effects
-require("firebase/firestore");
-
-// Initialize Cloud Firestore through Firebase
-firebase.initializeApp({
-	apiKey: "AIzaSyAAVsAlc93LKMikvfuC0nR7wFTxOeWxsPE",
-	authDomain: "envrmt.firebaseapp.com",
-	projectId: "envrmt",
-});
-
-var db = firebase.firestore();
+import { db } from "/.firebaseIndex";
 
 var challengeLog = [
 	{
