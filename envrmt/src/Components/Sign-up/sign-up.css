@@ -1,79 +1,86 @@
+.login-screen {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .flexbox-container-start {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  width: 375px;
-  height: 667px;
-  background-image: url("../../Assets/StartScreenBG.png");
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	width: 375px;
+	height: 667px;
+	background-image: url("../../Assets/StartScreenBG.png");
 }
 
 .applogo {
-  position: absolute;
-  align-items: center;
-  top: 31%;
+	position: absolute;
+	align-items: center;
+	top: 31%;
 }
 
 .sign-up-container {
-  position: absolute;
-  bottom: 60px;
+	position: absolute;
+	bottom: 60px;
 }
 
 .login-label-container {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  position: absolute;
-  top: 5%;
-  right: 3%;
-  margin-left: 16px;
-  margin-right: 16px;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 16px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	position: absolute;
+	top: 5%;
+	right: 3%;
+	margin-left: 16px;
+	margin-right: 16px;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 16px;
 }
 
 .button {
-  width: 250px;
-  height: 40px;
-  border: none;
-  border-radius: 100px;
-  font-family: "Inter", sans-serif;
+	width: 250px;
+	height: 40px;
+	border: none;
+	border-radius: 100px;
+	font-family: "Inter", sans-serif;
 }
 
 .buttonIcon {
-  position: absolute;
-  height: 22px;
-  width: 22px;
-  left: 10%;
+	position: absolute;
+	height: 22px;
+	width: 22px;
+	left: 10%;
 }
 
 .sign-up.button {
-  font-weight: bold;
-  border: none;
-  color: white;
-  margin-bottom: 10px;
+	font-weight: bold;
+	border: none;
+	color: white;
+	margin-bottom: 10px;
 }
 
 .link {
-  text-decoration: none;
-  color: white;
+	text-decoration: none;
+	color: white;
 }
 
 #sign-up {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 #email {
-  background-color: #5db075;
+	background-color: #5db075;
 }
 
 #facebook {
-  background-color: #3362ad;
+	background-color: #3362ad;
 }
 
 #google {
-  background-color: #eca098;
+	background-color: #eca098;
 }

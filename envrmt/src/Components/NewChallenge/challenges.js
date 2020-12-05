@@ -11,30 +11,30 @@ import trash from "../../Assets/Icons/Trash.svg";
 import cart from "../../Assets/Icons/Cart.svg";
 import done_tick from "../../Assets/Icons/Done_tick.svg";
 
-// TODO: challenge detail is always the same 
+// TODO: challenge detail is always the same
 const NewChallenges = () => {
 	const [list, updateList] = useState([]);
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [challengeDetail, showChallengeDetail] = useState([]);
 
-	// get all existing challenges from the database 
+	// get all existing challenges from the database
 	async function getChallenges() {
 		// get challenges collection from firestore
 		let challenges = await getAllChallenges.get();
 		// create array of documents
-		const data = challenges.docs.map(doc => doc.data());
+		const data = challenges.docs.map((doc) => doc.data());
 		updateList(data);
 	}
 
-	// same effect as componentdidmount, runs after each render 
+	// same effect as componentdidmount, runs after each render
 	useEffect(() => {
 		getChallenges();
-	})
+	});
 
 	const togglePopUp = (challenge) => {
 		setDetailVisibility(!detailIsVisible);
 		showChallengeDetail(challenge);
-	}
+	};
 
 	return (
 		<div className="new-challenges">
@@ -46,27 +46,30 @@ const NewChallenges = () => {
 			</div>
 			<ul>
 				{list.map((item) => (
-						<li className="btn">
-							<div className="new-challenge-section"
-								onClick={() => togglePopUp(item)}
-								key={item.chId}>
-								<DisplayCategoryIcon category={item.category} />
-								<div className="new-challenge-text">
-									<h2>{item.title}</h2>
-									<h3>{item.description}</h3>
-								</div>
+					<li className="btn">
+						<div
+							className="new-challenge-section"
+							onClick={() => togglePopUp(item)}
+							key={item.chId}
+						>
+							<DisplayCategoryIcon category={item.category} />
+							<div className="new-challenge-text">
+								<h2>{item.title}</h2>
+								<h3>{item.description}</h3>
 							</div>
-						</li>
+						</div>
+					</li>
 				))}
 			</ul>
-			{detailIsVisible ? 
+			{detailIsVisible ? (
 				<ChallengeDetails
 					toggle={() => togglePopUp()}
 					category={challengeDetail.category}
 					title={challengeDetail.title}
 					descr={challengeDetail.description}
 					co2={challengeDetail.avoidance}
-			/> : null}
+				/>
+			) : null}
 			<div className="more">
 				<img
 					className="more-button"
@@ -77,10 +80,10 @@ const NewChallenges = () => {
 			</div>
 		</div>
 	);
-}
+};
 
-const DisplayCategoryIcon = (props) => { 
-	switch(props.category) {
+const DisplayCategoryIcon = (props) => {
+	switch (props.category) {
 		case "Food":
 			return <img src={food} alt="Food" />;
 		case "Transportation":
@@ -89,8 +92,9 @@ const DisplayCategoryIcon = (props) => {
 			return <img src={trash} alt="waste" />;
 		case "Shopping":
 			return <img src={cart} alt="Shopping" />;
-		default: return null;
+		default:
+			return null;
 	}
-}
+};
 
 export { NewChallenges, DisplayCategoryIcon };

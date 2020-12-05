@@ -2,7 +2,7 @@ import React from "react";
 import "./popup.css";
 import { DisplayCategoryIcon } from "./challenges";
 
-// icon imports 
+// icon imports
 import { GrClose } from "react-icons/gr";
 import food_g from "../../Assets/Icons/Food_green.svg";
 
@@ -17,7 +17,7 @@ const ChallengeDetails = (props) => {
 				{/* <h4>{props.category}</h4> */}
 				<h1>{props.title}</h1>
 				<h2>{props.descr}</h2>
-				<h3>-{props.co2}g of C02</h3>
+				<h3>-{props.co2}kg of C02</h3>
 				<button className="challenge-button" onClick={props.toggle}>
 					Activate challenge
 				</button>
