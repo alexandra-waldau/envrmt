@@ -19,9 +19,9 @@ Our data model utilizes a document-based NoSQL database. Data is stored in three
 
 ### 1. Entities
 
-User
-Challenges
-Progress
+User,
+Challenges,
+Progress,
 
 ### 2. Attributes for entities
 
@@ -48,14 +48,13 @@ Progress
 
 ### Model for Progress
 
-| name      | type     | description                        |
-| --------- | -------- | ---------------------------------- |
-| user id   | refernce | refernce to user document          |
-| completed | number   | percentage of completed challenges |
-| avoided   | number   | accumulated CO2 avoidance          |
-| finished  | array    | list of finished challenges        |
-| active    | array    | list of active challenges          |
-| inactive  | array    | list of inactive challenges        |
+| name      | type      | description                        |
+| --------- | --------- | ---------------------------------- |
+| user id   | reference | reference to user document         |
+| completed | number    | percentage of completed challenges |
+| avoided   | number    | accumulated CO2 avoidance          |
+| finished  | array     | list of finished challenges        |
+| active    | array     | list of active challenges          |
 
 ### 3. Data Naming Convenction - would be be done in following manner for all the entities
 

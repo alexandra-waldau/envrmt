@@ -9,7 +9,8 @@ import { FiMail } from 'react-icons/fi';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { auth, googleSignUp, facebookSignUp } from '../../Firebase/firebaseIndex';
+import { auth } from '../../Firebase/firebaseIndex';
+import { googleSignUp, facebookSignUp } from '../../Firebase/firebaseAuth';
 
 const LoginButton = (props) => {
     return <button className="sign-up button" id={props.id} onClick={props.popup}>{props.icon}<Link className="link" to={props.url}>Sign-up with {props.service}</Link></button>
@@ -38,7 +39,7 @@ const SignUpScreen = () => {
 				</Link>
 			</button>
             <div className="applogo">
-				<img src={AppLogo}></img>
+				<img src={AppLogo} alt="logo"></img>
 			</div>
 			<div className="sign-up-container">
 				<SignUpOptions />

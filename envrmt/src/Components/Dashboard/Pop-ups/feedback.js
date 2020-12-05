@@ -58,7 +58,7 @@ const PerformanceFeedback = (props) => {
 	return (
 		<div className="overlay">
 			<div className="container-challenge-detail">
-				<img className="feedback-emoji" src={props.icon}></img>
+				<img className="feedback-emoji" src={props.icon} alt="emoji"></img>
 				<p className="feedback-card-title">{props.headline}</p>
 				<p className="feedback-card-text" id="gray">
 					{props.text}

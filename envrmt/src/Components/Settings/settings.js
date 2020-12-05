@@ -2,8 +2,8 @@ import React from "react";
 import "./settings.css";
 import { Header } from "../Create-Account/create-account";
 import signOutImage from "../../Assets/Sign_out.svg";
-import { signOut } from "../../Firebase/firebaseIndex";
-import { DeleteAccountPopUp } from "../Pop-ups/DeleteAccountPopUp.js";
+import { signOut } from "../../Firebase/firebaseAuth";
+import { DeleteAccountPopUp } from "./Pop-ups/DeleteAccountPopUp.js";
 import { useState } from "react";
 
 const onClickSettingsSignOut = (event) => {
@@ -27,7 +27,7 @@ const Settings = () => {
 				<img
 					className="signout-image"
 					src={signOutImage}
-					alt="sign-out image"
+					alt="sign-out"
 				/>
 				<button
 					onClick={(event) => onClickSettingsSignOut(event)}

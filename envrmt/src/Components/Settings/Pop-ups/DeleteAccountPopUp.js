@@ -1,6 +1,6 @@
 import "./DeleteAccountPopUp.css";
-import SadFace from "./../../Assets/Sad.png";
-import { deleteAccount } from "../../Firebase/firebaseIndex.js";
+import SadFace from "../../../Assets/Sad.png";
+import { deleteAccount } from "../../../Firebase/firebaseAuth.js";
 import {GrClose} from 'react-icons/gr';
 
 const onClickSettingsDeleteAccount = (event) => {

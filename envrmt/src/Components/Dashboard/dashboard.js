@@ -1,12 +1,13 @@
 import React from "react";
-import { useState } from "react";
 import "../../Components/Create-Account/create-account.css";
 import "./dashboard.css";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FeedbackSwitcher } from "./Pop-ups/feedback";
 import { ChallengeCard } from "./Challenge/challenge-status";
 import { ChallengeCompletion } from "./Pop-ups/feedback";
 import { ChallengeDetail } from "./Pop-ups/challenge-detail";
-import { Link } from "react-router-dom";
+import { getUsername } from "../../Firebase/firebaseAuth";
 
 // icon imports
 import { AiOutlinePlusCircle } from "react-icons/ai";
@@ -70,7 +71,7 @@ const Dashboard = () => {
 					<FiSettings className="icon" />
 				</Link>
 			</button>
-			<h2 className="headline dashboard">Hello, Lisa!</h2>
+			<h2 className="headline dashboard">Hello, {getUsername()}!</h2>
 			<div className="flexbox-item">
 				<Default />
 			</div>

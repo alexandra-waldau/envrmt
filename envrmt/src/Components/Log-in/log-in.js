@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { emailSignIn } from "../../Firebase/firebaseIndex";
+import { emailSignIn } from "../../Firebase/firebaseAuth";
 import { Header } from "../Create-Account/create-account";
 
 const onSubmit = (event,email,password) => { 
