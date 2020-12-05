@@ -21,13 +21,14 @@ const createProfile = async (name) => {
 const getUsername = () => {
     const username = auth.currentUser.displayName;
     // only split by one or more whitespace 
+    if (username !== null) {
     const parts = username.split(/\s+/);
-    console.log(parts);
     // only return the first name
     if (parts.length > 1) {
         return parts[0];
     }
     return parts;
+  }
 }
 
 const googleSignUp = new firebase.auth.GoogleAuthProvider();
