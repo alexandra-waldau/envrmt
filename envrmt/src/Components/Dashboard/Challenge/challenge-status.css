@@ -1,0 +1,66 @@
+.container-challenge {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 343px;
+	height: 110px;
+	border: transparent;
+	background-color: #f6f6f6;
+	border-radius: 8px;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.08));
+}
+
+.challenge-status {
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin: 0.5em 0 0 0.5em;
+}
+
+.challenge-status-text {
+	font-family: Inter;
+	font-style: normal;
+	margin: 0 0 0 0.4em;
+	color: #c4c4c4;
+}
+
+.challenge-status-circle {
+	width: 0.7em;
+	height: 0.7em;
+}
+
+.container-challenge-text p {
+	font-family: Inter;
+	font-style: normal;
+	font-size: 0.9em;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.container-challenge-text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0.6em 0.9em 0 1.7em;
+}
+
+.challenge-title {
+	font-weight: 600;
+	color: #000000;
+}
+
+.challenge-description {
+	color: #000000;
+}
+
+.Co2-avoided {
+	color: #c4c4c4;
+}
+
+#active {
+	color: #cc5437;
+}
+
+#done {
+	color: #5db075;
+}

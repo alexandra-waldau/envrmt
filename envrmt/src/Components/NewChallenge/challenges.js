@@ -29,6 +29,7 @@ const NewChallenges = () => {
 	// same effect as componentdidmount, runs after each render
 	useEffect(() => {
 		getChallenges();
+		console.log("fetching");
 	}, []);
 
 	const togglePopUp = (challenge) => {

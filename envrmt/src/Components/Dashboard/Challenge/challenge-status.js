@@ -1,4 +1,4 @@
-import "../dashboard.css";
+import "./challenge-status.css";
 
 // icon imports
 import { BsCircleFill } from "react-icons/bs";
@@ -8,18 +8,18 @@ import { AiOutlineCloud } from "react-icons/ai";
 const ChallengeCard = (props) => {
 	return (
 		<div className="container-challenge" onClick={props.toggle}>
-			<div className="challenge-status" id={props.id}>
-				<StatusOptions />
-				{props.icon}
-				{props.status}
+			{/* <div className="challenge-status" id={props.id}> */}
+			<StatusOptions />
+			{/* {props.icon}
+			{props.status} */}
+			{/* </div> */}
+			<div className="container-challenge-text">
+				<p className="challenge-title">Let’s take a ride together!</p>
+				<p className="challenge-description">
+					Take your bike to work for 5 days.
+				</p>
+				<Co2Avoided avoidanceChallenge={avoidanceChallenge} />
 			</div>
-			<p className="challenge-title">Let’s take a ride together!</p>
-			<p className="challenge-text">Take your bike to work for 5 days.</p>
-			<Co2Avoided
-				className="Co2-avoided"
-				icon={<AiOutlineCloud />}
-				avoidanceChallenge={avoidanceChallenge}
-			/>
 		</div>
 	);
 };
@@ -41,19 +41,9 @@ const ChallengeStatus = (props) => {
 //How the card will be displayed will depend on challengeStatus variable -if statement to determine it
 const StatusOptions = () => {
 	if (challengeStatus == "active") {
-		return (
-			<ChallengeStatus
-				className="challenge-status"
-				id="active"
-				status=" Active"
-			/>
-		);
+		return <ChallengeStatus id="active" status=" active" />;
 	} else if (challengeStatus == "done") {
-		return (
-			<div className="challenge-status">
-				<ChallengeStatus id="done" status=" Done" />
-			</div>
-		);
+		return <ChallengeStatus id="done" status=" done" />;
 	} else {
 		return <ChallengeStatus id="failed" status=" Failed" />;
 	}
@@ -66,7 +56,7 @@ let avoidanceChallenge = 20;
 const Co2Avoided = (props) => {
 	return (
 		<p className="Co2-avoided" id={props.id}>
-			{props.icon} {props.avoidanceChallenge} g of Co2
+			<AiOutlineCloud /> {props.avoidanceChallenge} g of Co2
 		</p>
 	);
 };
