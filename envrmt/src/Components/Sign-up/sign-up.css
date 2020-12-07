@@ -8,6 +8,7 @@
 .flexbox-container-start {
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-end;
 	align-items: center;
 	position: relative;
 	width: 375px;
@@ -21,56 +22,49 @@
 	top: 31%;
 }
 
-.sign-up-container {
-	position: absolute;
-	bottom: 60px;
-}
-
-.login-label-container {
+.login-button {
 	border: none;
 	outline: none;
 	background-color: transparent;
 	position: absolute;
 	top: 5%;
-	right: 3%;
-	margin-left: 16px;
-	margin-right: 16px;
+	right: 6%;
 	color: #ffffff;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 1em;
 }
 
-.button {
+.sign-up-button {
+	position: relative;
+	align-items: center;
 	width: 250px;
 	height: 40px;
-	border: none;
 	border-radius: 100px;
 	font-family: "Inter", sans-serif;
-}
-
-.buttonIcon {
-	position: absolute;
-	height: 22px;
-	width: 22px;
-	left: 7%;
-}
-
-.sign-up.button {
 	font-weight: bold;
 	border: none;
 	color: white;
 	margin-bottom: 10px;
 }
 
-.link {
-	text-decoration: none;
-	color: white;
+.buttonIcon {
+	position: absolute;
+	left: 5%;
+	top: 25%;
+	height: 22px;
+	width: 22px;
 }
 
-#sign-up {
+.sign-up {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 2.4em;
+}
+
+.link {
+	text-decoration: none;
+	color: white;
 }
 
 #email {
