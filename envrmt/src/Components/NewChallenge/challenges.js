@@ -29,7 +29,7 @@ const NewChallenges = () => {
 	// same effect as componentdidmount, runs after each render
 	useEffect(() => {
 		getChallenges();
-	});
+	}, []);
 
 	const togglePopUp = (challenge) => {
 		setDetailVisibility(!detailIsVisible);
@@ -55,7 +55,9 @@ const NewChallenges = () => {
 							<DisplayCategoryIcon category={item.category} />
 							<div className="new-challenge-text">
 								<h2>{item.title}</h2>
-								<h3>{item.description}</h3>
+								<div className="new-challenge-description">
+									<h3>{item.description}</h3>
+								</div>
 							</div>
 						</div>
 					</li>
