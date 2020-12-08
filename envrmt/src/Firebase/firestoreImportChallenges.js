@@ -2,7 +2,7 @@ import { db } from "/.firebaseIndex";
 
 var challengeLog = [
 	{
-		avoidance: "0,25",
+		avoidance: 0.25,
 		category: "Food",
 		description:
 			"Used to always eat meat? Try to cut it out of a meal by trying out one vegan recipe. You won’t regret it!",
@@ -12,7 +12,7 @@ var challengeLog = [
 		title: "Try out a vegan recipe",
 	},
 	{
-		avoidance: "0,25",
+		avoidance: 0.25,
 		category: "Food",
 		description:
 			"Did you know it’s super easy to plant your own veggies? Plant your first one now! Here are some idas:\nRadishes\n\nSalad leaves\n\nPeas\n\nSpring onions",
@@ -22,7 +22,7 @@ var challengeLog = [
 		title: "Get started in gardening",
 	},
 	{
-		avoidance: "2,2",
+		avoidance: 2.2,
 		category: "Food",
 		description:
 			"Used to eat meat or dairy frequently? Try to cut it out for a whole day. We’re sure that you won’t even miss it!",
@@ -32,7 +32,7 @@ var challengeLog = [
 		title: "Go vegan for a day",
 	},
 	{
-		avoidance: "0,73",
+		avoidance: 0.73,
 		category: "Food",
 		description:
 			"Use a homegrown veggie to make a meal. It will taste soooo much better than the food you can get at the store! Make it a habit for a month, and your Co2 reduction will be significant!",
@@ -42,7 +42,7 @@ var challengeLog = [
 		title: "Make a meal out of a home grown fruit or veggie",
 	},
 	{
-		avoidance: "15,4",
+		avoidance: 15.4,
 		category: "Food",
 		description:
 			"Are you used to eating meat and dairy once in a while? Try cutting it out for a whole week. Does it seem hard to you? We’re sure you won’t even miss it at the end!",
@@ -52,7 +52,7 @@ var challengeLog = [
 		title: "Go vegan for a week",
 	},
 	{
-		avoidance: "2,7",
+		avoidance: 2.7,
 		category: "Food",
 		description:
 			"Does it seem surreal? Yes, you can make your own compost and expand your garden, and save huge amounts of Co2 avoiding transportation! Pick up 3 new vegetables or fruits that you want to plant for your own consumption, and add it to your collection. We assure you that it won’t take up as much space as you’ve imagined! Here are some ideas:\nRadishes\n\nSalad leaves\n\nPeas\n\nSpring onions\n\nOnions\n\nGarlic\n\nTomatoes\n\nSpinach\n\nCucumbers",
@@ -62,7 +62,7 @@ var challengeLog = [
 		title: "Make your own compost, and create a home-garden corner!",
 	},
 	{
-		avoidance: "61,6",
+		avoidance: 61.6,
 		category: "Food",
 		description:
 			"Do you need a final push to become a full vegan and save huge amounts of Co2? Make it easier to achieve by committing to this challenge.",
@@ -72,7 +72,7 @@ var challengeLog = [
 		title: "Go full vegan for a month!",
 	},
 	{
-		avoidance: "3,95",
+		avoidance: 3.95,
 		category: "Food",
 		description:
 			"Remember to keep your garden alive with your own compost! If you have not planted new veggies or fruits in a while, now it’s time to do so and to use them in your meals. It will taste sooo much better!",
@@ -82,7 +82,7 @@ var challengeLog = [
 		title: "Use 5 homegrown ingredients in your food for one month!",
 	},
 	{
-		avoidance: "0,25",
+		avoidance: 0.25,
 		category: "Transportation",
 		description:
 			"Used to taking the car? Leave it home for once, and try out public transport! You’ll figure out that by taking public transportation you’ll not only save Co2, but also have time for yourself to read, listen to music, or watch some Netflix. And you won’t have to worry about speeding tickets!",
@@ -92,7 +92,7 @@ var challengeLog = [
 		title: "Take public transportation",
 	},
 	{
-		avoidance: "0,25",
+		avoidance: 0.25,
 		category: "Transportation",
 		description:
 			"Try to cut out the car from some of the activities where you don’t really need it. Are you driving to the city centre to meet friends just because it’s easier? Try the bike instead! We’ll guarantee you that it’s even easier to park, and you’ll get some free fitness!\nTIP: If you don’t own a bike, try renting one with services such as Donkey Republic",
@@ -102,7 +102,7 @@ var challengeLog = [
 		title: "Take the bike for a day",
 	},
 	{
-		avoidance: "0,5",
+		avoidance: 0.5,
 		category: "Transportation",
 		description:
 			"Drop the car for a whole day, and get to uni or work by other means! This can be by taking the bike, public transportation, or even car pooling!",
@@ -122,7 +122,7 @@ var challengeLog = [
 		title: "Cut out unnecessary short air trips",
 	},
 	{
-		avoidance: "2,5",
+		avoidance: 2.5,
 		category: "Transportation",
 		description:
 			"Use your bike to get around for a whole working week (5 days). You’ll feel that your legs suddenly became stronger, and you’ve done something good for the planet!",
@@ -152,7 +152,7 @@ var challengeLog = [
 		title: "Drop the car for a whole month",
 	},
 	{
-		avoidance: 1.566,
+		avoidance: 1566,
 		category: "Transportation",
 		description:
 			"Were you planning to take a long haul flight soon? Now it’s the time to change your mind! Reconsider your vacation, and feel good about the huge amounts of Co2 you’ll be saving. You can get a much better and sustainable vacation for the same price of only a long haul air ticket!",
@@ -162,7 +162,7 @@ var challengeLog = [
 		title: "Drop long haul flights!",
 	},
 	{
-		avoidance: "3,75",
+		avoidance: 3.75,
 		category: "Shopping",
 		description:
 			"The next time you’re in need of something new such as clothes or furniture, try going to a thrift shop instead. It’s cheap, and what you’ll find is worth gold!",
@@ -172,7 +172,7 @@ var challengeLog = [
 		title: "Get some bargains at a thrift shop",
 	},
 	{
-		avoidance: "4,2",
+		avoidance: 4.2,
 		category: "Shopping",
 		description:
 			"Used to using the dryer? Avoid it for the next time you’re washing, and save both money and Co2!",
@@ -182,7 +182,7 @@ var challengeLog = [
 		title: "Hang dry your clothes",
 	},
 	{
-		avoidance: "0,4",
+		avoidance: 0.4,
 		category: "Shopping",
 		description:
 			"Make sure that you pay all your bills online next month, and make sure that companies won’t send paper letters to you. Avoiding the transportation of those saves a lot of Co2!",
@@ -192,7 +192,7 @@ var challengeLog = [
 		title: "Pay your bills online",
 	},
 	{
-		avoidance: "16,8",
+		avoidance: 16.8,
 		category: "Shopping",
 		description:
 			"Can you commit to hang drying your clothes for a month? This is the first step of dropping the dryer forever!",
@@ -242,7 +242,7 @@ var challengeLog = [
 		title: "Only buy your clothes second hand",
 	},
 	{
-		avoidance: "0,2",
+		avoidance: 0.2,
 		category: "Waste",
 		description:
 			"Going to the store to get a couple of things? Bring your own tote-bag! If you don’t have one, get one already. Some of them are very fashionable, and they are a much better accessory than a plastic bag!",
@@ -252,7 +252,7 @@ var challengeLog = [
 		title: "Bring your own bag",
 	},
 	{
-		avoidance: "0,57",
+		avoidance: 0.57,
 		category: "Waste",
 		description:
 			"Next time that you produce waste, start sorting it into different bins. It’s the first step for creating a recycling system!",
@@ -272,7 +272,7 @@ var challengeLog = [
 		title: "Bring your own bags the next 5 times you go shopping",
 	},
 	{
-		avoidance: "0,32",
+		avoidance: 0.32,
 		category: "Waste",
 		description:
 			"Use the eco program, load it fully, and don’t spend time rinsing the plates for a week, and start making it a habit!",
@@ -282,7 +282,7 @@ var challengeLog = [
 		title: "Run the dishwasher correctly",
 	},
 	{
-		avoidance: "17,1",
+		avoidance: 17.1,
 		category: "Waste",
 		description:
 			"Recycle for the next month, and feel good about the benefits for the environment!",
