@@ -8,7 +8,7 @@ import { ChallengeCard } from "./Challenge/challenge-status";
 import { ChallengeCompletion } from "./Pop-ups/feedback";
 import { ChallengeDetail } from "./Pop-ups/challenge-detail";
 import { getUsername } from "../../Firebase/firebaseAuth";
-import { Chart } from "./Chart/dashboard-chart";
+import { Chart1, Chart2 } from "./Chart/dashboard-chart";
 
 // icon imports
 import { AiOutlinePlusCircle } from "react-icons/ai";
@@ -56,7 +56,8 @@ const Dashboard = () => {
 			</button>
 
 			<h2 className="headline dashboard">Hello {getUsername()}!</h2>
-			<Chart />
+
+			<Chart2 />
 
 			<div className="flexbox-item">
 				<div className="dashboard-your-challenges">Your Challenges:</div>
