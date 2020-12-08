@@ -55,7 +55,7 @@ const Dashboard = () => {
 				</Link>
 			</button>
 
-			<h2 className="headline dashboard">Hello, {getUsername()}!</h2>
+			<h2 className="headline dashboard">Hello {getUsername()}!</h2>
 			<Chart />
 
 			<div className="flexbox-item">
