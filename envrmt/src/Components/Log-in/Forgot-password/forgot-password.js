@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { forgotPassword } from "./../../../Firebase/firebaseAuth";
-import "/Users/la/Desktop/TID/envrmt/envrmt/src/Components/Log-in/Forgot-password/forgot-password.css"
+import "./../../../Components/Log-in/Forgot-password/forgot-password.css"
 import { Link } from "react-router-dom";
 
 const onSubmit = (event, email) => { 

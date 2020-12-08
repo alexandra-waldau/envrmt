@@ -13,6 +13,7 @@ import {Bsixth} from '../Components/On-boarding/boarding-sixth'
 import {Bseventh} from '../Components/On-boarding/boarding-seventh'
 import {Beigth} from '../Components/On-boarding/boarding-eigth'
 import {BoardingCategories} from '../Components/On-boarding/on-boarding-categories'
+import {Report} from '../Components/Dashboard/Chart/report'
 
 const LoggedIn = () => {
 	return (
@@ -34,6 +35,7 @@ const LoggedIn = () => {
             <Route path="/boarding-seventh" component={Bseventh}/>
             <Route path="/boarding-eigth" component={Beigth}/>
             <Route path="/on-boarding-categories" component={BoardingCategories}/>
+			<Route path="/report" component={Report}/>
 		</Switch>
 	);
 };

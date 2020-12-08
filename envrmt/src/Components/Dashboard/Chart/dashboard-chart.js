@@ -1,6 +1,8 @@
 import "./dashboard-chart.css";
 import LevelPicture from "../../../Assets/LevelPicture.png";
 import { VictoryPie } from 'victory';
+import { Link } from "react-router-dom";
+
 
 //First dashboard the user sees before they complete any challenge
 const Chart1 = () => {
@@ -17,15 +19,18 @@ const Chart1 = () => {
 const Chart2 = () => {
 	return (
 		<div className="container-chart">
-			<VictoryPie
-  				data={[
-    			{ x: "Done", y: 33 },
-    			{ x: "Failed", y: 20 },
-  			]}
- 			categories={{ x: ["Done", "failed"] }}
-  			colorScale={["#5db075", "#666666" ]}
+			<Link to="report">
+				<VictoryPie 
+  					data={[
+    				{ x: "Done", y: 33 },
+    				{ x: "Failed", y: 20 },
+  					]}
+ 					categories={{ x: ["Done", "failed"] }}
+  					colorScale={["#5db075", "#666666" ]}
 			/>
+			</Link>
 		</div>
+		
 	);
 };
 
