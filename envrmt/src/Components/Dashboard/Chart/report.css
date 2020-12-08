@@ -1,0 +1,38 @@
+.report-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 375px;
+  height: 667px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #5db075;
+  font: inter;
+  font-weight: bold;
+  margin-right: 17rem;
+  margin-top: 1rem;
+}
+
+.report-text {
+  margin: none !important;
+  font: inter;
+  color: #5db075;
+  font-weight: bold;
+}
+
+.report-image {
+  width: 200px;
+  margin-top: 4rem;
+}
+
+.challenge-figure {
+  font: inter;
+  font-weight: bolder;
+  margin: none;
+  size: 5rem;
+}

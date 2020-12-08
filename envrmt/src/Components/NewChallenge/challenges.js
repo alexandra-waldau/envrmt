@@ -37,6 +37,18 @@ const NewChallenges = () => {
 		showChallengeDetail(challenge);
 	};
 
+	const [next, setNext] = useState(4);
+	const challengesPerLoad = 4;
+
+	useEffect(() => {
+    getChallenges(0, getChallenges);
+  	}, []);
+
+	const handleShowMoreChallenges = () => {
+	getChallenges(next, next + challengesPerLoad);
+    setNext(next + challengesPerLoad);
+}
+
 	return (
 		<div className="new-challenges">
 			<div className="new-challenge-headline">
@@ -73,14 +85,18 @@ const NewChallenges = () => {
 					co2={challengeDetail.avoidance}
 				/>
 			) : null}
-			<div className="more">
-				<img
+					<div>
+		  <div className="more">
+			  <button className="more-button"onClick={handleShowMoreChallenges}>
+				<img 
 					className="more-button"
 					src={done_tick}
 					alt="See More Challenges"
 				/>
 				<h4>More</h4>
+				</button>
 			</div>
+		</div>
 		</div>
 	);
 };
