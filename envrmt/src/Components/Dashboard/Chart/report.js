@@ -5,7 +5,7 @@ import ReportPic from './../../../Assets/ReportPic.svg';
 function Report(props) {
     return(
     <div className ="report-container">
-        <Link className="back-button" to="dashboard">
+        <Link className="back-button-report" to="dashboard">
 					Back
 				</Link>         
         <h1>Result overview</h1>
