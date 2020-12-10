@@ -70,7 +70,7 @@
 }
 
 .report-text {
-  margin: none !important;
+  margin: none;
   font: inter;
   color: #5db075;
   font-weight: bold;
