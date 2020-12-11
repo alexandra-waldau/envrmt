@@ -56,15 +56,13 @@ const SignUpOptions = () => {
 const SignUpScreen = () => {
 	return (
 		<div className="login-screen">
-			<div className="flexbox-container-start">
-				<button className="login-button">
-					<Link className="link" to="/log-in">
-						Login
-					</Link>
-				</button>
-				<img src={AppLogo} className="applogo" alt="logo" />
-				<SignUpOptions />
-			</div>
+			<button className="login-button">
+				<Link className="link" to="/log-in">
+					Login
+				</Link>
+			</button>
+			<img src={AppLogo} className="applogo" alt="logo" />
+			<SignUpOptions />
 		</div>
 	);
 };
