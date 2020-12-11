@@ -16,7 +16,7 @@ var challengeLog = [
 		avoidance: 0.25,
 		category: "Food",
 		description:
-			"Used to always eat meat? Try to cut it out of a meal by trying out one vegan recipe. You won’t regret it!",
+			"Used to always eat meat? Try to cut it out of a meal by trying out five vegan recipes. You won’t regret it!",
 		duration: 5,
 		id: 1,
 		level: 1,

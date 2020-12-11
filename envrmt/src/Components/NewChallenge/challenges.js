@@ -17,6 +17,7 @@ const NewChallenges = () => {
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [challengeDetail, showChallengeDetail] = useState([]);
 
+
 	// get all existing challenges from the database
 	async function getChallenges() {
 		// get challenges collection from firestore
@@ -37,17 +38,13 @@ const NewChallenges = () => {
 		showChallengeDetail(challenge);
 	};
 
-	const [next, setNext] = useState(4);
-	const challengesPerLoad = 4;
+	//For loading more challenges
+	const [visibleChallenges, setVisibleChallenges] = useState(4);
 
-	useEffect(() => {
-    getChallenges(0, getChallenges);
-  	}, []);
-
-	const handleShowMoreChallenges = () => {
-	getChallenges(next, next + challengesPerLoad);
-    setNext(next + challengesPerLoad);
-}
+	const showMoreChallenges = () => {
+		setVisibleChallenges(visibleChallenges => visibleChallenges + 4)
+	
+	}
 
 	return (
 		<div className="new-challenges">
@@ -58,7 +55,7 @@ const NewChallenges = () => {
 				<h1>New Challenge</h1>
 			</div>
 			<ul>
-				{list.map((item) => (
+				{list.slice(0, visibleChallenges).map((item) => (
 					<li className="btn">
 						<div
 							className="new-challenge-section"
@@ -87,7 +84,7 @@ const NewChallenges = () => {
 			) : null}
 					<div>
 		  <div className="more">
-			  <button className="more-button"onClick={handleShowMoreChallenges}>
+			  <button className="more-button"onClick={showMoreChallenges}>
 				<img 
 					className="more-button"
 					src={done_tick}

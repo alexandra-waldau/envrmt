@@ -48,7 +48,7 @@ const ChallengeCompletion = (props) => {
 				<button className="done-button" onClick={props.next}>
 					Done
 				</button>
-				<p className="failed-challenge">I failed this challenge</p>
+				<p className="failed-challenge" onClick={props.next}>I failed this challenge</p>
 			</div>
 		</div>
 	);
