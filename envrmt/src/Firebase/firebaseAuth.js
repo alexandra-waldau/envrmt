@@ -1,4 +1,5 @@
 import firebase from "firebase/app";
+import { LogIn } from "../Components/Log-in/log-in";
 import { auth } from "./firebaseIndex";
 
 // to do: display error message to user
@@ -49,4 +50,14 @@ const deleteAccount = () => {
   })
 }
 
-export { emailSignUp, googleSignUp, facebookSignUp, emailSignIn, signOut, deleteAccount, getUsername }
+
+const forgotPassword = (email) => {
+  auth.sendPasswordResetEmail(email).then(function() {
+  }).catch(function(error) {
+    console.log(error);
+  })
+
+}
+
+
+export { emailSignUp, googleSignUp, facebookSignUp, emailSignIn, signOut, deleteAccount, getUsername, forgotPassword }

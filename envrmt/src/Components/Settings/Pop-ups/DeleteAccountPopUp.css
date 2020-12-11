@@ -7,17 +7,18 @@
 }
 
 .CardDeleteAccount {
+  position: fixed;
+  top: 25%;
+  left: 15%;
+  padding: 30px 0;
   display: flex;
   flex-direction: column;
+  width: 70%;
+  border: transparent;
   align-items: center;
-  position: absolute;
-  top: 150px;
-  width: 281px;
-  height: 307px;
-  background-color: white;
-  border-radius: 8px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.08));
-  margin-left: 13%;
+  background-color: #ffffff;
+  border-radius: 6.5px;
+  box-shadow: 0px 1.63848px 16.3848px rgba(38, 36, 131, 0.25);
 }
 
 .close-cross {

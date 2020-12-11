@@ -50,12 +50,11 @@
 
 .flexbox-header {
   display: flex;
-  width: 70%;
   flex-direction: row;
+  justify-content: center;
   margin-bottom: 20px;
   position: relative;
-  justify-content: center;
-  width: 100%;
+  width: 351px;
 }
 
 .back-button {
@@ -69,5 +68,17 @@
   opacity: 0.5;
   position: absolute;
   top: 25%;
-  left: 5%;
+  left: 0;
+}
+
+.forgot-password {
+  font: inter;
+  color: #666666;
+  font-weight: bold;
+  background: none;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
 }

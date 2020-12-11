@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { InputOptions } from "../Components/Create-Account/create-account";
 import { SignUpScreen } from "../Components/Sign-up/sign-up";
 import { LogIn } from "../Components/Log-in/log-in";
+import { ResetPassword } from '../Components/Log-in/Forgot-password/forgot-password';
 
 const NotLoggedIn = () => {
     return (
@@ -12,7 +13,7 @@ const NotLoggedIn = () => {
             <Route path="/sign-up" component={SignUpScreen} exact />
             <Route path="/log-in" component={LogIn} />
             <Route path="/create-account" component={InputOptions} />
-        </Switch>
+            <Route path="/forgot-password" component={ResetPassword}/>        </Switch>
     );
 }
 
