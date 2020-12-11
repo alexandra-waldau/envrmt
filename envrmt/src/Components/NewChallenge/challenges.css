@@ -78,11 +78,14 @@
 	flex-direction: column;
 	margin-left: 1em;
 	width: 18rem;
-	height: 5em;
-	overflow: hidden;
-	text-overflow: ellipsis;
 	padding-bottom: 1em;
 	border-bottom: 1px solid #e8e8e8;
+}
+
+.new-challenge-description {
+	overflow: hidden;
+	height: 3em;
+	text-overflow: ellipsis;
 }
 
 .more {
