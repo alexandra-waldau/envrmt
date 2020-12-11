@@ -28,6 +28,7 @@ const Chart2 = () => {
  					categories={{ x: ["Done", "failed"] }}
   					colorScale={["#5db075", "#666666" ]}
 			/>
+
 			</Link>
 		</div>
 		

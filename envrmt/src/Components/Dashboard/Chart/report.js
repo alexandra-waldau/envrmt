@@ -11,7 +11,10 @@ function Report(props) {
             </Link>
             <h1>Result overview</h1>
         </div>
-    <div className ="report-content-container">         
+    <div className ="report-content-container">  
+        <p className="challenge-figure">5.2 kg</p>
+        <p className = "report-text">of Co2 saved with your actions</p>
+
         <p className="challenge-figure">13</p>
         <p className = "report-text">Completed challenges</p>
 

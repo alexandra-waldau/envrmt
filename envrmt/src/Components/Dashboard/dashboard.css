@@ -1,100 +1,112 @@
 #secondaryButton {
-	width: 48%;
-	font-size: 14px;
+  width: 48%;
+  font-size: 14px;
 }
 
 .primary.button {
-	width: 343px;
-	height: 51px;
-	border: none;
-	border-radius: 100px;
-	font-size: 16px;
-	font-family: "Inter", sans-serif;
-	font-weight: bold;
-	color: white;
-	background-color: #5db075;
-	margin-bottom: 9px;
-	cursor: pointer;
+  width: 343px;
+  height: 51px;
+  border: none;
+  border-radius: 100px;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #5db075;
+  margin-bottom: 9px;
+  cursor: pointer;
 }
 
 #challenge-success {
-	position: absolute;
-	width: 136px;
-	height: 19px;
-	left: 115px;
-	top: 140px;
+  position: absolute;
+  width: 136px;
+  height: 19px;
+  left: 115px;
+  top: 140px;
 }
 
 #active {
-	color: #5db075;
+  color: #5db075;
 }
 
 #inactive {
-	color: #f0f0f0;
+  color: #f0f0f0;
 }
 
 .dashboard-picture-skip {
-	position: absolute;
-	width: 119.26px;
-	height: 119.26px;
-	left: 112px;
-	top: 29px;
+  position: absolute;
+  width: 119.26px;
+  height: 119.26px;
+  left: 112px;
+  top: 29px;
 }
 
 .dashboard-your-challenges {
-	font-size: 24px;
-	margin-bottom: 5%;
+  font-size: 24px;
+  margin-bottom: 5%;
 }
 
 .add-challenge-container {
-	width: 343px;
-	align-items: center;
+  width: 343px;
+  align-items: center;
 }
 
 .extend-button {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	color: #5db075;
-	border: none;
-	background-color: transparent;
-	width: 50%;
-	font-weight: 600;
-	text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #5db075;
+  border: none;
+  background-color: transparent;
+  width: 50%;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .extend-button a {
-	width: 100%;
+  width: 100%;
 }
 
 .plus-icon {
-	height: 23px;
-	width: 23px;
-	margin-bottom: 5px;
+  height: 23px;
+  width: 23px;
+  margin-bottom: 5px;
 }
 
 .settings.icon {
-	border: none;
-	background: transparent;
-	position: absolute;
-	right: 7%;
-	top: 4%;
+  border: none;
+  background: transparent;
+  position: absolute;
+  right: 7%;
+  top: 4%;
 }
 
 .icon {
-	height: 30px;
-	width: 30px;
-	color: #666666;
-	stroke-width: 1px;
+  height: 30px;
+  width: 30px;
+  color: #666666;
+  stroke-width: 1px;
 }
 
 /*should be moved to different file*/
 h2 {
-	font-weight: 600;
-	line-height: 35px;
-	font-size: 30px;
+  font-weight: 600;
+  line-height: 35px;
+  font-size: 30px;
 }
 
 .headline.dashboard {
-	margin-top: 50px;
+  margin-top: 50px;
+}
+
+.text-co2savings {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font: inter;
+  font-weight: bold;
+}
+
+.text-co2savings.green {
+  color: #5db075;
+  font-size: 1.75rem;
 }

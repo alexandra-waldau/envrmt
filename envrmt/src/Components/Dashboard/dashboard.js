@@ -47,6 +47,8 @@ const Dashboard = () => {
 		setScore(days);
 	};
 
+	let amount = 5.2;
+
 	return (
 		<div className="flexbox-container">
 			<button className="settings icon">
@@ -58,6 +60,8 @@ const Dashboard = () => {
 			<h2 className="headline dashboard">Hello {getUsername()}!</h2>
 
 			<Chart2 />
+
+			<p className="text-co2savings">You saved <span className="text-co2savings green">{amount} kg</span> of Co2</p>
 
 			<div className="flexbox-item">
 				<div className="dashboard-your-challenges">Your Challenges:</div>
