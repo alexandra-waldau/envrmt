@@ -7,6 +7,7 @@ import { GrClose } from "react-icons/gr";
 import food_g from "../../Assets/Icons/Food_green.svg";
 
 const ChallengeDetails = (props) => {
+
 	return (
 		<div className="overlay-challenge">
 			<div className="container-challenge-detail">
