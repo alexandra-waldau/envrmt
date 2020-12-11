@@ -4,31 +4,24 @@ import { auth } from "./firebaseIndex";
 // to do: display error message to user
 const emailSignUp = async (name, email, password) => {
     try {
-        await auth.createUserWithEmailAndPassword(email, password);
-        createProfile(name);
+        const user = await auth.createUserWithEmailAndPassword(email, password)
+        await user.user.updateProfile({
+          displayName: name
+        })
     } catch(error) {
         console.log(error.message);
   }
 }
 
-const createProfile = async (name) => {
-    const user = auth.currentUser;
-    await user.updateProfile({
-        displayName: name
-    })
-}
-
 const getUsername = () => {
     const username = auth.currentUser.displayName;
     // only split by one or more whitespace 
-    if (username !== null) {
     const parts = username.split(/\s+/);
     // only return the first name
     if (parts.length > 1) {
         return parts[0];
     }
     return parts;
-  }
 }
 
 const googleSignUp = new firebase.auth.GoogleAuthProvider();

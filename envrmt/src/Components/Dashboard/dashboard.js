@@ -2,6 +2,8 @@ import React from "react";
 import "../../Components/Create-Account/create-account.css";
 import "./dashboard.css";
 import { useState } from "react";
+import { auth } from "./firebaseIndex";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { FeedbackSwitcher } from "./Pop-ups/feedback";
 import { ChallengeCard } from "./Challenge/challenge-status";
