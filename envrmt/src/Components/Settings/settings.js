@@ -19,7 +19,7 @@ const Settings = () => {
 	};
 
 	return (
-		<div>
+		<div className="settings">
 			<div className="headline settings">
 				<Header text="Settings" />
 			</div>

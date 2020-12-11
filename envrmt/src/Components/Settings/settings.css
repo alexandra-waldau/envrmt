@@ -1,29 +1,36 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
 .settings.item {
-	margin-top: 10px;
-	font-family: Inter;
-	font-size: 15px;
-	text-align: center;
-	color: #666666;
-	background-color: transparent;
-	height: 50px;
-	border-radius: 80px;
-	border: 1px solid rgba(102, 102, 102, 0.3);
-	width: 50%;
+  margin-top: 10px;
+  font-family: Inter;
+  color: #666666;
+  background-color: transparent;
+  border-radius: 80px;
+  border: 1px solid rgba(102, 102, 102, 0.3);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 15px;
+  margin-top: 15px;
 }
 
 .headline.settings {
-	padding-top: 10px;
+  padding-top: 10px;
 }
 
 .flexbox {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
 }
 
 .signout-image {
-	width: 200px;
-	margin-bottom: 40px;
+  width: 200px;
+  margin-bottom: 40px;
 }
