@@ -1,5 +1,4 @@
 import firebase from "firebase/app";
-import { LogIn } from "../Components/Log-in/log-in";
 import { auth } from "./firebaseIndex";
 
 // to do: display error message to user
@@ -36,11 +35,20 @@ const googleSignUp = new firebase.auth.GoogleAuthProvider();
 
 const facebookSignUp = new firebase.auth.FacebookAuthProvider();
 
-const emailSignIn = (email, password) => {
-  auth.signInWithEmailAndPassword(email,password)
-  .catch(function(error) {
-    console.log(error);
-  })
+const emailSignIn = async (email, password) => {
+  try {
+    await auth.signInWithEmailAndPassword(email,password)
+  }
+  catch(error) {
+    switch (error.code) {
+      case "auth/wrong-password":
+        return "Wrong password.";
+      case "auth/user-not-found":
+        return "User doesn't exist."
+      case "auth/invalid-email":
+        return "Invalid email address."
+    }
+  }
 }
 
 const signOut = () => {

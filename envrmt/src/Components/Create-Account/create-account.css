@@ -71,18 +71,6 @@
   left: 0;
 }
 
-.forgot-password {
-  font: inter;
-  color: #666666;
-  font-weight: bold;
-  background: none;
-  padding: 0;
-  border: none;
-  text-decoration: none;
-  text-align: center;
-  padding: 1rem;
-}
-
 .message.error {
   align-self: center;
   color: red;

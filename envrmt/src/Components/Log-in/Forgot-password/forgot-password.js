@@ -55,4 +55,4 @@ function ResetPwPopUp(props) {
   }
   
 
-export {ResetPassword};
+export { ResetPassword };
