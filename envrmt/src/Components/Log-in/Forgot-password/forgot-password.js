@@ -1,16 +1,16 @@
 import React, {useState} from "react";
-import { forgotPassword } from "./../../../Firebase/firebaseAuth";
 import "./../../../Components/Log-in/Forgot-password/forgot-password.css"
+import { forgotPassword } from "./../../../Firebase/firebaseAuth";
 import { Link } from "react-router-dom";
+
+// icon imports
 import { GrClose } from "react-icons/gr";
 import PosEmoji from "./../../../Assets/PosFeedbackEmoji.png";
-
 
 const onSubmit = (event, email) => { 
     event.preventDefault();
     forgotPassword(email);
 };
-
 
 const ResetPassword = (props) => {
     const[email, setMail] = useState("");

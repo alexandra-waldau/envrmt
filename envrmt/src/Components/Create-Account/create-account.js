@@ -6,10 +6,6 @@ import "./create-account.css";
 // icon imports
 import { IoIosClose } from "react-icons/io";
 
-const onSubmit = (event, name, email, password) => { 
-	event.preventDefault();
-	emailSignUp(name, email, password);
-};
 
 const Header = (props) => {
 	return (
@@ -28,12 +24,20 @@ const Form = () => {
     const[name, setName] = useState("");
     const[email, setMail] = useState("");
 	const[password, setPassword] = useState("");
+	const[error, setError] = useState("");
+
+	const onSubmit = (event) => { 
+		event.preventDefault();
+		emailSignUp(name, email, password).then(response => setError(response));
+	};
+
     return (
-        <form className="flexbox-item" method="get" onSubmit={(e) => onSubmit(e,name,email,password)}>
+        <form className="flexbox-item" method="get" onSubmit={(e) => onSubmit(e)}>
 			<input type="text" className="input-credentials" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
 			<input type="email" className="input-credentials" value={email} onChange={(e) => setMail(e.target.value)} placeholder="Email address" />
 			<input type="password" className="input-credentials" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-            <button type="submit" className="profileButton">Sign up</button>
+			<p className="message error">{error}</p>
+			<button type="submit" className="submitButton">Sign up</button>
 		</form>
     );
 }

@@ -10,8 +10,15 @@ const emailSignUp = async (name, email, password) => {
           displayName: name
         })
     } catch(error) {
-        console.log(error.message);
-  }
+        switch (error.code) {
+          case "auth/invalid-email":
+            return "Email is invalid."
+          case "auth/weak-password":
+            return "Password must have more than 6 characters."
+          case "auth/email-already-in-use":
+            return "Email already in use."
+        }
+    }
 }
 
 const getUsername = () => {
