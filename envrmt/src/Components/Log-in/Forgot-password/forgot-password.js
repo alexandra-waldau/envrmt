@@ -31,8 +31,8 @@ const ResetPassword = (props) => {
         <div className="flexbox-container">
             <p className="rp text">Insert the email that is connected to your account and we'll send you an email to reset your password.</p>
             <form className="flexbox-item" method="get" onSubmit={(e) => onSubmit(e,email)}>
-                <input type="email" className="rp email" value={email} onChange={(e) => setMail(e.target.value)} placeholder="Email address" />
-                <button type="submit" className="profileButton" onClick={() => togglePopUp()}>Reset my password</button> 
+                <input type="email" className="input-credentials" value={email} onChange={(e) => setMail(e.target.value)} placeholder="Email address" />
+                <button type="submit" className="submitButton" onClick={() => togglePopUp()}>Reset my password</button> 
                 {visible ? <ResetPwPopUp toggle={() => togglePopUp()} /> : null}        
             </form>  
         </div>
