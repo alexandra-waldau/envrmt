@@ -8,26 +8,24 @@ import { AiOutlineCloud } from "react-icons/ai";
 const ChallengeCard = (props) => {
 	return (
 		<div className="container-challenge" onClick={props.toggle}>
-			{/* <div className="challenge-status" id={props.id}> */}
-			<StatusOptions />
-			{/* {props.icon}
-			{props.status} */}
-			{/* </div> */}
+			<StatusOptions status="active" />
 			<div className="container-challenge-text">
-				<p className="challenge-title">Let’s take a ride together!</p>
-				<p className="challenge-description">
-					Take your bike to work for 5 days.
-				</p>
-				<Co2Avoided avoidanceChallenge={avoidanceChallenge} />
+				<p className="challenge-title">{props.title}</p>
+				<p className="challenge-description">{props.description}</p>
+				<Co2Avoided avoidanceChallenge={props.avoidance} />
 			</div>
 		</div>
 	);
 };
 
-//Created variable to determine in which state the card shall be displayed
-//It will be able to change to "active", "done" and "failed"
-let challengeStatus = "done";
-
+//How the card will be displayed will depend on challengeStatus variable -if statement to determine it
+const StatusOptions = (props) => {
+	if (props.status == "active") {
+		return <ChallengeStatus id="active" status=" active" />;
+	} else if (props.statusprops.status == "done") {
+		return <ChallengeStatus id="done" status=" done" />;
+	}
+};
 //Function for challenge status
 const ChallengeStatus = (props) => {
 	return (
@@ -38,17 +36,6 @@ const ChallengeStatus = (props) => {
 	);
 };
 
-//How the card will be displayed will depend on challengeStatus variable -if statement to determine it
-const StatusOptions = () => {
-	if (challengeStatus == "active") {
-		return <ChallengeStatus id="active" status=" active" />;
-	} else if (challengeStatus == "done") {
-		return <ChallengeStatus id="done" status=" done" />;
-	} else {
-		return <ChallengeStatus id="failed" status=" Failed" />;
-	}
-};
-
 //Value of Co2 avoided so far with the challenges, defined with a let because it's determined by each user.
 let avoidanceChallenge = 20;
 
@@ -56,7 +43,7 @@ let avoidanceChallenge = 20;
 const Co2Avoided = (props) => {
 	return (
 		<p className="Co2-avoided" id={props.id}>
-			<AiOutlineCloud /> {props.avoidanceChallenge} g of Co2
+			<AiOutlineCloud /> {props.avoidanceChallenge}kg of CO<sub>2</sub>
 		</p>
 	);
 };

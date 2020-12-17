@@ -4,6 +4,7 @@ import Rating from "react-rating";
 import "./feedback.css";
 import { Co2Avoided } from "../Challenge/challenge-status";
 import { CategoryText } from "./challenge-detail";
+import { DisplayCategoryIcon } from "./challenge-detail";
 
 //icon imports
 import PosEmoji from "../../../Assets/PosFeedbackEmoji.png";
@@ -16,20 +17,22 @@ import { ImEarth } from "react-icons/im";
 const shoppingText = "Shopping";
 
 const EarthRating = (props) => {
-
 	const [days, setDays] = useState(0);
 	return (
 		<div className="rating">
 			<p className="days-text">{days} days</p>
 			<Rating
-				onClick={(value) => {setDays(value); props.score(value);}}
-			initialRating={days}
-			emptySymbol={<ImEarth className="rating-icon" />}
-			fullSymbol={<ImEarth className="rating-icon active" />}
+				onClick={(value) => {
+					setDays(value);
+					props.score(value);
+				}}
+				initialRating={days}
+				emptySymbol={<ImEarth className="rating-icon" />}
+				fullSymbol={<ImEarth className="rating-icon active" />}
 			/>
 		</div>
 	);
-}
+};
 
 const ChallengeCompletion = (props) => {
 	return (
@@ -38,23 +41,23 @@ const ChallengeCompletion = (props) => {
 				<button className="close-cross" onClick={props.toggle}>
 					<GrClose />
 				</button>
-				<AiOutlineShoppingCart className="category-icon" />
-				<CategoryText text={shoppingText} />
-				<p className="challenge-name-detail">#Challenge Name</p>
-				<p className="challenge-description-detail">
-					Description of challenge (maximum 2 lines)
-				</p>
-				<EarthRating score={props.score}/>
+				<DisplayCategoryIcon category={props.category} />
+				<p className="challenge-name-detail">{props.title}</p>
+				<p className="challenge-description-detail">{props.description}</p>
+				<EarthRating score={props.score} />
 				<button className="done-button" onClick={props.next}>
 					Done
 				</button>
-				<p className="failed-challenge" onClick={props.next}>I failed this challenge</p>
+				<p className="failed-challenge" onClick={props.next}>
+					I failed this challenge
+				</p>
 			</div>
 		</div>
 	);
 };
 
 const PerformanceFeedback = (props) => {
+	//set kind of like: db.collection(users).docs(currentUserId).update(avoidance=props.avoidance)
 	return (
 		<div className="overlay">
 			<div className="container-challenge-detail">
