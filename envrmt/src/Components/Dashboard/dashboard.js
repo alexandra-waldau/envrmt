@@ -8,7 +8,7 @@ import { ChallengeCard } from "./Challenge/challenge-status";
 import { ChallengeCompletion } from "./Pop-ups/feedback";
 import { ChallengeDetail } from "./Pop-ups/challenge-detail";
 import { getUsername } from "../../Firebase/firebaseAuth";
-import { Chart1, Chart2 } from "./Chart/dashboard-chart";
+import { Chart } from "./Chart/dashboard-chart";
 
 import { getAllChallenges, getSpecific } from "../../Firebase/firestoreAPI";
 
@@ -79,7 +79,7 @@ const Dashboard = () => {
 			<h2 className="headline dashboard">Hello {getUsername()}!</h2>
 
 			{/* if user has no challenges, show "<Chart1 />" */}
-			<Chart2 />
+			<Chart />
 
 			<div className="flexbox-item">
 				<div className="dashboard-your-challenges">Your Challenges:</div>
