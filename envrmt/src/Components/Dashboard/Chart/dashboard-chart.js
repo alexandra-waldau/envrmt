@@ -19,7 +19,9 @@ const Chart1 = () => {
 	);
 };
 
-let amount = 5.2;
+let amountAvoidance = 5.2;
+let successRatio = 80;
+
 //TODO: use real data
 const Chart2 = () => {
 	return (
@@ -41,12 +43,14 @@ const Chart2 = () => {
 					/>
 				</div>
 				<div className="chartLegend">
-					<img src={cloudIcon} alt="target icon" />
-					<p>{amount}% challenge success</p>
+					<img src={targetIcon} alt="target icon" />
+					<p>{successRatio}% challenge success</p>
 				</div>
 				<div className="chartLegend">
-					<img src={targetIcon} alt="target icon" />
-					<p>{amount}kg CO2 avoidance</p>
+					<img src={cloudIcon} alt="target icon" />
+					<p>
+						{amountAvoidance}kg CO<sub>2</sub> avoidance
+					</p>
 				</div>
 			</Link>
 		</div>

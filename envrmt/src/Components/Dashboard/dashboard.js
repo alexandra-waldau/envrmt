@@ -10,21 +10,26 @@ import { ChallengeDetail } from "./Pop-ups/challenge-detail";
 import { getUsername } from "../../Firebase/firebaseAuth";
 import { Chart1, Chart2 } from "./Chart/dashboard-chart";
 
-import { getAllChallenges } from "../../Firebase/firestoreAPI";
+import { getAllChallenges, getSpecific } from "../../Firebase/firestoreAPI";
 
 // icon imports
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
+
+//delete later
+// import { DisplayCategoryIcon } from "../NewChallenge/challenges";
 
 //Putting together the home screen components
 const Dashboard = () => {
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [ratingIsVisible, setRatingVisibility] = useState(false);
 	const [feedbackIsVisible, setFeedbackVisibility] = useState(false);
+	const [challengeDetail, showChallengeDetail] = useState([]);
 	const [score, setScore] = useState(0);
 
-	const toggleDetailPopUp = () => {
+	const toggleDetailPopUp = (challenge) => {
 		setDetailVisibility(!detailIsVisible);
+		showChallengeDetail(challenge);
 	};
 	const toggleRatingPopUp = () => {
 		setRatingVisibility(true);
@@ -49,13 +54,11 @@ const Dashboard = () => {
 		setScore(days);
 	};
 
-	// const displayActives = () => {};
-
 	const [list, updateList] = useState([]);
-
+	const activeChallengeIds = 9;
 	async function getChallenges() {
 		// get challenges collection from firestore
-		let challenges = await getAllChallenges.get();
+		let challenges = await getSpecific(activeChallengeIds);
 		// create array of documents
 		const data = challenges.docs.map((doc) => doc.data());
 		updateList(data);
@@ -65,16 +68,6 @@ const Dashboard = () => {
 		getChallenges();
 		console.log("fetching");
 	}, []);
-
-	const tempList = [
-		{ id: 1, activeChallenges: [1, 2] },
-		{ id: 2, activeChallenges: [3, 4] },
-	];
-
-	const temp = [1, 2, 3, 4, 5, 6];
-	const temp2 = tempList
-		.filter((e) => e.id === 1)
-		.map((i) => <li>{i.activeChallenges}</li>);
 
 	return (
 		<div className="flexbox-container">
@@ -91,10 +84,26 @@ const Dashboard = () => {
 			<div className="flexbox-item">
 				<div className="dashboard-your-challenges">Your Challenges:</div>
 
-				<ChallengeCard toggle={() => toggleDetailPopUp()} />
+				{list.map((item) => (
+					<ChallengeCard
+						toggle={() => toggleDetailPopUp(item)}
+						avoidance={item.avoidance}
+						category={item.category}
+						title={item.title}
+						description={item.description}
+						duration={item.duration}
+						id={item.id}
+						level={item.level}
+					/>
+				))}
 
 				{detailIsVisible ? (
 					<ChallengeDetail
+						title={challengeDetail.title}
+						description={challengeDetail.description}
+						duration={challengeDetail.duration}
+						avoidance={challengeDetail.avoidance}
+						category={challengeDetail.category}
 						next={() => toggleRatingPopUp()}
 						toggle={() => toggleDetailPopUp()}
 						// pass on challenge's ID
@@ -102,6 +111,11 @@ const Dashboard = () => {
 				) : null}
 				{ratingIsVisible ? (
 					<ChallengeCompletion
+						title={challengeDetail.title}
+						description={challengeDetail.description}
+						duration={challengeDetail.duration}
+						avoidance={challengeDetail.avoidance}
+						category={challengeDetail.category}
 						toggle={() => exitRatingPopUp()}
 						score={updateScore}
 						next={() => toggleFeedbackPopUp()}
@@ -112,7 +126,7 @@ const Dashboard = () => {
 					<FeedbackSwitcher
 						toggle={() => exitFeedbackPopUp()}
 						score={score}
-						avoidance="500" //make obsolete
+						avoidance={challengeDetail.avoidance}
 						// pass on challenge's ID
 					/>
 				) : null}
