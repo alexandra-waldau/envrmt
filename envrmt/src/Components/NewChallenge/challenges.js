@@ -17,7 +17,6 @@ const NewChallenges = () => {
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [challengeDetail, showChallengeDetail] = useState([]);
 
-
 	// get all existing challenges from the database
 	async function getChallenges() {
 		// get challenges collection from firestore
@@ -42,9 +41,8 @@ const NewChallenges = () => {
 	const [visibleChallenges, setVisibleChallenges] = useState(4);
 
 	const showMoreChallenges = () => {
-		setVisibleChallenges(visibleChallenges => visibleChallenges + 4)
-	
-	}
+		setVisibleChallenges((visibleChallenges) => visibleChallenges + 4);
+	};
 
 	return (
 		<div className="new-challenges">
@@ -82,18 +80,18 @@ const NewChallenges = () => {
 					co2={challengeDetail.avoidance}
 				/>
 			) : null}
-					<div>
-		  <div className="more">
-			  <button className="more-button"onClick={showMoreChallenges}>
-				<img 
-					className="more-button"
-					src={done_tick}
-					alt="See More Challenges"
-				/>
-				<h4>More</h4>
-				</button>
+			<div>
+				<div className="more">
+					<button className="more-button" onClick={showMoreChallenges}>
+						<img
+							className="more-button"
+							src={done_tick}
+							alt="See More Challenges"
+						/>
+						<h4>More</h4>
+					</button>
+				</div>
 			</div>
-		</div>
 		</div>
 	);
 };
