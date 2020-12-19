@@ -1,3 +1,4 @@
+import firebase from "firebase/app";
 import { db } from "./firebaseIndex";
 
 const getAllChallenges = db.collection("challenges");
@@ -13,9 +14,31 @@ const getUserName = async (uid) => {
 	return snapshot;
 }
 
+const createProgress = async (uid) => {
+	await db
+		.collection("progress")
+		.doc(uid)
+		.set({
+			user: uid,
+			completed: 0,
+			avoided: 0,
+			finished: [],
+			active: [], //this needs to be updated after onboarding
+		});
+};
+
+const addActiveChallenge = async (uid, challengeid) => {
+	await db
+		.collection("progress")
+		.doc(uid)
+		.update({
+			active: firebase.firestore.FieldValue.arrayUnion(db.doc("challenges/" + challengeid))
+		})
+}
+
 const getSpecific = async (id) => {
 	let specific = await getAllChallenges.where("id", "==", id).get();
 	return specific;
 };
 
-export { getAllChallenges, createUser, getUserName, getSpecific };
+export { getAllChallenges, createUser, getUserName, createProgress, addActiveChallenge, getSpecific };

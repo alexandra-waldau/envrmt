@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./challenges.css";
-import { ChallengeDetails } from "./popup";
+import { auth } from "../../Firebase/firebaseIndex"
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
-import { getAllChallenges } from "../../Firebase/firestoreAPI";
+import { ChallengeDetails } from "./popup";
+import { getAllChallenges, addActiveChallenge } from "../../Firebase/firestoreAPI";
 
 // icon imports
 import bicycle from "../../Assets/Icons/Bicycle.svg";
@@ -15,20 +17,20 @@ const NewChallenges = () => {
 	const [list, updateList] = useState([]);
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [challengeDetail, showChallengeDetail] = useState([]);
+	const [visibleChallenges, setVisibleChallenges] = useState(4);
+	const [user] = useAuthState(auth);
 
 	// get all existing challenges from the database
 	async function getChallenges() {
-		// get challenges collection from firestore
 		let challenges = await getAllChallenges.get();
-		// create array of documents
-		const data = challenges.docs.map((doc) => doc.data());
+		const data = challenges.docs.map((doc) => ({id: doc.id, data: doc.data()}));
 		updateList(data);
 	}
 
 	// same effect as componentdidmount, runs after each render
 	useEffect(() => {
-		getChallenges();
 		console.log("fetching");
+		getChallenges();
 	}, []);
 
 	const togglePopUp = (challenge) => {
@@ -36,9 +38,12 @@ const NewChallenges = () => {
 		showChallengeDetail(challenge);
 	};
 
-	//For loading more challenges
-	const [visibleChallenges, setVisibleChallenges] = useState(4);
+	const activateChallenge = () => {
+		addActiveChallenge(user.uid, challengeDetail.id);
+		setDetailVisibility(!detailIsVisible);
+	}
 
+	// For loading more challenges
 	const showMoreChallenges = () => {
 		setVisibleChallenges((visibleChallenges) => visibleChallenges + 4);
 	};
@@ -57,13 +62,13 @@ const NewChallenges = () => {
 						<div
 							className="new-challenge-section"
 							onClick={() => togglePopUp(item)}
-							key={item.chId}
+							key={item.data.id}
 						>
-							<DisplayCategoryIcon category={item.category} />
+							<DisplayCategoryIcon category={item.data.category} />
 							<div className="new-challenge-text">
-								<h2>{item.title}</h2>
+								<h2>{item.data.title}</h2>
 								<div className="new-challenge-description">
-									<h3>{item.description}</h3>
+									<h3>{item.data.description}</h3>
 								</div>
 							</div>
 						</div>
@@ -72,11 +77,12 @@ const NewChallenges = () => {
 			</ul>
 			{detailIsVisible ? (
 				<ChallengeDetails
-					toggle={() => togglePopUp()}
-					category={challengeDetail.category}
-					title={challengeDetail.title}
-					descr={challengeDetail.description}
-					co2={challengeDetail.avoidance}
+					id={challengeDetail.id}
+					toggle={() => activateChallenge()}
+					category={challengeDetail.data.category}
+					title={challengeDetail.data.title}
+					descr={challengeDetail.data.description}
+					co2={challengeDetail.data.avoidance}
 				/>
 			) : null}
 			<div>

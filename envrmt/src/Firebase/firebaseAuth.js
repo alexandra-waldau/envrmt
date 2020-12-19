@@ -1,11 +1,12 @@
 import firebase from "firebase/app";
 import { auth } from "./firebaseIndex";
-import { createUser } from "./firestoreAPI";
+import { createUser, createProgress } from "./firestoreAPI";
 
 const emailSignUp = async (name, email, password) => {
     try {
         const user = await auth.createUserWithEmailAndPassword(email, password);
         await createUser(user.user.uid, name);
+        await createProgress(user.user.uid)
     } catch(error) {
         switch (error.code) {
           case "auth/invalid-email":
