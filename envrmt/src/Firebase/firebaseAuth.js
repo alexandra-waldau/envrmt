@@ -1,13 +1,11 @@
 import firebase from "firebase/app";
 import { auth } from "./firebaseIndex";
+import { createUser } from "./firestoreAPI";
 
-// to do: display error message to user
 const emailSignUp = async (name, email, password) => {
     try {
-        const user = await auth.createUserWithEmailAndPassword(email, password)
-        await user.user.updateProfile({
-          displayName: name
-        })
+        const user = await auth.createUserWithEmailAndPassword(email, password);
+        await createUser(user.user.uid, name);
     } catch(error) {
         switch (error.code) {
           case "auth/invalid-email":
@@ -20,20 +18,15 @@ const emailSignUp = async (name, email, password) => {
     }
 }
 
-const getUsername = () => {
-    const username = auth.currentUser.displayName;
-    // only split by one or more whitespace 
-    const parts = username.split(/\s+/);
-    // only return the first name
-    if (parts.length > 1) {
-        return parts[0];
-    }
-    return parts;
+const signInWithGoogle = async () => {
+  const user = await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  await createUser(user.user.uid, user.user.displayName);
 }
 
-const googleSignUp = new firebase.auth.GoogleAuthProvider();
-
-const facebookSignUp = new firebase.auth.FacebookAuthProvider();
+const signInWithFacebook = async () => {
+  const user = await auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  await createUser(user.user.uid, user.user.displayName);
+}
 
 const emailSignIn = async (email, password) => {
   try {
@@ -75,4 +68,4 @@ const forgotPassword = (email) => {
 }
 
 
-export { emailSignUp, googleSignUp, facebookSignUp, emailSignIn, signOut, deleteAccount, getUsername, forgotPassword }
+export { emailSignUp, signInWithFacebook, signInWithGoogle, emailSignIn, signOut, deleteAccount, forgotPassword }

@@ -11,7 +11,6 @@ import trash from "../../Assets/Icons/Trash.svg";
 import cart from "../../Assets/Icons/Cart.svg";
 import done_tick from "../../Assets/Icons/Done_tick.svg";
 
-// TODO: challenge detail is always the same
 const NewChallenges = () => {
 	const [list, updateList] = useState([]);
 	const [detailIsVisible, setDetailVisibility] = useState(false);

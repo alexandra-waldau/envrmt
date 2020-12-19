@@ -15,7 +15,7 @@ const firebaseConfig = {
 // to do: double initialization
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
+const auth = firebaseApp.auth();
 
 const db = firebase.firestore();
 

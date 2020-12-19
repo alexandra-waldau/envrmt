@@ -9,8 +9,7 @@ import { FiMail } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { auth } from "../../Firebase/firebaseIndex";
-import { googleSignUp, facebookSignUp } from "../../Firebase/firebaseAuth";
+import { signInWithFacebook, signInWithGoogle } from "../../Firebase/firebaseAuth";
 
 const LoginButton = (props) => {
 	return (
@@ -22,10 +21,6 @@ const LoginButton = (props) => {
 		</button>
 	);
 };
-
-const signInWithGoogle = () => auth.signInWithPopup(googleSignUp);
-
-const signInWithFacebook = () => auth.signInWithPopup(facebookSignUp);
 
 // TODO: fix placement of button icon
 const SignUpOptions = () => {

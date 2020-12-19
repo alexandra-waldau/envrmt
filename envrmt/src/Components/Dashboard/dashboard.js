@@ -7,8 +7,10 @@ import { FeedbackSwitcher } from "./Pop-ups/feedback";
 import { ChallengeCard } from "./Challenge/challenge-status";
 import { ChallengeCompletion } from "./Pop-ups/feedback";
 import { ChallengeDetail } from "./Pop-ups/challenge-detail";
-import { getUsername } from "../../Firebase/firebaseAuth";
 import { Chart } from "./Chart/dashboard-chart";
+import { auth } from "../../Firebase/firebaseIndex";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { getUserName } from "../../Firebase/firestoreAPI";
 
 import { getAllChallenges, getSpecific } from "../../Firebase/firestoreAPI";
 
@@ -26,6 +28,9 @@ const Dashboard = () => {
 	const [feedbackIsVisible, setFeedbackVisibility] = useState(false);
 	const [challengeDetail, showChallengeDetail] = useState([]);
 	const [score, setScore] = useState(0);
+	const [user] = useAuthState(auth);
+	const [username, setUsername] = useState(""); 
+	const [list, updateList] = useState([]);
 
 	const toggleDetailPopUp = (challenge) => {
 		setDetailVisibility(!detailIsVisible);
@@ -54,7 +59,6 @@ const Dashboard = () => {
 		setScore(days);
 	};
 
-	const [list, updateList] = useState([]);
 	const activeChallengeIds = 9;
 	async function getChallenges() {
 		// get challenges collection from firestore
@@ -65,8 +69,18 @@ const Dashboard = () => {
 	}
 
 	useEffect(() => {
-		getChallenges();
+		getUserName(user.uid).then((snapshot) => {
+			const name = snapshot.name;
+			const parts = name.split(/\s+/);
+			// only return the first name
+			if (parts.length > 1) {
+				setUsername("Hello " + parts[0] + "!");
+			} else {
+			setUsername("Hello " + parts[0] + "!")
+			}	
+		})
 		console.log("fetching");
+		getChallenges();
 	}, []);
 
 	return (
@@ -76,7 +90,7 @@ const Dashboard = () => {
 					<FiSettings className="icon" />
 				</Link>
 			</button>
-			<h2 className="headline dashboard">Hello {getUsername()}!</h2>
+			<h2 className="headline dashboard">{username}</h2>
 
 			{/* if user has no challenges, show "<Chart1 />" */}
 			<Chart />
