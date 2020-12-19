@@ -9,12 +9,14 @@
    }
    
    
+
    .boarding-detail {
        display: flex;
        flex-direction: column;
        width: 280px;
        height: 350px;
        border: transparent;
+       justify-content: center;
        align-items: center;
        background-color: #ffffff;
        border-radius: 6.5px;
