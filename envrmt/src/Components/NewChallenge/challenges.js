@@ -4,7 +4,7 @@ import { auth } from "../../Firebase/firebaseIndex"
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { ChallengeDetails } from "./popup";
-import { getAllChallenges, addActiveChallenge } from "../../Firebase/firestoreAPI";
+import { getAllChallenges, addActiveChallenge, getActiveChallenges } from "../../Firebase/firestoreAPI";
 
 // icon imports
 import bicycle from "../../Assets/Icons/Bicycle.svg";
@@ -15,18 +15,20 @@ import done_tick from "../../Assets/Icons/Done_tick.svg";
 
 const NewChallenges = () => {
 	const [list, updateList] = useState([]);
+	const [visibleChallenges, setVisibleChallenges] = useState(4);
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [challengeDetail, showChallengeDetail] = useState([]);
-	const [visibleChallenges, setVisibleChallenges] = useState(4);
 	const [user] = useAuthState(auth);
 
 	// get all existing challenges from the database
 	async function getChallenges() {
 		let challenges = await getAllChallenges.get();
 		const data = challenges.docs.map((doc) => ({id: doc.id, data: doc.data()}));
-		updateList(data);
+		const active = await getActiveChallenges(user.uid);
+		const inactive = data.filter(challenge => !(active.some((id) => (id === challenge.id))))
+		updateList(inactive);
 	}
-
+	
 	// same effect as componentdidmount, runs after each render
 	useEffect(() => {
 		console.log("fetching");
@@ -40,6 +42,7 @@ const NewChallenges = () => {
 
 	const activateChallenge = () => {
 		addActiveChallenge(user.uid, challengeDetail.id);
+		getChallenges();
 		setDetailVisibility(!detailIsVisible);
 	}
 

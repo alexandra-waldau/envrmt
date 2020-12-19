@@ -75,9 +75,7 @@ const Dashboard = () => {
 			// only return the first name
 			if (parts.length > 1) {
 				setUsername("Hello " + parts[0] + "!");
-			} else {
-			setUsername("Hello " + parts[0] + "!")
-			}	
+			} 
 		})
 		console.log("fetching");
 		getChallenges();

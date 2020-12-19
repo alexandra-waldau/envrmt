@@ -22,8 +22,9 @@ const createProgress = async (uid) => {
 			user: uid,
 			completed: 0,
 			avoided: 0,
-			finished: [],
+			finished: [], //array of document references 
 			active: [], //this needs to be updated after onboarding
+			failed: []
 		});
 };
 
@@ -32,8 +33,16 @@ const addActiveChallenge = async (uid, challengeid) => {
 		.collection("progress")
 		.doc(uid)
 		.update({
-			active: firebase.firestore.FieldValue.arrayUnion(db.doc("challenges/" + challengeid))
-		})
+			active: firebase.firestore.FieldValue.arrayUnion(challengeid)
+		});
+}
+
+const getActiveChallenges = async (uid) => {
+	const snapshot = (await db	
+						.collection("progress")
+						.doc(uid)
+						.get());
+	return snapshot.data().active;
 }
 
 const getSpecific = async (id) => {
@@ -41,4 +50,4 @@ const getSpecific = async (id) => {
 	return specific;
 };
 
-export { getAllChallenges, createUser, getUserName, createProgress, addActiveChallenge, getSpecific };
+export { getAllChallenges, getActiveChallenges, createUser, getUserName, createProgress, addActiveChallenge, getSpecific };
