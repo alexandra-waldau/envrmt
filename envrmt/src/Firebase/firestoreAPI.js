@@ -25,10 +25,23 @@ const createProgress = async (uid) => {
 	});
 };
 
+const getFirstChallenge = async (uid) => {
+	const snapshot = (await db.collection("progress").doc(uid).get()).data();
+	const data = db
+		.collection("challenges")
+		.where("level", "==", snapshot.level)
+		.where("category", "==", snapshot.preference)
+		.get();
+
+	const array = (await data).docs.map((doc) => doc.data());
+	console.log(array[Math.floor(Math.random() * array.length)]);
+	return array[Math.floor(Math.random() * array.length)];
+};
+
 const updateOnboardingScore = async (uid, score, pref) => {
 	await db.collection("progress").doc(uid).update({
 		level: score,
-		firstChallengePref: pref,
+		preference: pref,
 	});
 };
 
@@ -46,13 +59,15 @@ const addActiveChallenge = async (uid, challengeid) => {
 		});
 };
 
-const finishChallenge = async (uid, challengeid) => {
+const finishChallenge = async (uid, challengeid, tempAvoidance) => {
 	await db
 		.collection("progress")
 		.doc(uid)
 		.update({
 			finished: firebase.firestore.FieldValue.arrayUnion(challengeid),
 			active: firebase.firestore.FieldValue.arrayRemove(challengeid),
+			completed: firebase.firestore.FieldValue.increment(1),
+			avoided: firebase.firestore.FieldValue.increment(tempAvoidance),
 		});
 };
 
@@ -88,4 +103,5 @@ export {
 	failChallenge,
 	getChallenge,
 	updateOnboardingScore,
+	getFirstChallenge,
 };
