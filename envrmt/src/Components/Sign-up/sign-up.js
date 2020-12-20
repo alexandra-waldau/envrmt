@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { signInWithFacebook, signInWithGoogle } from "../../Firebase/firebaseAuth";
 
 const LoginButton = (props) => {
+	if(props.service === 'Email') {
 	return (
 		<button className="sign-up-button" id={props.id} onClick={props.popup}>
 			{props.icon}
@@ -20,6 +21,16 @@ const LoginButton = (props) => {
 			</Link>
 		</button>
 	);
+	} else {
+		return (
+		<button className="sign-up-button" id={props.id} onClick={props.popup}>
+			{props.icon}
+			<Link className="link" to={props.url}>
+				Continue with {props.service}
+			</Link>
+		</button>
+		);
+	}
 };
 
 // TODO: fix placement of button icon

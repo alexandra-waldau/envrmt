@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./../../../Components/Log-in/Forgot-password/forgot-password.css"
 import { forgotPassword } from "./../../../Firebase/firebaseAuth";
 import { Link } from "react-router-dom";
+import { Header } from "./../../Create-Account/create-account"
 
 // icon imports
 import { GrClose } from "react-icons/gr";
@@ -22,12 +23,7 @@ const ResetPassword = (props) => {
     
     return(
         <div className="reset-password">
-            <div className="resetpw-headline">
-                <Link className="back-button-rp" to="log-in" >
-                    <h5>Back</h5>
-                </Link>
-                <h1>Reset password</h1>
-            </div>
+                <Header text = "Reset password" />
         <div className="flexbox-container">
             <p className="rp text">Insert the email that is connected to your account and we'll send you an email to reset your password.</p>
             <form className="flexbox-item" method="get" onSubmit={(e) => onSubmit(e,email)}>
