@@ -7,7 +7,7 @@ import { AiOutlineCloud } from "react-icons/ai";
 //The Challenge card container
 const ChallengeCard = (props) => {
 	return (
-		<div className="container-challenge" onClick={props.toggle}>
+		<div className="container-challenge" onClick={props.status ? props.toggle: null}>
 			<StatusOptions status={props.status} />
 			<div className="container-challenge-text">
 				<p className="challenge-title">{props.title}</p>
@@ -18,7 +18,7 @@ const ChallengeCard = (props) => {
 	);
 };
 
-//How the card will be displayed will depend on challengeStatus variable -if statement to determine it
+//How the card will be displayed will depend on challengeStatus variable
 const StatusOptions = (props) => {
 	return (props.status ? <ChallengeStatus id="active" status=" active" /> :
 								<ChallengeStatus id="done" status=" done" />

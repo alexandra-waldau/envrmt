@@ -64,9 +64,9 @@ const failChallenge = async (uid, challengeid) => {
 
 const getActiveChallenges = async (uid) => {
 	const snapshot = (await db	
-						.collection("progress")
-						.doc(uid)
-						.get());
+		.collection("progress")
+		.doc(uid)
+		.get());
 	return snapshot.data().active;
 }
 
