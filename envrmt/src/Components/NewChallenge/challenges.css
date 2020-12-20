@@ -22,10 +22,12 @@
 }
 
 .new-challenges h1 {
-	font-size: 30px;
+	font-size: 26px;
 	font-weight: 600;
 	font-family: Inter;
 	padding-left: 25.5px;
+	padding-top: 5px;
+
 }
 
 .new-challenges h2 {
