@@ -71,7 +71,7 @@ const Dashboard = () => {
 				const active = doc.active;
 				getChallenge(all).then((challenges) => {
 					const data = challenges.docs.map((doc) =>({active: isActive(active,doc.data().id), data: doc.data()}));
-					console.log(data);
+					data.sort((a, b) => (a.active < b.active) ? 1 : -1);
 					updateList(data);
 				})
 			}
