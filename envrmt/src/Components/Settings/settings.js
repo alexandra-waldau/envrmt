@@ -1,6 +1,6 @@
 import React from "react";
 import "./settings.css";
-import { Header } from "../Create-Account/create-account";
+import {Link} from 'react-router-dom';
 import signOutImage from "../../Assets/Sign_out.svg";
 import { signOut } from "../../Firebase/firebaseAuth";
 import { DeleteAccountPopUp } from "./Pop-ups/DeleteAccountPopUp.js";
@@ -20,8 +20,11 @@ const Settings = () => {
 
 	return (
 		<div className="settings">
-			<div className="headline settings">
-				<Header text="Settings" />
+			<div className="settings-back">
+				<Link className="back-button-settings" to="dashboard">
+					<h5>Back</h5>
+				</Link>
+				<h1>Settings</h1>
 			</div>
 			<div className="flexbox">
 				<img
