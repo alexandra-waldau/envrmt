@@ -3,33 +3,27 @@ import "../../Components/Create-Account/create-account.css";
 import "./dashboard.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FeedbackSwitcher } from "./Pop-ups/feedback";
-import { ChallengeCard } from "./Challenge/challenge-status";
-import { ChallengeCompletion } from "./Pop-ups/feedback";
+import { ChallengeCard } from "./Challenges/challenge-status";
+import { ChallengeCompletion, FeedbackSwitcher } from "./Pop-ups/feedback";
 import { ChallengeDetail } from "./Pop-ups/challenge-detail";
 import { Chart } from "./Chart/dashboard-chart";
 import { auth } from "../../Firebase/firebaseIndex";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { getUserName } from "../../Firebase/firestoreAPI";
-
-import { getAllChallenges, getSpecific } from "../../Firebase/firestoreAPI";
+import { getUser, getProgress, getChallenge, finishChallenge, failChallenge } from "../../Firebase/firestoreAPI";
 
 // icon imports
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
 
-//delete later
-// import { DisplayCategoryIcon } from "../NewChallenge/challenges";
-
 //Putting together the home screen components
 const Dashboard = () => {
+	const [user] = useAuthState(auth);
+	const [username, setUsername] = useState(""); 
+	const [score, setScore] = useState(0);
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [ratingIsVisible, setRatingVisibility] = useState(false);
 	const [feedbackIsVisible, setFeedbackVisibility] = useState(false);
 	const [challengeDetail, showChallengeDetail] = useState([]);
-	const [score, setScore] = useState(0);
-	const [user] = useAuthState(auth);
-	const [username, setUsername] = useState(""); 
 	const [list, updateList] = useState([]);
 
 	const toggleDetailPopUp = (challenge) => {
@@ -38,47 +32,60 @@ const Dashboard = () => {
 	};
 	const toggleRatingPopUp = () => {
 		setRatingVisibility(true);
-		setDetailVisibility();
+		setDetailVisibility(false);
 	};
 
 	const exitRatingPopUp = () => {
 		setRatingVisibility();
 	};
 
-	const toggleFeedbackPopUp = () => {
+	const removeChallenge = async (challengeId) => {
+		await failChallenge(user.uid, challengeId);
+		exitRatingPopUp();
+		setProgress();
+	}
+
+	const toggleFeedbackPopUp = async (challengeid) => {
+		await finishChallenge(user.uid, challengeid);
 		setFeedbackVisibility(true);
-		setRatingVisibility();
-		setDetailVisibility();
+		setRatingVisibility(false);
 	};
 
 	const exitFeedbackPopUp = () => {
-		setFeedbackVisibility();
+		setFeedbackVisibility(false);
+		setProgress();
 	};
 
 	const updateScore = (days) => {
 		setScore(days);
 	};
 
-	const activeChallengeIds = 9;
-	async function getChallenges() {
-		// get challenges collection from firestore
-		let challenges = await getSpecific(activeChallengeIds);
-		// create array of documents
-		const data = challenges.docs.map((doc) => doc.data());
-		updateList(data);
+	const isActive = (active, id) => {
+		return active.some((activeId) => activeId == id);
 	}
 
+	const setProgress = async () => {
+		getProgress(user.uid).then((doc) => {
+			if (doc.active.length !== 0 || doc.finished.length !== 0){
+				const all = doc.finished.concat(doc.active);
+				const active = doc.active;
+				getChallenge(all).then((challenges) => {
+					const data = challenges.docs.map((doc) =>({active: isActive(active,doc.data().id), data: doc.data()}));
+					data.sort((a, b) => (a.active < b.active) ? 1 : -1);
+					updateList(data);
+				})
+			}
+		}
+		//get me the completed score => doc.completed
+	)}
+
 	useEffect(() => {
-		getUserName(user.uid).then((snapshot) => {
+		getUser(user.uid).then((snapshot) => {
 			const name = snapshot.name;
 			const parts = name.split(/\s+/);
-			// only return the first name
-			if (parts.length > 1) {
-				setUsername("Hello " + parts[0] + "!");
-			} 
+			setUsername("Hello " + parts[0] + "!");
 		})
-		console.log("fetching");
-		getChallenges();
+		setProgress();
 	}, []);
 
 	return (
@@ -89,26 +96,23 @@ const Dashboard = () => {
 				</Link>
 			</button>
 			<h2 className="headline dashboard">{username}</h2>
-
 			{/* if user has no challenges, show "<Chart1 />" */}
 			<Chart />
-
 			<div className="flexbox-item">
 				<div className="dashboard-your-challenges">Your Challenges:</div>
-
 				{list.map((item) => (
 					<ChallengeCard
-						toggle={() => toggleDetailPopUp(item)}
-						avoidance={item.avoidance}
-						category={item.category}
-						title={item.title}
-						description={item.description}
-						duration={item.duration}
-						id={item.id}
-						level={item.level}
+						status= {item.active}
+						toggle={() => toggleDetailPopUp(item.data)}
+						avoidance={item.data.avoidance}
+						category={item.data.category}
+						title={item.data.title}
+						description={item.data.description}
+						duration={item.data.duration}
+						id={item.data.id}
+						level={item.data.level}
 					/>
 				))}
-
 				{detailIsVisible ? (
 					<ChallengeDetail
 						title={challengeDetail.title}
@@ -130,8 +134,8 @@ const Dashboard = () => {
 						category={challengeDetail.category}
 						toggle={() => exitRatingPopUp()}
 						score={updateScore}
-						next={() => toggleFeedbackPopUp()}
-						// pass on challenge's ID
+						next={() => toggleFeedbackPopUp(challengeDetail.id)}
+						cancel={() => removeChallenge(challengeDetail.id)}
 					/>
 				) : null}
 				{feedbackIsVisible ? (
@@ -139,7 +143,6 @@ const Dashboard = () => {
 						toggle={() => exitFeedbackPopUp()}
 						score={score}
 						avoidance={challengeDetail.avoidance}
-						// pass on challenge's ID
 					/>
 				) : null}
 			</div>

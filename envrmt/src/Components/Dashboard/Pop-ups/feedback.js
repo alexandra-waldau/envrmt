@@ -2,7 +2,7 @@ import { useState } from "react";
 import Rating from "react-rating";
 
 import "./feedback.css";
-import { Co2Avoided } from "../Challenge/challenge-status";
+import { Co2Avoided } from "../Challenges/challenge-status";
 import { CategoryText } from "./challenge-detail";
 import { DisplayCategoryIcon } from "./challenge-detail";
 
@@ -13,14 +13,12 @@ import { AiOutlineCloud } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ImEarth } from "react-icons/im";
-//defining categories
-const shoppingText = "Shopping";
 
 const EarthRating = (props) => {
 	const [days, setDays] = useState(0);
 	return (
 		<div className="rating">
-			<p className="days-text">{days} days</p>
+			<p className="days-text">{days}/5 challenge success</p>
 			<Rating
 				onClick={(value) => {
 					setDays(value);
@@ -48,7 +46,7 @@ const ChallengeCompletion = (props) => {
 				<button className="challenge-button" onClick={props.next}>
 					Done
 				</button>
-				<p className="failed-challenge" onClick={props.next}>
+				<p className="failed-challenge" onClick={props.cancel}>
 					I failed this challenge
 				</p>
 			</div>
@@ -90,7 +88,7 @@ const FeedbackSwitcher = (props) => {
 				toggle={props.toggle}
 				icon={PosEmoji}
 				headline="Good Job!"
-				text="Thank you for making a difference today"
+				text="Thank you for making a difference today!"
 				id="positive"
 				avoidance={props.avoidance * (performanceRating / 5)}
 			/>
