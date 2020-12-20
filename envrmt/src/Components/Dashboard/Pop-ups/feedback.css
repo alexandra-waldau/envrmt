@@ -49,6 +49,19 @@
   font-family: Inter;
 }
 
+#positive.Co2-avoided {
+  text-align: center;
+  line-height: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#negative.Co2-avoided {
+  text-align: center;
+  line-height: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 #positive {
   color: #5db075;
