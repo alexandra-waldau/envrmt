@@ -34,26 +34,26 @@ const q4 = [
 
 const q5 = [
 	"Do you pay your bills online?",
-	"Always",
-	"Sometimes",
-	"Rarely",
 	"Never",
+	"Rarely",
+	"Sometimes",
+	"Always",
 ];
 
 const q6 = [
 	"How many kilometers do you limit your flight distance to every year?",
-	"I never fly",
-	"Less than 6.000",
-	"Less than 15.000",
 	"I have no limits",
+	"Less than 15.000",
+	"Less than 6.000",
+	"I never fly",
 ];
 
 const q7 = [
 	"How many new plastic bags do you consume every year?",
-	"None",
-	"1-3",
-	"4-8",
 	"9 or more",
+	"4-8",
+	"1-3",
+	"None",
 ];
 
 const q8 = [
