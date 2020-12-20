@@ -9,7 +9,7 @@ const createUser = async (uid, name) => {
 	})
 };
 
-const getUserName = async (uid) => {
+const getUser = async (uid) => {
 	const snapshot = (await db.collection("users").doc(uid).get()).data();
 	return snapshot;
 }
@@ -28,6 +28,11 @@ const createProgress = async (uid) => {
 		});
 };
 
+const getProgress = async (uid) => {
+	const snapshot = (await db.collection("progress").doc(uid).get()).data();
+	return snapshot;
+}
+
 const addActiveChallenge = async (uid, challengeid) => {
 	await db
 		.collection("progress")
@@ -45,9 +50,9 @@ const getActiveChallenges = async (uid) => {
 	return snapshot.data().active;
 }
 
-const getSpecific = async (id) => {
-	let specific = await getAllChallenges.where("id", "==", id).get();
+const getChallenge = async (ids) => {
+	let specific = await getAllChallenges.where("id", "in", ids).get()
 	return specific;
 };
 
-export { getAllChallenges, getActiveChallenges, createUser, getUserName, createProgress, addActiveChallenge, getSpecific };
+export { getAllChallenges, getActiveChallenges, createUser, getUser, getProgress, createProgress, addActiveChallenge, getChallenge };

@@ -23,7 +23,7 @@ const NewChallenges = () => {
 	// get all existing challenges from the database
 	async function getChallenges() {
 		let challenges = await getAllChallenges.get();
-		const data = challenges.docs.map((doc) => ({id: doc.id, data: doc.data()}));
+		const data = challenges.docs.map((doc) => doc.data());
 		const active = await getActiveChallenges(user.uid);
 		const inactive = data.filter(challenge => !(active.some((id) => (id === challenge.id))))
 		updateList(inactive);
@@ -65,13 +65,13 @@ const NewChallenges = () => {
 						<div
 							className="new-challenge-section"
 							onClick={() => togglePopUp(item)}
-							key={item.data.id}
+							key={item.id}
 						>
-							<DisplayCategoryIcon category={item.data.category} />
+							<DisplayCategoryIcon category={item.category} />
 							<div className="new-challenge-text">
-								<h2>{item.data.title}</h2>
+								<h2>{item.title}</h2>
 								<div className="new-challenge-description">
-									<h3>{item.data.description}</h3>
+									<h3>{item.description}</h3>
 								</div>
 							</div>
 						</div>
@@ -82,10 +82,10 @@ const NewChallenges = () => {
 				<ChallengeDetails
 					id={challengeDetail.id}
 					toggle={() => activateChallenge()}
-					category={challengeDetail.data.category}
-					title={challengeDetail.data.title}
-					descr={challengeDetail.data.description}
-					co2={challengeDetail.data.avoidance}
+					category={challengeDetail.category}
+					title={challengeDetail.title}
+					descr={challengeDetail.description}
+					co2={challengeDetail.avoidance}
 				/>
 			) : null}
 			<div>

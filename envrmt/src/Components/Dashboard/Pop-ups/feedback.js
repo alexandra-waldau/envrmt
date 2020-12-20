@@ -2,7 +2,7 @@ import { useState } from "react";
 import Rating from "react-rating";
 
 import "./feedback.css";
-import { Co2Avoided } from "../Challenge/challenge-status";
+import { Co2Avoided } from "../Challenges/challenge-status";
 import { CategoryText } from "./challenge-detail";
 import { DisplayCategoryIcon } from "./challenge-detail";
 

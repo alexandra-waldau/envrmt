@@ -3,33 +3,27 @@ import "../../Components/Create-Account/create-account.css";
 import "./dashboard.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FeedbackSwitcher } from "./Pop-ups/feedback";
-import { ChallengeCard } from "./Challenge/challenge-status";
-import { ChallengeCompletion } from "./Pop-ups/feedback";
+import { ChallengeCard } from "./Challenges/challenge-status";
+import { ChallengeCompletion, FeedbackSwitcher } from "./Pop-ups/feedback";
 import { ChallengeDetail } from "./Pop-ups/challenge-detail";
 import { Chart } from "./Chart/dashboard-chart";
 import { auth } from "../../Firebase/firebaseIndex";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { getUserName } from "../../Firebase/firestoreAPI";
-
-import { getAllChallenges, getSpecific } from "../../Firebase/firestoreAPI";
+import { getUser, getProgress, getChallenge } from "../../Firebase/firestoreAPI";
 
 // icon imports
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
 
-//delete later
-// import { DisplayCategoryIcon } from "../NewChallenge/challenges";
-
 //Putting together the home screen components
 const Dashboard = () => {
+	const [user] = useAuthState(auth);
+	const [username, setUsername] = useState(""); 
+	const [score, setScore] = useState(0);
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [ratingIsVisible, setRatingVisibility] = useState(false);
 	const [feedbackIsVisible, setFeedbackVisibility] = useState(false);
 	const [challengeDetail, showChallengeDetail] = useState([]);
-	const [score, setScore] = useState(0);
-	const [user] = useAuthState(auth);
-	const [username, setUsername] = useState(""); 
 	const [list, updateList] = useState([]);
 
 	const toggleDetailPopUp = (challenge) => {
@@ -59,26 +53,25 @@ const Dashboard = () => {
 		setScore(days);
 	};
 
-	const activeChallengeIds = 9;
-	async function getChallenges() {
-		// get challenges collection from firestore
-		let challenges = await getSpecific(activeChallengeIds);
-		// create array of documents
-		const data = challenges.docs.map((doc) => doc.data());
-		updateList(data);
+	const setProgress = async () => {
+		getProgress(user.uid).then((doc) => {
+			if (doc.active.length !== 0) {
+				getChallenge(doc.active).then((challenges) => {
+					const data = challenges.docs.map((doc) => doc.data());
+					updateList(data);
+				})
+			}
+			//get me the completed score => doc.completed
+		})
 	}
 
 	useEffect(() => {
-		getUserName(user.uid).then((snapshot) => {
+		getUser(user.uid).then((snapshot) => {
 			const name = snapshot.name;
 			const parts = name.split(/\s+/);
-			// only return the first name
-			if (parts.length > 1) {
-				setUsername("Hello " + parts[0] + "!");
-			} 
+			setUsername("Hello " + parts[0] + "!");
 		})
-		console.log("fetching");
-		getChallenges();
+		setProgress();
 	}, []);
 
 	return (
@@ -89,13 +82,10 @@ const Dashboard = () => {
 				</Link>
 			</button>
 			<h2 className="headline dashboard">{username}</h2>
-
 			{/* if user has no challenges, show "<Chart1 />" */}
 			<Chart />
-
 			<div className="flexbox-item">
 				<div className="dashboard-your-challenges">Your Challenges:</div>
-
 				{list.map((item) => (
 					<ChallengeCard
 						toggle={() => toggleDetailPopUp(item)}
@@ -108,7 +98,6 @@ const Dashboard = () => {
 						level={item.level}
 					/>
 				))}
-
 				{detailIsVisible ? (
 					<ChallengeDetail
 						title={challengeDetail.title}
