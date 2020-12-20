@@ -5,26 +5,35 @@ const getAllChallenges = db.collection("challenges");
 
 const createUser = async (uid, name) => {
 	await db.collection("users").doc(uid).set({
-		name: name
-	})
+		name: name,
+	});
 };
 
 const getUserName = async (uid) => {
 	const snapshot = (await db.collection("users").doc(uid).get()).data();
 	return snapshot;
-}
+};
 
 const createProgress = async (uid) => {
-	await db
-		.collection("progress")
-		.doc(uid)
-		.set({
-			user: uid,
-			completed: 0,
-			avoided: 0,
-			finished: [],
-			active: [], //this needs to be updated after onboarding
-		});
+	await db.collection("progress").doc(uid).set({
+		user: uid,
+		completed: 0,
+		avoided: 0,
+		finished: [],
+		active: [],
+		level: 0,
+		firstChallengePref: "",
+		//this needs to be updated after onboarding
+	});
+};
+
+const updateOnboardingScore = async (uid, score, pref) => {
+	await db.collection("progress").doc(uid).update({
+		level: score,
+		firstChallengePref: pref,
+	});
+
+	console.log(uid);
 };
 
 const addActiveChallenge = async (uid, challengeid) => {
@@ -32,13 +41,23 @@ const addActiveChallenge = async (uid, challengeid) => {
 		.collection("progress")
 		.doc(uid)
 		.update({
-			active: firebase.firestore.FieldValue.arrayUnion(db.doc("challenges/" + challengeid))
-		})
-}
+			active: firebase.firestore.FieldValue.arrayUnion(
+				db.doc("challenges/" + challengeid)
+			),
+		});
+};
 
 const getSpecific = async (id) => {
 	let specific = await getAllChallenges.where("id", "==", id).get();
 	return specific;
 };
 
-export { getAllChallenges, createUser, getUserName, createProgress, addActiveChallenge, getSpecific };
+export {
+	getAllChallenges,
+	createUser,
+	getUserName,
+	createProgress,
+	addActiveChallenge,
+	getSpecific,
+	updateOnboardingScore,
+};
