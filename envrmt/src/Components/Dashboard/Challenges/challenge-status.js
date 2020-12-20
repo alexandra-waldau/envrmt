@@ -8,7 +8,7 @@ import { AiOutlineCloud } from "react-icons/ai";
 const ChallengeCard = (props) => {
 	return (
 		<div className="container-challenge" onClick={props.toggle}>
-			<StatusOptions status="active" />
+			<StatusOptions status={props.status} />
 			<div className="container-challenge-text">
 				<p className="challenge-title">{props.title}</p>
 				<p className="challenge-description">{props.description}</p>
@@ -20,12 +20,11 @@ const ChallengeCard = (props) => {
 
 //How the card will be displayed will depend on challengeStatus variable -if statement to determine it
 const StatusOptions = (props) => {
-	if (props.status == "active") {
-		return <ChallengeStatus id="active" status=" active" />;
-	} else if (props.statusprops.status == "done") {
-		return <ChallengeStatus id="done" status=" done" />;
-	}
+	return (props.status ? <ChallengeStatus id="active" status=" active" /> :
+								<ChallengeStatus id="done" status=" done" />
+	);
 };
+
 //Function for challenge status
 const ChallengeStatus = (props) => {
 	return (
@@ -35,9 +34,6 @@ const ChallengeStatus = (props) => {
 		</div>
 	);
 };
-
-//Value of Co2 avoided so far with the challenges, defined with a let because it's determined by each user.
-let avoidanceChallenge = 20;
 
 //Bottom message of how much Co2 is avoided by completing this challenge
 const Co2Avoided = (props) => {

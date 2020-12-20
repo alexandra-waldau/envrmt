@@ -22,9 +22,9 @@ const createProgress = async (uid) => {
 			user: uid,
 			completed: 0,
 			avoided: 0,
+			failed: 0,
 			finished: [], //array of document references 
 			active: [], //this needs to be updated after onboarding
-			failed: []
 		});
 };
 
@@ -42,6 +42,26 @@ const addActiveChallenge = async (uid, challengeid) => {
 		});
 }
 
+const finishChallenge = async (uid, challengeid) => {
+	await db
+		.collection("progress")
+		.doc(uid)
+		.update({
+			finished: firebase.firestore.FieldValue.arrayUnion(challengeid),
+			active: firebase.firestore.FieldValue.arrayRemove(challengeid)
+		});
+}
+
+const failChallenge = async (uid, challengeid) => {
+	await db
+	.collection("progress")
+	.doc(uid)
+	.update({
+		active: firebase.firestore.FieldValue.arrayRemove(challengeid),
+		failed: firebase.firestore.FieldValue.increment(1)
+	});
+}
+
 const getActiveChallenges = async (uid) => {
 	const snapshot = (await db	
 						.collection("progress")
@@ -55,4 +75,5 @@ const getChallenge = async (ids) => {
 	return specific;
 };
 
-export { getAllChallenges, getActiveChallenges, createUser, getUser, getProgress, createProgress, addActiveChallenge, getChallenge };
+export { getAllChallenges, getActiveChallenges, createUser, getUser, getProgress, 
+	createProgress, addActiveChallenge, finishChallenge, failChallenge, getChallenge };

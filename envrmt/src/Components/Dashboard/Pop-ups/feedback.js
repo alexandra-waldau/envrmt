@@ -13,8 +13,6 @@ import { AiOutlineCloud } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ImEarth } from "react-icons/im";
-//defining categories
-const shoppingText = "Shopping";
 
 const EarthRating = (props) => {
 	const [days, setDays] = useState(0);
@@ -48,7 +46,7 @@ const ChallengeCompletion = (props) => {
 				<button className="challenge-button" onClick={props.next}>
 					Done
 				</button>
-				<p className="failed-challenge" onClick={props.next}>
+				<p className="failed-challenge" onClick={props.cancel}>
 					I failed this challenge
 				</p>
 			</div>
