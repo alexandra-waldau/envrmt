@@ -45,7 +45,7 @@ const ChallengeCompletion = (props) => {
 				<p className="challenge-name-detail">{props.title}</p>
 				<p className="challenge-description-detail">{props.description}</p>
 				<EarthRating score={props.score} />
-				<button className="done-button" onClick={props.next}>
+				<button className="challenge-button" onClick={props.next}>
 					Done
 				</button>
 				<p className="failed-challenge" onClick={props.next}>
@@ -74,7 +74,7 @@ const PerformanceFeedback = (props) => {
 						id={props.id}
 					/>
 				</div>
-				<button className="done-button" onClick={props.toggle}>
+				<button className="challenge-button" onClick={props.toggle}>
 					Done
 				</button>
 			</div>
@@ -90,7 +90,7 @@ const FeedbackSwitcher = (props) => {
 				toggle={props.toggle}
 				icon={PosEmoji}
 				headline="Good Job!"
-				text="Thank you for making a difference today"
+				text="Thank you for making a difference today!"
 				id="positive"
 				avoidance={props.avoidance * (performanceRating / 5)}
 			/>

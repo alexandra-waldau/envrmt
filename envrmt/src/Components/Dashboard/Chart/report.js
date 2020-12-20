@@ -6,20 +6,20 @@ function Report(props) {
     return(
     <div className="report">
         <div className="report-headline">
-            <Link className="back-button-report" to="dashboard">
-			    <h5>Back</h5>
+            <Link to="dashboard">
+			    <button className = 'back-button'>Back</button>
             </Link>
             <h1>Result overview</h1>
         </div>
     <div className ="report-content-container">  
-        <p className="challenge-figure">5.2 kg</p>
-        <p className = "report-text">of Co2 saved with your actions</p>
+        <h6>5.2 kg</h6>
+        <h3>of Co2 saved with your actions</h3>
 
-        <p className="challenge-figure">13</p>
-        <p className = "report-text">Completed challenges</p>
+        <h2>13</h2>
+        <h3>Completed challenges</h3>
 
-        <p className="challenge-figure">10</p>
-        <p className = "report-text">Failed challenges</p>
+        <h4>10</h4>
+        <h3>Failed challenges</h3>
 
         <img 
             className = "report-image" 
