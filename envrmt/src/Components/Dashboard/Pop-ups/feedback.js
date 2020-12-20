@@ -23,6 +23,7 @@ const EarthRating = (props) => {
 				onClick={(value) => {
 					setDays(value);
 					props.score(value);
+					props.getRating(value);
 				}}
 				initialRating={days}
 				emptySymbol={<ImEarth className="rating-icon" />}
@@ -33,6 +34,9 @@ const EarthRating = (props) => {
 };
 
 const ChallengeCompletion = (props) => {
+	const [rating, getRating] = useState(0);
+	const tempAvoidance = (rating / 5) * props.avoidance;
+	console.log(tempAvoidance);
 	return (
 		<div className="overlay">
 			<div className="container-challenge-detail">
@@ -42,8 +46,11 @@ const ChallengeCompletion = (props) => {
 				<DisplayCategoryIcon category={props.category} />
 				<p className="challenge-name-detail">{props.title}</p>
 				<p className="challenge-description-detail">{props.description}</p>
-				<EarthRating score={props.score} />
-				<button className="challenge-button" onClick={props.next}>
+				<EarthRating score={props.score} getRating={getRating} />
+				<button
+					className="challenge-button"
+					onClick={() => props.next(props.id, tempAvoidance)}
+				>
 					Done
 				</button>
 				<p className="failed-challenge" onClick={props.cancel}>

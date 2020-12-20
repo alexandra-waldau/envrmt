@@ -10,13 +10,22 @@ import { BsCircleFill } from "react-icons/bs";
 import { IconBase } from "react-icons/lib";
 
 //TODO: use real data
-const Chart = () => {
+const Chart = (props) => {
 	const [page, setPage] = useState(1);
 
 	const displayPage = () => {
+		console.log(props.completed);
 		switch (page) {
 			case 1:
-				return <PieStats />;
+				return props.completed > 0 ? (
+					<PieStats
+						completed={props.completed}
+						failed={props.failed}
+						avoidance={props.avoidance}
+					/>
+				) : (
+					<Default />
+				);
 			case 2:
 				return <p>in other words: plane</p>;
 			case 3:
@@ -72,10 +81,10 @@ const Default = () => {
 	);
 };
 
-let amountAvoidance = 5.2;
-let successRatio = 80;
-
-const PieStats = () => {
+const PieStats = (props) => {
+	const successful = props.completed;
+	const total = props.completed + props.failed;
+	const successRatio = successful / total;
 	return (
 		<>
 			<div className="container-circle">
@@ -83,8 +92,8 @@ const PieStats = () => {
 					standlone={false}
 					viewBox={"0 0 width, height"}
 					data={[
-						{ x: " ", y: 80 },
-						{ x: " ", y: 20 },
+						{ x: " ", y: successful },
+						{ x: " ", y: total - successful },
 					]}
 					categories={{ x: ["Done", "failed"] }}
 					colorScale={["#5db075", "#E5E5E5"]}
@@ -95,12 +104,12 @@ const PieStats = () => {
 			</div>
 			<div className="chartLegend">
 				<img src={targetIcon} alt="target icon" />
-				<p>{successRatio}% challenge success</p>
+				<p>{successRatio.toFixed(2) * 100}% challenge success</p>
 			</div>
 			<div className="chartLegend">
 				<img src={cloudIcon} alt="target icon" />
 				<p>
-					{amountAvoidance}kg CO<sub>2</sub> avoidance
+					{props.avoidance.toFixed(2)}kg CO<sub>2</sub> avoidance
 				</p>
 			</div>
 		</>
