@@ -33,16 +33,16 @@ const q4 = [
 ];
 
 const q5 = [
-	"When do you turn on the heat?",
-	"Wearing sweater and still freezing",
-	"Beginning of winter",
-	"Freezing with short sleeves",
-	"It’s always on",
+	"Do you pay your bills online?",
+	"Always",
+	"Sometimes",
+	"Rarely",
+	"Never",
 ];
 
 const q6 = [
 	"How many kilometers do you limit your flight distance to every year?",
-	"None",
+	"I never fly",
 	"Less than 6.000",
 	"Less than 15.000",
 	"I have no limits",
