@@ -20,7 +20,7 @@ const EarthRating = (props) => {
 	const [days, setDays] = useState(0);
 	return (
 		<div className="rating">
-			<p className="days-text">{days} days</p>
+			<p className="days-text">{days}/5 challenge success</p>
 			<Rating
 				onClick={(value) => {
 					setDays(value);

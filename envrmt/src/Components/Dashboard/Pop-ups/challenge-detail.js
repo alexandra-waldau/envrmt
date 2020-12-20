@@ -28,9 +28,7 @@ const ChallengeDetail = (props) => {
 				<DisplayCategoryIcon category={props.category} />
 				<p className="challenge-name-detail">{props.title}</p>
 				<p className="challenge-description-detail">{props.description}</p>
-				<p className="challenge-duration">
-					<BsStopwatch /> {props.duration} days
-				</p>
+				<p className="challenge-duration"></p>
 				<p className="challenge-avoidance">
 					<AiOutlineCloud />
 					{props.avoidance}kg of CO<sub>2</sub>
