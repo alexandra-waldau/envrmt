@@ -26,7 +26,7 @@ const createProgress = async (uid) => {
 };
 
 const getFirstChallenge = async (uid) => {
-	const snapshot = (await db.collection("progress").doc(uid).get()).data();
+	const snapshot = (await db.collection("users").doc(uid).get()).data();
 	const data = db
 		.collection("challenges")
 		.where("level", "==", snapshot.level)
@@ -38,10 +38,17 @@ const getFirstChallenge = async (uid) => {
 };
 
 const updateOnboardingScore = async (uid, score, pref) => {
-	await db.collection("progress").doc(uid).update({
+	if (score > 0) {
+	await db.collection("users").doc(uid).update({
 		level: score,
 		preference: pref,
 	});
+	} else {
+		await db.collection("users").doc(uid).update({
+			level: 1,
+			preference: pref,
+		});
+	}
 };
 
 const getProgress = async (uid) => {

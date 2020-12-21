@@ -94,7 +94,7 @@ const Dashboard = () => {
 				setAvoidance(doc.avoided);
 				setCompleted(doc.completed);
 				setFailed(doc.failed);
-				if (completed === 0) {
+				if (completed === 0 && doc.active.length === 0) {
 					getFirstChallenge(user.uid).then((challenge) => {
 						addActiveChallenge(user.uid, challenge.id);
 						updateList([
