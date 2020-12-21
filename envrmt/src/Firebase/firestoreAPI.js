@@ -1,4 +1,5 @@
 import firebase from "firebase/app";
+import { useState } from "react";
 import { db } from "./firebaseIndex";
 
 const getAllChallenges = db.collection("challenges");
@@ -6,6 +7,9 @@ const getAllChallenges = db.collection("challenges");
 const createUser = async (uid, name) => {
 	await db.collection("users").doc(uid).set({
 		name: name,
+		finishedOnboarding: false,
+		level: 1,
+		preference: "",
 	});
 };
 
@@ -37,18 +41,30 @@ const getFirstChallenge = async (uid) => {
 	return array[Math.floor(Math.random() * array.length)];
 };
 
+const checkOnboardingComplete = async (uid) => {
+	const snapshot = (await db.collection("users").doc(uid).get()).data();
+	const isDone = snapshot.finishedOnboarding;
+	return isDone;
+};
+
 const updateOnboardingScore = async (uid, score, pref) => {
 	if (score > 0) {
-	await db.collection("users").doc(uid).update({
-		level: score,
-		preference: pref,
-	});
+		await db.collection("users").doc(uid).update({
+			level: score,
+			preference: pref,
+		});
 	} else {
 		await db.collection("users").doc(uid).update({
 			level: 1,
 			preference: pref,
 		});
 	}
+};
+
+const updateOnbardingFinished = async (uid, value) => {
+	await db.collection("users").doc(uid).update({
+		finishedOnboarding: value,
+	});
 };
 
 const getProgress = async (uid) => {
@@ -88,10 +104,7 @@ const failChallenge = async (uid, challengeid) => {
 };
 
 const getActiveChallenges = async (uid) => {
-	const snapshot = (await db	
-		.collection("progress")
-		.doc(uid)
-		.get());
+	const snapshot = await db.collection("progress").doc(uid).get();
 	return snapshot.data().active;
 };
 
@@ -112,5 +125,7 @@ export {
 	failChallenge,
 	getChallenge,
 	updateOnboardingScore,
+	updateOnbardingFinished,
 	getFirstChallenge,
+	checkOnboardingComplete,
 };

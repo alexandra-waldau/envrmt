@@ -7,7 +7,10 @@ import trash from "../../Assets/Icons/Trash.svg";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../Firebase/firebaseIndex";
-import { updateOnboardingScore } from "../../Firebase/firestoreAPI";
+import {
+	updateOnbardingFinished,
+	updateOnboardingScore,
+} from "../../Firebase/firestoreAPI";
 
 const BoardingCategories = (props) => {
 	const [user] = useAuthState(auth);
@@ -25,9 +28,10 @@ const BoardingCategories = (props) => {
 				<Link
 					to="/dashboard"
 					style={{ textDecoration: "none" }}
-					onClick={() =>
-						updateOnboardingScore(user.uid, level, "Transportation")
-					}
+					onClick={() => {
+						updateOnboardingScore(user.uid, level, "Transportation");
+						updateOnbardingFinished(user.uid, true);
+					}}
 				>
 					<div className="boarding-align-category">
 						<img src={bicycle} alt="bicycle" />
@@ -37,17 +41,23 @@ const BoardingCategories = (props) => {
 				<Link
 					to="/dashboard"
 					style={{ textDecoration: "none" }}
-					onClick={() => updateOnboardingScore(user.uid, level, "Shopping")}
+					onClick={() => {
+						updateOnboardingScore(user.uid, level, "Shopping");
+						updateOnbardingFinished(user.uid, true);
+					}}
 				>
 					<div className="boarding-align-category">
 						<img src={cart} alt="cart" />
-						<h4>Habits</h4>
+						<h4>Shopping</h4>
 					</div>
 				</Link>
 				<Link
 					to="/dashboard"
 					style={{ textDecoration: "none" }}
-					onClick={() => updateOnboardingScore(user.uid, level, "Food")}
+					onClick={() => {
+						updateOnboardingScore(user.uid, level, "Food");
+						updateOnbardingFinished(user.uid, true);
+					}}
 				>
 					<div className="boarding-align-category">
 						<img src={food} alt="food" />
@@ -57,11 +67,14 @@ const BoardingCategories = (props) => {
 				<Link
 					to="/dashboard"
 					style={{ textDecoration: "none" }}
-					onClick={() => updateOnboardingScore(user.uid, level, "Waste")}
+					onClick={() => {
+						updateOnboardingScore(user.uid, level, "Waste");
+						updateOnbardingFinished(user.uid, true);
+					}}
 				>
 					<div className="boarding-align-category">
 						<img src={trash} alt="chatbox" />
-						<h4>Recycling</h4>
+						<h4>Waste</h4>
 					</div>
 				</Link>
 			</div>

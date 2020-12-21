@@ -27,6 +27,7 @@ import { FiSettings } from "react-icons/fi";
 const Dashboard = () => {
 	const [user] = useAuthState(auth);
 	const [username, setUsername] = useState("");
+	const [level, setLevel] = useState(0);
 	const [score, setScore] = useState(0);
 	const [list, updateList] = useState([]);
 	const [detailIsVisible, setDetailVisibility] = useState(false);
@@ -77,37 +78,35 @@ const Dashboard = () => {
 	};
 
 	const setProgress = async () => {
-		getProgress(user.uid).then(
-			(doc) => {
-				if (doc.active.length !== 0 || doc.finished.length !== 0) {
-					const all = doc.finished.concat(doc.active);
-					const active = doc.active;
-					getChallenge(all).then((challenges) => {
-						const data = challenges.docs.map((doc) => ({
-							active: isActive(active, doc.data().id),
-							data: doc.data(),
-						}));
-						data.sort((a, b) => (a.active < b.active ? 1 : -1));
-						updateList(data);
-					});
-				}
-				setAvoidance(doc.avoided);
-				setCompleted(doc.completed);
-				setFailed(doc.failed);
-				if (completed === 0 && doc.active.length === 0) {
-					getFirstChallenge(user.uid).then((challenge) => {
-						addActiveChallenge(user.uid, challenge.id);
-						updateList([
-							...list,
-							{
-								active: true,
-								data: challenge,
-							},
-						]);
-					});
-				}
+		getProgress(user.uid).then((doc) => {
+			if (doc.active.length !== 0 || doc.finished.length !== 0) {
+				const all = doc.finished.concat(doc.active);
+				const active = doc.active;
+				getChallenge(all).then((challenges) => {
+					const data = challenges.docs.map((doc) => ({
+						active: isActive(active, doc.data().id),
+						data: doc.data(),
+					}));
+					data.sort((a, b) => (a.active < b.active ? 1 : -1));
+					updateList(data);
+				});
 			}
-		);
+			setAvoidance(doc.avoided);
+			setCompleted(doc.completed);
+			setFailed(doc.failed);
+			if (completed === 0 && doc.active.length === 0) {
+				getFirstChallenge(user.uid).then((challenge) => {
+					addActiveChallenge(user.uid, challenge.id);
+					updateList([
+						...list,
+						{
+							active: true,
+							data: challenge,
+						},
+					]);
+				});
+			}
+		});
 	};
 
 	useEffect(() => {
@@ -115,6 +114,7 @@ const Dashboard = () => {
 			const name = snapshot.name;
 			const parts = name.split(/\s+/);
 			setUsername("Hello " + parts[0] + "!");
+			setLevel(snapshot.level);
 		});
 		console.log(user.uid);
 		setProgress();
