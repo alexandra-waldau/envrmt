@@ -62,11 +62,9 @@ const NewChallenges = () => {
 			<ul>
 				{list.slice(0, visibleChallenges).map((item) => (
 					<li className="btn">
-						<div
-							className="new-challenge-section"
+						<div className="new-challenge-section"
 							onClick={() => togglePopUp(item)}
-							key={item.id}
-						>
+							key={item.id}>
 							<DisplayCategoryIcon category={item.category} />
 							<div className="new-challenge-text">
 								<h2>{item.title}</h2>

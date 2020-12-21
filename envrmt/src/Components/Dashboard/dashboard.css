@@ -25,6 +25,10 @@
   top: 140px;
 }
 
+.challenge-item {
+  width: 91%;
+}
+
 #active {
   color: #5db075;
 }

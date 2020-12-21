@@ -1,71 +1,71 @@
 .container-chart {
-	display: flex;
-	position: relative;
-	flex-direction: column;
-	/* justify-content: space-evenly; */
-	align-items: center;
-	box-sizing: border-box;
-	width: 343px;
-	height: 231px;
-	background: #ffffff;
-	border: 1px solid #e8e8e8;
-	border-radius: 20px;
-	margin: 0 0 1.5em 0;
-	overflow: hidden;
-	/* filter: drop-shadow(1px 2px 4px ); */
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  box-sizing: border-box;
+  width: 91%;
+  height: 231px;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 20px;
+  margin: 0 0 1.5em 0;
+  overflow: hidden;
+  /* filter: drop-shadow(1px 2px 4px ); */
 }
 
 .container-circle {
-	height: 8.5em;
-	margin: 0 0 0.4em 0;
+  height: 8.5em;
+  margin: 0 0 0.4em 0;
 }
 
 .chartLegend {
-	display: flex;
-	position: relative;
-	align-items: center;
-	margin: 0 0 0.5em 26%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin: 0 0 0.5em 26%;
 }
 
 .chartLegend p {
-	margin: 0 0 0 0.4em;
+  margin: 0 0 0 0.4em;
 }
 
 .level-graphic {
-	width: 10em;
-	height: auto;
+  width: 10em;
+  height: auto;
 }
 
 .container-chart p {
-	font-family: Inter;
-	color: #666666;
-	font-size: 0.75em;
-	text-align: center;
+  font-family: Inter;
+  color: #666666;
+  font-size: 0.75em;
+  text-align: center;
 }
 
 .container-chart :link {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .pieChartText {
-	text-align: left;
+  text-align: left;
 }
 
 .chart-text-headline {
-	font-weight: 600;
+  font-weight: 600;
 }
 
 .chartFlipper {
-	display: flex;
-	position: absolute;
-	bottom: 0.4em;
-	margin-top: 0.7em;
+  display: flex;
+  position: absolute;
+  bottom: 0.4em;
+  margin-top: 0.7em;
 }
 
 .chartFlipperCircles {
-	color: #f0f0f0;
-	width: 8px;
-	margin: 0 0.1em 0 0.1em;
+  color: #f0f0f0;
+  width: 8px;
+  margin: 0 0.1em 0 0.1em;
 }
 
 /* .dashboard-data {

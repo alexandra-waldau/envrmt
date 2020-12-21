@@ -39,7 +39,7 @@ const ChallengeStatus = (props) => {
 const Co2Avoided = (props) => {
 	return (
 		<p className="Co2-avoided" id={props.id}>
-			<AiOutlineCloud /> {props.avoidanceChallenge}kg of CO<sub>2</sub>
+			<AiOutlineCloud className="cloud-icon" /> {props.avoidanceChallenge}kg of CO<sub>2</sub>
 		</p>
 	);
 };

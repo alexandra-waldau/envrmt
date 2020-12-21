@@ -28,11 +28,11 @@ const Dashboard = () => {
 	const [user] = useAuthState(auth);
 	const [username, setUsername] = useState("");
 	const [score, setScore] = useState(0);
+	const [list, updateList] = useState([]);
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [ratingIsVisible, setRatingVisibility] = useState(false);
 	const [feedbackIsVisible, setFeedbackVisibility] = useState(false);
 	const [challengeDetail, showChallengeDetail] = useState([]);
-	const [list, updateList] = useState([]);
 
 	const [avoidance, setAvoidance] = useState(0);
 	const [failed, setFailed] = useState(0);
@@ -131,7 +131,7 @@ const Dashboard = () => {
 			<h2 className="headline dashboard">{username}</h2>
 			{/* if user has no challenges, show "<Chart1 />" */}
 			<Chart completed={completed} failed={failed} avoidance={avoidance} />
-			<div className="flexbox-item">
+			<div className="challenge-item">
 				<div className="dashboard-your-challenges">Your Challenges:</div>
 				{list.map((item) => (
 					<ChallengeCard

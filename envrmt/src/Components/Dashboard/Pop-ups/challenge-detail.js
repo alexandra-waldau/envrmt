@@ -7,11 +7,7 @@ import trash from "../../../Assets/Icons/Waste_green.svg";
 import cart from "../../../Assets/Icons/Shopping_green.svg";
 
 import { GrClose } from "react-icons/gr";
-import { BsStopwatch } from "react-icons/bs";
 import { AiOutlineCloud } from "react-icons/ai";
-
-//defining categories
-const shoppingText = "Shopping";
 
 const CategoryText = (props) => {
 	return <p className="category-text">{props.text}</p>;
@@ -30,7 +26,7 @@ const ChallengeDetail = (props) => {
 				<p className="challenge-description-detail">{props.description}</p>
 				<p className="challenge-duration"></p>
 				<p className="challenge-avoidance">
-					<AiOutlineCloud />
+					<AiOutlineCloud className="cloud-icon" />
 					{props.avoidance}kg of CO<sub>2</sub>
 				</p>
 				<button className="challenge-button" onClick={props.next}>

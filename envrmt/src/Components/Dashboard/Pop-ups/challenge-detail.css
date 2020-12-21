@@ -1,138 +1,127 @@
 p {
-	margin-bottom: 0;
-}
-
-.container-challenge-detail {
-	position: fixed;
-	top: 25%;
-	left: 15%;
-	padding: 1em 0 1em 0;
-	display: flex;
-	flex-direction: column;
-	width: 70%;
-	border: transparent;
-	align-items: center;
-	background-color: #ffffff;
-	border-radius: 6.5px;
-	box-shadow: 0px 1.63848px 16.3848px rgba(38, 36, 131, 0.25);
+  margin-bottom: 0;
 }
 
 .close-cross {
-	position: absolute;
-	width: 16px;
-	height: 16px;
-	left: 87%;
-	top: 15px;
-	border: none;
-	background-color: white;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 87%;
+  top: 15px;
+  border: none;
+  background-color: white;
 }
 
 .category-icon {
-	color: #5db075;
-	width: 6em;
+  color: #5db075;
+  width: 6em;
 }
 
 .category-text {
-	font-weight: 500;
-	font-size: 9px;
-	line-height: 11px;
-	color: #5db075;
-	margin: 0;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 11px;
+  color: #5db075;
+  margin: 0;
 }
 
 .challenge-name-detail {
-	font-weight: 600;
-	font-size: 18px;
-	line-height: 22px;
-	color: #000000;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
 }
 
 .challenge-description-detail {
-	font-family: Inter;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 17px;
-	color: #666666;
-	padding-right: 20%;
-	padding-left: 20%;
-	text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #666666;
+  padding-right: 20%;
+  padding-left: 20%;
+  text-align: center;
 }
 
 .challenge-duration {
-	font-family: Inter;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 11px;
-	line-height: 13px;
-	color: #666666;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #666666;
 }
 
 .challenge-avoidance {
-	font-family: Inter;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 11px;
-	line-height: 13px;
-	color: #5db075;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 13px;
+  color: #5db075;
+}
+
+.cloud-icon {
+  padding-right: 5px;
 }
 
 .challenge-button {
-	background-color: #5db075;
-	border-radius: 81.9242px;
-	color: white;
-	border: none;
-	font-weight: 600;
-	font-size: 14px;
-	line-height: 17px;
-	padding: 10px 15px;
-	margin-top: 10px;
-	min-width: 40%;
+  background-color: #5db075;
+  border-radius: 81.9242px;
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  min-width: 40%;
 }
 
 .rating-icons {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 .active {
-	color: #5db075;
+  color: #5db075;
 }
 
 .inactive {
-	color: #a1a5ac;
+  color: #a1a5ac;
 }
 
 .days-text {
-	font-weight: 500;
-	font-size: 11px;
-	line-height: 13px;
-	color: #666666;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #666666;
 }
 
 .done-button {
-	background-color: #5db075;
-	border-radius: 81.9242px;
-	color: white;
-	border: none;
-	font-weight: 600;
-	font-size: 14px;
-	line-height: 17px;
+  background-color: #5db075;
+  border-radius: 81.9242px;
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 .failed-challenge {
-	font-style: bold;
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 15px;
-	color: #666666;
+  font-style: bold;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #666666;
 }
 
 .overlay {
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	z-index: 1;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
 }

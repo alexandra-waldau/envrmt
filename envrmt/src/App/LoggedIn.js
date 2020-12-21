@@ -5,7 +5,6 @@ import { Settings } from "../Components/Settings/settings";
 import { NewChallenges } from "../Components/NewChallenge/challenges";
 import { Boarding } from "../Components/On-boarding/on-boarding";
 import { BoardingCategories } from "../Components/On-boarding/on-boarding-categories";
-import { Report } from "../Components/Dashboard/Chart/report";
 
 const LoggedIn = () => {
 	return (
@@ -19,7 +18,6 @@ const LoggedIn = () => {
 			<Route path="/settings" component={Settings} />
 			<Route path="/on-boarding" component={Boarding} />
 			<Route path="/on-boarding-categories" component={BoardingCategories} />
-			<Route path="/report" component={Report} />
 		</Switch>
 	);
 };
