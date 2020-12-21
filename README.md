@@ -21,53 +21,45 @@ Our data model utilizes a document-based NoSQL database. Data is stored in three
 
 User,
 Challenges,
-Progress,
+Progress
 
 ### 2. Attributes for entities
 
 ### Model for User
 
-| name        | type      | description                                                            |
-| -------------------------------------------------------------------------------------------------|
-| name        | string    | first and last name                                                    |
-| level       | number    | level calculated based on the results from the onboarding questionnaire|
-| preference  | string    | preferred category as indicated in the onboarding                      |
+| name       | type   | description                                                             |
+| ---------- | ------ | ----------------------------------------------------------------------- |
+| name       | string | first and last name                                                     |
+| level      | number | level calculated based on the results from the onboarding questionnaire |
+| preference | string | preferred category as indicated in the onboarding                       |
 
 ### Model for Challenges
 
-| name           | type   | description                                                                  |
-| -------------------------------------------------------------------------------------------------------|
-| id             | number | unique id                                                                    |
-| duration       | number | duration of the challenge (in days/nº tasks to be completed)                 |
-| avoidance      | number | quantity of Co2 avoided by completing the whole challenge                    |
-| category       | string | category the challenge corresponds to (Food, Transportation, Waste, Shopping)|
-| level          | number | the level of difficulty that the challenge corresponds to                    |
-| title          | string | title of the challenge                                                       |
-| description    | string | description of the challenge                                                 |
+| name        | type   | description                                                                   |
+| ----------- | ------ | ----------------------------------------------------------------------------- |
+| id          | number | unique id                                                                     |
+| duration    | number | duration of the challenge (in days/nº tasks to be completed)                  |
+| avoidance   | number | quantity of Co2 avoided by completing the whole challenge                     |
+| category    | string | category the challenge corresponds to (Food, Transportation, Waste, Shopping) |
+| level       | number | the level of difficulty that the challenge corresponds to                     |
+| title       | string | title of the challenge                                                        |
+| description | string | description of the challenge                                                  |
 
 ### Model for Progress
 
-| name      | type   | description                                       |
-| -----------------------------------------------------------------------|
-| user      | number | auto generated id generated in the user collection|
-| completed | number | amount of completed challenges                    |
-| failed    | number | amount of failed challenges                       |
-| avoided   | number | total CO2 avoidance                               |
-| finished  | array  | list of finished challenges (id)                  |
-| active    | array  | list of active challenges (id)                    |
+| name      | type   | description                                        |
+| --------- | ------ | -------------------------------------------------- |
+| user      | number | auto generated id generated in the user collection |
+| completed | number | amount of completed challenges                     |
+| failed    | number | amount of failed challenges                        |
+| avoided   | number | total CO2 avoidance                                |
+| finished  | array  | list of finished challenges (id)                   |
+| active    | array  | list of active challenges (id)                     |
 
-### 3. Data Naming Convenction - would be be done in following manner for all the entities
-
-Example for User entity:
-user_id,
-user_name,
-user_email,
-user_progress
-
-### 4. Relationships
+### 3. Relationships
 
 User and Progress share a one-to-one relationship. Progress and challenges share a one-to-many relationship. One instance of Progress can refer to many instances of challenges.
 
-### 5. Normalize to reduce Data Redundancy
+### 4. Normalize to reduce Data Redundancy
 
 We normalized our data model by creating a separate entity for Progress. Alternatively, progress could be embedded into the User entity to speed up information retrieval. However, creating a separate Progress entity allows us to extend the functionality of our application more easily as it makes it possible to extract all progress levels from all users and, for example, display a leaderboard.
