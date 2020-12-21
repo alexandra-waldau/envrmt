@@ -69,3 +69,7 @@ User and Progress share a one-to-one relationship. Progress and challenges share
 ### 4. Normalize to reduce Data Redundancy
 
 We normalized our data model by creating a separate entity for Progress. Alternatively, progress could be embedded into the User entity to speed up information retrieval. However, creating a separate Progress entity allows us to extend the functionality of our application more easily as it makes it possible to extract all progress levels from all users and, for example, display a leaderboard.
+
+## Challenges Upload
+
+The formulated question were converted into a .json file, which subsequently was uploaded to Firestore through a script accessible in the projects Firebase directory: "envrmt/envrmt/src/Firebase/firestoreImportChallenges.js".
