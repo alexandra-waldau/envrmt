@@ -6,6 +6,12 @@ Envrmt is a mobile application which tracks your personal climate change efforts
 
 A high fidelity prototype can be found here: http://bit.ly/figma-prototype
 
+## Link to deployed version
+
+The deployed application can be found at: ...
+
+Please open in the link in incognito mode, to ensure that google and facebook authentication is re-initialized and a new user account is created.
+
 ## Group members
 
 - Dario Raven Stolze {dars@itu.dk}
