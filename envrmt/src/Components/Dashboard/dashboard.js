@@ -27,6 +27,7 @@ import { FiSettings } from "react-icons/fi";
 const Dashboard = () => {
 	const [user] = useAuthState(auth);
 	const [username, setUsername] = useState("");
+	const [level, setLevel] = useState(0);
 	const [score, setScore] = useState(0);
 	const [detailIsVisible, setDetailVisibility] = useState(false);
 	const [ratingIsVisible, setRatingVisibility] = useState(false);
@@ -118,6 +119,7 @@ const Dashboard = () => {
 			const name = snapshot.name;
 			const parts = name.split(/\s+/);
 			setUsername("Hello " + parts[0] + "!");
+			setLevel(snapshot.level);
 		});
 		console.log(user.uid);
 		setProgress();
@@ -132,7 +134,12 @@ const Dashboard = () => {
 			</button>
 			<h2 className="headline dashboard">{username}</h2>
 			{/* if user has no challenges, show "<Chart1 />" */}
-			<Chart completed={completed} failed={failed} avoidance={avoidance} />
+			<Chart
+				level={level}
+				completed={completed}
+				failed={failed}
+				avoidance={avoidance}
+			/>
 			<div className="flexbox-item">
 				<div className="dashboard-your-challenges">Your Challenges:</div>
 				{list.map((item) => (

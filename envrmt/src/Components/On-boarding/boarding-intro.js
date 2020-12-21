@@ -5,12 +5,7 @@ import { Link } from "react-router-dom";
 
 const BoardingIntro = (props) => {
 	return (
-		<div className="boarding-detail">
-			<div className="boarding-management">
-				<button className="boarding-cross">
-					<GrClose />
-				</button>
-			</div>
+		<div className="boarding-detail intro">
 			<img src={speaker} alt="speaker" />
 			<h1>Nice to meet you!</h1>
 			<h2>

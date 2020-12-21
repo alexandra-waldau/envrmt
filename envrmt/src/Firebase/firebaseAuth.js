@@ -24,6 +24,7 @@ const signInWithGoogle = async () => {
 		new firebase.auth.GoogleAuthProvider()
 	);
 	await createUser(user.user.uid, user.user.displayName);
+	await createProgress(user.user.uid);
 };
 
 const signInWithFacebook = async () => {
@@ -31,6 +32,7 @@ const signInWithFacebook = async () => {
 		new firebase.auth.FacebookAuthProvider()
 	);
 	await createUser(user.user.uid, user.user.displayName);
+	await createProgress(user.user.uid);
 };
 
 const emailSignIn = async (email, password) => {

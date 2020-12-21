@@ -1,4 +1,5 @@
 import firebase from "firebase/app";
+import { useState } from "react";
 import { db } from "./firebaseIndex";
 
 const getAllChallenges = db.collection("challenges");
@@ -6,6 +7,9 @@ const getAllChallenges = db.collection("challenges");
 const createUser = async (uid, name) => {
 	await db.collection("users").doc(uid).set({
 		name: name,
+		finishedOnboarding: false,
+		level: 1,
+		preference: "",
 	});
 };
 
@@ -26,7 +30,7 @@ const createProgress = async (uid) => {
 };
 
 const getFirstChallenge = async (uid) => {
-	const snapshot = (await db.collection("progress").doc(uid).get()).data();
+	const snapshot = (await db.collection("users").doc(uid).get()).data();
 	const data = db
 		.collection("challenges")
 		.where("level", "==", snapshot.level)
@@ -38,10 +42,22 @@ const getFirstChallenge = async (uid) => {
 	return array[Math.floor(Math.random() * array.length)];
 };
 
+const checkOnboardingComplete = async (uid) => {
+	const snapshot = (await db.collection("users").doc(uid).get()).data();
+	const isDone = snapshot.finishedOnboarding;
+	return isDone;
+};
+
 const updateOnboardingScore = async (uid, score, pref) => {
-	await db.collection("progress").doc(uid).update({
+	await db.collection("users").doc(uid).update({
 		level: score,
 		preference: pref,
+	});
+};
+
+const updateOnbardingFinished = async (uid, value) => {
+	await db.collection("users").doc(uid).update({
+		finishedOnboarding: value,
 	});
 };
 
@@ -103,5 +119,7 @@ export {
 	failChallenge,
 	getChallenge,
 	updateOnboardingScore,
+	updateOnbardingFinished,
 	getFirstChallenge,
+	checkOnboardingComplete,
 };
