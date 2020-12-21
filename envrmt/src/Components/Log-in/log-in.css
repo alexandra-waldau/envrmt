@@ -1,0 +1,11 @@
+.forgot-password {
+  font-family: Inter;
+  color: #666666;
+  font-weight: bold;
+  background: none;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+}

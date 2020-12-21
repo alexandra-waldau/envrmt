@@ -1,0 +1,84 @@
+.overlay {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.CardDeleteAccount {
+  position: fixed;
+  top: 25%;
+  left: 15%;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  border: transparent;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 6.5px;
+  box-shadow: 0px 1.63848px 16.3848px rgba(38, 36, 131, 0.25);
+}
+
+.CardDeleteAccount h2{
+ font-family: Inter;
+ font-weight: 500;
+ text-align: center;
+ font-size: 20px;
+ line-height: 1;
+}
+
+.close-cross {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 87%;
+  top: 15px;
+  border: none;
+  background-color: white;
+}
+
+.EmojiDeleteAccountPopUp {
+  width: 60px;
+  margin-top: 8%;
+  margin-bottom: 5%;
+}
+
+.DeleteAccountElement.Question {
+  margin-block-start: none !important;
+  margin-block-end: none !important;
+  text-align: center;
+  font-size: 20px;
+  font-family: Inter;
+  line-height: 100%;
+  font-weight: 500;
+}
+
+.DeleteAccountElement.StayButton {
+  margin-top: 10px;
+  font-family: Inter;
+  font-size: 15px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color: transparent;
+  height: 50px;
+  border-radius: 80px;
+  border: 1px solid rgba(102, 102, 102, 0.3);
+  width: 80%;
+  background-color: #5db075;
+}
+
+.DeleteAccountElement.DeleteButton {
+  margin-top: 10px;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: #666666;
+  background-color: transparent;
+  height: 50px;
+  width: 80%;
+  border-color: transparent;
+}

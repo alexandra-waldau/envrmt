@@ -1,0 +1,70 @@
+.login-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../Assets/StartScreenBG.png");
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+
+.applogo {
+  position: absolute;
+  top: 31%;
+}
+
+.sign-up {
+  margin: auto;
+  width: 70%;
+  margin-bottom: 2.4em;
+}
+
+.login-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  position: absolute;
+  top: 5%;
+  right: 6%;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.sign-up-button {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  border-radius: 100px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  border: none;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.buttonIcon {
+  position: absolute;
+  left: 5%;
+  top: 25%;
+  height: 22px;
+  width: 22px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+#email {
+  background-color: #5db075;
+}
+
+#facebook {
+  background-color: #3362ad;
+}
+
+#google {
+  background-color: #eca098;
+}
