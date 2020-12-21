@@ -18,7 +18,7 @@ const EarthRating = (props) => {
 	const [days, setDays] = useState(0);
 	return (
 		<div className="rating">
-			<p className="days-text">{days}/5 challenge success</p>
+			<p className="instructions">Click on the globes to show how you did</p>
 			<Rating
 				onClick={(value) => {
 					setDays(value);
@@ -29,6 +29,8 @@ const EarthRating = (props) => {
 				emptySymbol={<ImEarth className="rating-icon" />}
 				fullSymbol={<ImEarth className="rating-icon active" />}
 			/>
+			<p className="days-text">{days}/5 challenge success</p>
+
 		</div>
 	);
 };

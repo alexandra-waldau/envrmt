@@ -25,19 +25,19 @@
 .feedback-card-title {
   font-family: Inter;
   font-weight: 600;
-	font-size: 18px;
-	line-height: 22px;
-	color: #000000;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
 }
 
 .feedback-card-text {
   font-family: Inter;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 17px;
-	color: #666666;
-	padding-right: 20%;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #666666;
+  padding-right: 20%;
   padding-left: 20%;
   text-align: center;
 }
@@ -89,3 +89,9 @@
   color: #5db075;
 }
 
+.instructions {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #5db075;
+}
