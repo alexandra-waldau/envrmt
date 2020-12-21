@@ -73,7 +73,7 @@ const Dashboard = () => {
 	};
 
 	const isActive = (active, id) => {
-		return active.some((activeId) => activeId == id);
+		return active.some((activeId) => activeId === id);
 	};
 
 	const setProgress = async () => {

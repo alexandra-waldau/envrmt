@@ -41,7 +41,7 @@ function ResetPwPopUp(props) {
       <div className="overlay">
         <div className="container-popup">
           <button className='close-cross' onClick={props.toggle}><GrClose /></button>
-          <img className="popup-image"src={PosEmoji}></img>
+          <img className="popup-image" alt="happy face" src={PosEmoji}></img>
           <p className="popup-text">We just sent you an email to reset your password. Go check your inbox to keep saving the planet!</p>
           <button className="done-button" onClick={props.toggle}>Done</button>
         </div>

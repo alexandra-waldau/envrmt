@@ -15,6 +15,8 @@ const emailSignUp = async (name, email, password) => {
 				return "Password must have more than 6 characters.";
 			case "auth/email-already-in-use":
 				return "Email already in use.";
+			default:
+				return "An error occurred. Please try again."
 		}
 	}
 };
@@ -44,6 +46,8 @@ const emailSignIn = async (email, password) => {
 				return "User doesn't exist.";
 			case "auth/invalid-email":
 				return "Invalid email address.";
+			default:
+				return "An error occurred. Please try again."
 		}
 	}
 };

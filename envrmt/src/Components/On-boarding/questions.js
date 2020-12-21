@@ -1,4 +1,3 @@
-import React from "react";
 
 const q1 = [
 	"How many times per week do you eat meat?",

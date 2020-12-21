@@ -1,9 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./on-boarding.css";
-import { GrClose } from "react-icons/gr";
 
-import { Link } from "react-router-dom";
 import { BsCircleFill } from "react-icons/bs";
 import { BoardingCategories } from "./on-boarding-categories";
 import { q1, q2, q3, q4, q5, q6, q7, q8 } from "./questions";
@@ -107,7 +105,7 @@ const Boarding = () => {
 						sum={sum}
 						updateSum={updateSum}
 					/>
-				);
+				)
 		}
 	};
 

@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import targetIcon from "../../../Assets/Icons/target.svg";
 import cloudIcon from "../../../Assets/Icons/cloud.svg";
 import { BsCircleFill } from "react-icons/bs";
-import { IconBase } from "react-icons/lib";
 
 //TODO: use real data
 const Chart = (props) => {
@@ -70,7 +69,7 @@ const Chart = (props) => {
 const Default = () => {
 	return (
 		<div className="default-container">
-			<img className="level-graphic" src={LevelPicture}></img>
+			<img className="level-graphic" src={LevelPicture} alt="levelpicture"></img>
 			<p className="chart-text-headline">Beginner</p>
 			<p>
 				You have not done much for the climate yet, but we'll give you good

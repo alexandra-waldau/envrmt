@@ -1,7 +1,6 @@
 import React from "react";
 import speaker from "../../Assets/Icons/Speaker.svg";
 import { GrClose } from "react-icons/gr";
-import { Link } from "react-router-dom";
 
 const BoardingIntro = (props) => {
 	return (

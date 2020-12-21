@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import "./on-boarding.css";
 import bicycle from "../../Assets/Icons/Bicycle.svg";
 import cart from "../../Assets/Icons/Cart.svg";

@@ -3,7 +3,6 @@ import Rating from "react-rating";
 
 import "./feedback.css";
 import { Co2Avoided } from "../Challenges/challenge-status";
-import { CategoryText } from "./challenge-detail";
 import { DisplayCategoryIcon } from "./challenge-detail";
 
 //icon imports
@@ -11,7 +10,6 @@ import PosEmoji from "../../../Assets/PosFeedbackEmoji.png";
 import NegEmoji from "../../../Assets/NegFeedbackEmoji.png";
 import { AiOutlineCloud } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ImEarth } from "react-icons/im";
 
 const EarthRating = (props) => {
