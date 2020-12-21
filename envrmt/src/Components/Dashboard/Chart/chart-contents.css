@@ -10,12 +10,20 @@
 	margin: 0 0 0.5em 0;
 }
 
+.chartLegend {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	align-items: center;
+	margin: 0 0 0.5em 0;
+}
+
 .chartLegend p {
 	margin: 0 0 0 0.4em;
 }
 
 .level-graphic {
-	width: 10em;
+	width: 8em;
 	margin-top: 1em;
 	height: auto;
 }
