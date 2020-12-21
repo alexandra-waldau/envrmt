@@ -10,7 +10,7 @@ const ChallengeDetails = (props) => {
 	return (
 		<div className="overlay-challenge">
 			<div className="container-challenge-detail">
-				<button className="close-cross" onClick={props.toggle}>
+				<button className="close-cross" onClick={props.toggleC}>
 					<GrClose />
 				</button>
 				<DisplayCategoryIcon category={props.category} />

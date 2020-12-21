@@ -79,6 +79,7 @@ const NewChallenges = () => {
 			{detailIsVisible ? (
 				<ChallengeDetails
 					id={challengeDetail.id}
+					toggleC={() => togglePopUp()}
 					toggle={() => activateChallenge()}
 					category={challengeDetail.category}
 					title={challengeDetail.title}

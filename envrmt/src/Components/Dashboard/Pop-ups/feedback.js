@@ -75,7 +75,7 @@ const PerformanceFeedback = (props) => {
 					<Co2Avoided
 						className="Co2-avoided"
 						icon={<AiOutlineCloud />}
-						avoidanceChallenge={props.avoidance}
+						avoidanceChallenge={Math.round((props.avoidance + Number.EPSILON) * 100) / 100}
 						id={props.id}
 					/>
 				</div>
