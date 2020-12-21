@@ -97,7 +97,6 @@ const Dashboard = () => {
 				if (completed === 0) {
 					getFirstChallenge(user.uid).then((challenge) => {
 						addActiveChallenge(user.uid, challenge.id);
-						console.log(challenge);
 						updateList([
 							...list,
 							{
@@ -129,7 +128,6 @@ const Dashboard = () => {
 				</Link>
 			</button>
 			<h2 className="headline dashboard">{username}</h2>
-			{/* if user has no challenges, show "<Chart1 />" */}
 			<Chart completed={completed} failed={failed} avoidance={avoidance} />
 			<div className="challenge-item">
 				<div className="dashboard-your-challenges">Your Challenges:</div>

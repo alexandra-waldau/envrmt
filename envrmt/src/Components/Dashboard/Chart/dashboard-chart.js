@@ -14,7 +14,6 @@ const Chart = (props) => {
 	const [page, setPage] = useState(1);
 
 	const displayPage = () => {
-		console.log(props.completed);
 		switch (page) {
 			case 1:
 				return props.completed > 0 ? (
@@ -70,7 +69,7 @@ const Chart = (props) => {
 //First dashboard the user sees before they complete any challenge
 const Default = () => {
 	return (
-		<div className="container-chart">
+		<div className="default-container">
 			<img className="level-graphic" src={LevelPicture}></img>
 			<p className="chart-text-headline">Beginner</p>
 			<p>
