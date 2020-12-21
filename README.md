@@ -10,7 +10,7 @@ A high fidelity prototype can be found here: http://bit.ly/figma-prototype
 
 The deployed application can be found at: https://5fe08dd579b527fc754e882a--envrmt.netlify.app/
 
-Please open in the link in incognito mode, to ensure that google and facebook authentication is re-initialized and a new user account is created.
+Please open in the link in incognito mode, to ensure that google and facebook authentication is re-initialized and a new user account is created. Please use Chrome Developer Tools to view the app in mobile format.
 
 ## Group members
 
