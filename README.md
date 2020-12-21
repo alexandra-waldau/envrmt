@@ -27,34 +27,34 @@ Progress,
 
 ### Model for User
 
-| name        | type      | description                    |
-| ----------- | --------- | ------------------------------ |
-| id          | number    | auto generated id              |
-| name        | string    | first and last name            |
-| email       | string    | -                              |
-| country     | string    | countrycode as ISO2 (e.g. DK)  |
-| progress id | reference | reference to progress document |
+| name        | type      | description                                                            |
+| -------------------------------------------------------------------------------------------------|
+| name        | string    | first and last name                                                    |
+| level       | number    | level calculated based on the results from the onboarding questionnaire|
+| preference  | string    | preferred category as indicated in the onboarding                      |
 
 ### Model for Challenges
 
-| name        | type   | description       |
-| ----------- | ------ | ----------------- |
-| id          | number | auto generated id |
-| category    | string | -                 |
-| title       | string | -                 |
-| description | string | -                 |
-| duration    | number | max. 5 days       |
-| avoidance   | number | CO2 avoided       |
+| name           | type   | description                                                                  |
+| -------------------------------------------------------------------------------------------------------|
+| id             | number | unique id                                                                    |
+| duration       | number | duration of the challenge (in days/nº tasks to be completed)                 |
+| avoidance      | number | quantity of Co2 avoided by completing the whole challenge                    |
+| category       | string | category the challenge corresponds to (Food, Transportation, Waste, Shopping)|
+| level          | number | the level of difficulty that the challenge corresponds to                    |
+| title          | string | title of the challenge                                                       |
+| description    | string | description of the challenge                                                 |
 
 ### Model for Progress
 
-| name      | type      | description                        |
-| --------- | --------- | ---------------------------------- |
-| user id   | reference | reference to user document         |
-| completed | number    | percentage of completed challenges |
-| avoided   | number    | accumulated CO2 avoidance          |
-| finished  | array     | list of finished challenges        |
-| active    | array     | list of active challenges          |
+| name      | type   | description                                       |
+| -----------------------------------------------------------------------|
+| user      | number | auto generated id generated in the user collection|
+| completed | number | amount of completed challenges                    |
+| failed    | number | amount of failed challenges                       |
+| avoided   | number | total CO2 avoidance                               |
+| finished  | array  | list of finished challenges (id)                  |
+| active    | array  | list of active challenges (id)                    |
 
 ### 3. Data Naming Convenction - would be be done in following manner for all the entities
 
@@ -62,7 +62,6 @@ Example for User entity:
 user_id,
 user_name,
 user_email,
-user_country,
 user_progress
 
 ### 4. Relationships
