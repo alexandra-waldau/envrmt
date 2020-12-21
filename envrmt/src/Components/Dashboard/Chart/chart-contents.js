@@ -45,10 +45,7 @@ const RelatableFeedback = (props) => {
 };
 
 //First dashboard the user sees before they complete any challenge
-const LevelIndicator = (props) => {
-	const titel = "";
-	const description = "";
-
+const LevelIndicator = () => {
 	return (
 		<>
 			{/* <div className="container-chart"> */}

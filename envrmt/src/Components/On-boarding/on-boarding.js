@@ -7,8 +7,6 @@ import { BoardingCategories } from "./on-boarding-categories";
 import { q1, q2, q3, q4, q5, q6, q7, q8 } from "./questions";
 import Questionnaire from "./questionnaire";
 import { BoardingIntro } from "./boarding-intro";
-import { auth, db } from "../../Firebase/firebaseIndex";
-import { useAuthState } from "react-firebase-hooks/auth";
 
 const Boarding = () => {
 	const [page, setPage] = useState(1);

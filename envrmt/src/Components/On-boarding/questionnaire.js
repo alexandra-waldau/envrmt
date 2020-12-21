@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import chatbox from "../../Assets/Icons/Chatbox.svg";
 import "./on-boarding.css";
 
 const Questionnaire = (props) => {
-	const [temp, setTemp] = useState(0);
 	return (
 		<div className="boarding-detail">
 			<div className="boarding-back-management">
@@ -25,7 +24,6 @@ const Questionnaire = (props) => {
 					onClick={() => {
 						props.paginator(props.page + 1);
 						props.updateSum(props.sum + 1);
-						setTemp(1);
 					}}
 				>
 					{props.questions[1]}
@@ -35,7 +33,6 @@ const Questionnaire = (props) => {
 					onClick={() => {
 						props.paginator(props.page + 1);
 						props.updateSum(props.sum + 2);
-						setTemp(2);
 					}}
 				>
 					{props.questions[2]}
@@ -45,7 +42,6 @@ const Questionnaire = (props) => {
 					onClick={() => {
 						props.paginator(props.page + 1);
 						props.updateSum(props.sum + 3);
-						setTemp(3);
 					}}
 				>
 					{props.questions[3]}
@@ -55,7 +51,6 @@ const Questionnaire = (props) => {
 					onClick={() => {
 						props.paginator(props.page + 1);
 						props.updateSum(props.sum + 4);
-						setTemp(4);
 					}}
 				>
 					{props.questions[4]}

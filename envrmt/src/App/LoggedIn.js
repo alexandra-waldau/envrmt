@@ -5,7 +5,7 @@ import { Settings } from "../Components/Settings/settings";
 import { NewChallenges } from "../Components/NewChallenge/challenges";
 import { Boarding } from "../Components/On-boarding/on-boarding";
 import { BoardingCategories } from "../Components/On-boarding/on-boarding-categories";
-import { auth, db } from "../Firebase/firebaseIndex";
+import { auth } from "../Firebase/firebaseIndex";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { checkOnboardingComplete } from "../Firebase/firestoreAPI";
 

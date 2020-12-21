@@ -1,5 +1,4 @@
 import firebase from "firebase/app";
-import { useState } from "react";
 import { db } from "./firebaseIndex";
 
 const getAllChallenges = db.collection("challenges");

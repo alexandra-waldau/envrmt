@@ -27,7 +27,6 @@ import { FiSettings } from "react-icons/fi";
 const Dashboard = () => {
 	const [user] = useAuthState(auth);
 	const [username, setUsername] = useState("");
-	const [level, setLevel] = useState(0);
 	const [score, setScore] = useState(0);
 	const [list, updateList] = useState([]);
 	const [detailIsVisible, setDetailVisibility] = useState(false);
@@ -114,7 +113,6 @@ const Dashboard = () => {
 			const name = snapshot.name;
 			const parts = name.split(/\s+/);
 			setUsername("Hello " + parts[0] + "!");
-			setLevel(snapshot.level);
 		});
 		console.log(user.uid);
 		setProgress();

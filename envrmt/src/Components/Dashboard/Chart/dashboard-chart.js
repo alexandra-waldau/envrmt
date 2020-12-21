@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
 import "./dashboard-chart.css";
-import { Link } from "react-router-dom";
 import { BsCircleFill } from "react-icons/bs";
-import { IconBase } from "react-icons/lib";
 import { LevelIndicator, PieChart, RelatableFeedback } from "./chart-contents";
 
 //TODO: use real data
